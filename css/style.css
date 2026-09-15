@@ -1,62 +1,63 @@
 /* ==========================================================================
-   PRANAV CRACKERS - Modern Design System & Foundation Tokens
-   Sivakasi Direct Factory Wholesale Fireworks Platform
+   PRANAV CRACKERS - Festive Diwali Design System & Tokens
+   Direct Sivakasi Factory Wholesale Fireworks Platform
+   Theme: Midnight Sky & Glowing Festive Diwali Gold
    ========================================================================== */
 
 :root {
-    /* Brand Navy Palette (Deep, Premium, Trustworthy) */
-    --navy-darker: #060B14;
-    --navy-dark: #0A1322;
-    --navy-primary: #0F1B2F;
-    --navy-medium: #1A2B49;
-    --navy-light: #243B63;
+    /* Brand Navy Palette (Deep Midnight Night Sky, High Contrast) */
+    --navy-black: #050811;
+    --navy-darkest: #070B16;
+    --navy-darker: #0A1021;
+    --navy-primary: #0F1A2E;
+    --navy-surface: #13223D;
+    --navy-surface-hover: #182B4D;
     --navy-border: #1E3458;
+    --navy-border-subtle: rgba(255, 255, 255, 0.08);
 
-    /* Warm Festive Amber / Gold Accents */
+    /* Radiant Diwali Amber & Gold Accents */
     --gold-primary: #F59E0B;
+    --gold-vivid: #FBBF24;
+    --gold-bright: #FCD34D;
     --gold-dark: #D97706;
     --gold-deep: #B45309;
     --gold-light: #FEF3C7;
-    --gold-shimmer: #FDE68A;
-    --gold-glow: rgba(245, 158, 11, 0.35);
+    --gold-shimmer: #FFFBEB;
+    --gold-glow: rgba(245, 158, 11, 0.4);
 
-    /* Festive Accents & Badges */
-    --red-festive: #DC2626;
-    --red-light: #FEE2E2;
-    --green-save: #16A34A;
-    --green-light: #DCFCE7;
+    /* Festive Accents & Savings Badges */
+    --red-festive: #EF4444;
+    --red-glow: rgba(239, 68, 68, 0.35);
+    --green-save: #10B981;
+    --green-bright: #34D399;
+    --green-glow: rgba(16, 185, 129, 0.35);
     --green-whatsapp: #25D366;
     --green-whatsapp-hover: #1EBE5D;
 
-    /* Neutral & Background Tones */
-    --bg-page: #F8FAFC;
-    --bg-surface: #FFFFFF;
-    --bg-surface-alt: #F1F5F9;
-    --border-light: #E2E8F0;
-    --border-medium: #CBD5E1;
-    --border-dark: #94A3B8;
-
-    /* High-Contrast Readability Typography */
-    --text-primary: #0F172A;
-    --text-secondary: #334155;
-    --text-muted: #64748B;
-    --text-white: #FFFFFF;
+    /* High-Contrast Readability Typography on Dark Theme */
+    --text-primary: #FFFFFF;
+    --text-secondary: #E2E8F0;
+    --text-muted: #94A3B8;
+    --text-dim: #64748B;
+    --text-gold: #FCD34D;
 
     /* Typography Fonts */
     --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
     /* Shadows & Border Radii */
+    --radius-xs: 4px;
     --radius-sm: 6px;
     --radius-md: 10px;
     --radius-lg: 14px;
     --radius-full: 9999px;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-    --shadow-card: 0 2px 8px rgba(15, 27, 47, 0.06);
-    --shadow-hover: 0 8px 24px rgba(15, 27, 47, 0.12);
-    --shadow-floating: 0 12px 36px rgba(15, 27, 47, 0.28);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.25);
+    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.45);
+    --shadow-gold: 0 0 20px rgba(245, 158, 11, 0.25);
+    --shadow-floating: 0 12px 40px rgba(0, 0, 0, 0.6);
     --transition-fast: all 0.15s ease;
-    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Strict Box Reset */
@@ -72,19 +73,24 @@ html {
     overflow-x: hidden;
     max-width: 100vw;
     width: 100%;
+    background-color: var(--navy-darkest);
 }
 
 body {
     font-family: var(--font-body);
-    background-color: var(--bg-page);
+    background-color: var(--navy-darkest);
+    background-image: 
+        radial-gradient(ellipse at top center, rgba(245, 158, 11, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at bottom right, rgba(239, 68, 68, 0.04) 0%, transparent 50%);
     color: var(--text-primary);
-    line-height: 1.5;
+    line-height: 1.45;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     max-width: 100vw;
     width: 100%;
     position: relative;
+    min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -110,23 +116,17 @@ input, textarea, select {
     font-family: inherit;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
 .container {
     width: 100%;
-    max-width: 1120px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
 /* Common Utilities */
 .text-muted { color: var(--text-muted); }
-.text-gold { color: var(--gold-dark); }
-.text-green { color: var(--green-save); }
+.text-gold { color: var(--gold-vivid); }
+.text-green { color: var(--green-bright); }
 .font-bold { font-weight: 700; }
 .sr-only {
     position: absolute;
@@ -141,12 +141,12 @@ img {
 }
 
 /* Subtle Shimmer & Pulse Animations */
-@keyframes subtlePulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.04); }
+@keyframes festivePulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(245, 158, 11, 0.35); }
+    50% { transform: scale(1.02); box-shadow: 0 0 24px rgba(245, 158, 11, 0.55); }
 }
 
 @keyframes goldGlow {
-    0%, 100% { box-shadow: 0 0 0 rgba(245, 158, 11, 0); }
-    50% { box-shadow: 0 0 16px rgba(245, 158, 11, 0.45); }
+    0%, 100% { box-shadow: 0 0 8px rgba(245, 158, 11, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.45); }
 }

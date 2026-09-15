@@ -23,23 +23,34 @@ body {
     box-sizing: border-box;
 }
 
-/* Tablet & Down (<= 1023px) */
+/* Tablet & Medium Screens (<= 1023px) */
 @media (max-width: 1023px) {
     .trust-strip-inner {
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.85rem;
+        gap: 0.75rem;
+    }
+
+    .diwali-hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .diwali-hero-badges {
+        width: 100%;
+        justify-content: flex-start;
     }
 
     .product-cards-grid {
-        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-        gap: 0.75rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.65rem;
     }
 }
 
 /* Mobile & Small Screens (<= 767px) */
 @media (max-width: 767px) {
     .top-announcement-bar {
-        font-size: 0.72rem;
+        font-size: 0.7rem;
+        padding: 0.25rem 0;
     }
 
     .announcement-phone {
@@ -47,135 +58,164 @@ body {
     }
 
     .header-container {
-        padding: 0.55rem 0.85rem;
+        padding: 0.45rem 0.75rem;
     }
 
     .brand-name {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
 
     .brand-sub {
-        font-size: 0.65rem;
+        font-size: 0.62rem;
     }
 
     .header-actions {
-        gap: 0.4rem;
+        gap: 0.35rem;
     }
 
     .header-action-btn {
-        padding: 0.4rem 0.65rem;
-        font-size: 0.78rem;
+        padding: 0.35rem 0.6rem;
+        font-size: 0.75rem;
     }
 
     .btn-call .action-text {
-        display: none; /* icon only to save space */
+        display: none; /* Icon only to conserve space */
     }
 
+    /* Trust Strip */
     .trust-strip-section {
-        padding: 0.55rem 0;
+        padding: 0.45rem 0;
     }
 
     .trust-strip-inner {
         grid-template-columns: 1fr 1fr;
-        gap: 0.5rem;
+        gap: 0.4rem;
     }
 
     .trust-badge-item {
         padding: 0.2rem;
+        gap: 0.45rem;
     }
 
     .badge-icon {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
     }
 
     .badge-title {
-        font-size: 0.75rem;
+        font-size: 0.72rem;
     }
 
     .badge-sub {
-        font-size: 0.65rem;
+        font-size: 0.62rem;
     }
 
-    .catalogue-toolbar-section {
-        top: 50px;
+    /* Diwali Value Hero Strip */
+    .diwali-hero-strip {
         padding: 0.65rem 0;
     }
 
+    .diwali-hero-title {
+        font-size: 0.98rem;
+    }
+
+    .diwali-hero-desc {
+        font-size: 0.72rem;
+    }
+
+    .hero-stat-badge {
+        padding: 0.35rem 0.5rem;
+        min-width: 70px;
+    }
+
+    .stat-num {
+        font-size: 0.92rem;
+    }
+
+    .stat-lbl {
+        font-size: 0.58rem;
+    }
+
+    /* Sticky Toolbar */
+    .catalogue-toolbar-section {
+        top: 48px;
+        padding: 0.55rem 0;
+    }
+
     .search-input {
-        height: 40px;
-        font-size: 0.88rem;
-        padding-left: 2.3rem;
+        height: 38px;
+        font-size: 0.85rem;
+        padding-left: 2.2rem;
     }
 
     .search-svg {
         left: 0.75rem;
-        width: 16px;
-        height: 16px;
+        width: 15px;
+        height: 15px;
     }
 
     .view-mode-btn span {
-        display: none; /* icons only on mobile switcher */
+        display: none; /* Icons only on mobile view switcher */
     }
 
     .view-mode-btn {
-        padding: 0.4rem 0.55rem;
+        padding: 0.35rem 0.55rem;
     }
 
     .cat-chip-btn {
-        padding: 0.35rem 0.75rem;
-        font-size: 0.78rem;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.75rem;
     }
 
-    /* 2 Columns on Mobile for Product Cards */
+    /* 2 Columns on Mobile for Product Cards (Compact, Fast Browsing) */
     .product-cards-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.5rem;
     }
 
     .cracker-card {
-        padding: 0.65rem;
+        padding: 0.6rem;
         border-radius: 8px;
     }
 
     .card-name {
-        font-size: 0.85rem;
-        min-height: 2.2rem;
-        line-height: 1.3;
+        font-size: 0.82rem;
+        min-height: 2.1rem;
+        line-height: 1.25;
         margin-bottom: 0.25rem;
     }
 
     .card-brand-badge {
-        font-size: 0.6rem;
+        font-size: 0.58rem;
         padding: 1px 5px;
     }
 
     .card-discount-badge {
-        font-size: 0.58rem;
+        font-size: 0.55rem;
         padding: 1px 4px;
     }
 
     .wholesale-price {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
     }
 
     .mrp-strike {
-        font-size: 0.72rem;
+        font-size: 0.68rem;
     }
 
     .card-stepper-control {
-        height: 32px;
+        height: 30px;
     }
 
     .stepper-btn {
-        width: 32px;
+        width: 30px;
         font-size: 1.1rem;
     }
 
     .stepper-val {
-        font-size: 0.9rem;
+        font-size: 0.88rem;
     }
 
-    /* Rate sheet table horizontal scroll on mobile */
+    /* Rate Sheet Table: Horizontal Scroll on Mobile */
     .rate-sheet-table-wrapper {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
@@ -192,7 +232,7 @@ body {
         gap: 0.5rem;
     }
 
-    /* Mobile Sticky Bottom Dock (Full-Width) */
+    /* Mobile Sticky Bottom Dock (Full-Width Pinned) */
     .floating-quotation-dock,
     .bottom-quotation-bar {
         bottom: 0;
@@ -211,7 +251,7 @@ body {
     }
 
     .dock-items-count {
-        font-size: 0.95rem;
+        font-size: 0.92rem;
     }
 
     .dock-total-price {
@@ -219,57 +259,50 @@ body {
     }
 
     .dock-savings-tag {
-        display: none !important; /* Hide to keep dock single line */
+        display: none !important; /* Hide tag on tiny screens to keep dock single line */
     }
 
     .dock-action-btn {
         padding: 0.55rem 0.85rem;
-        font-size: 0.82rem;
+        font-size: 0.8rem;
     }
 
-    /* Modal Mobile Adjustments (Bottom-Sheet Feel) */
+    /* Quotation Modal on Mobile */
     .modal-backdrop {
         padding: 0.5rem;
-        align-items: flex-end;
     }
 
     .modal-window {
-        max-width: 100%;
-        max-height: 94vh;
-        border-radius: 14px 14px 0 0;
+        max-height: 95vh;
+        border-radius: var(--radius-md);
+    }
+
+    .q-modal-header {
+        padding: 0.75rem 1rem;
     }
 
     .q-modal-body {
-        padding: 1rem 0.85rem;
-        gap: 1rem;
+        padding: 0.85rem;
+        gap: 0.85rem;
     }
 
     .form-grid {
         grid-template-columns: 1fr;
-        gap: 0.65rem;
     }
 
-    .q-item-card {
-        padding: 0.45rem 0.65rem;
-    }
-
-    .q-item-name {
-        font-size: 0.85rem;
-    }
-
-    .q-item-subtotal {
-        font-size: 0.9rem;
+    .form-group.full-width {
+        grid-column: span 1;
     }
 }
 
 /* Ultra-Compact Phones (<= 360px / <= 350px, e.g. 320px) */
 @media (max-width: 360px), (max-width: 350px) {
     .header-container {
-        padding: 0.45rem 0.5rem;
+        padding: 0.4rem 0.5rem;
     }
 
     .brand-name {
-        font-size: 0.98rem;
+        font-size: 0.95rem;
     }
 
     .brand-logo-icon {
@@ -279,33 +312,32 @@ body {
     }
 
     .btn-wa .action-text {
-        display: none; /* Icon only */
+        display: none;
     }
 
     .btn-quotation .action-text {
-        display: none; /* Icon only */
+        display: none;
     }
 
-    /* Single column card layout on <= 360px for maximum readability */
     .product-cards-grid {
         grid-template-columns: 1fr;
-        gap: 0.65rem;
+        gap: 0.5rem;
     }
 
     .cracker-card {
-        padding: 0.75rem;
+        padding: 0.65rem;
     }
 
     .card-name {
-        font-size: 0.92rem;
+        font-size: 0.9rem;
         min-height: auto;
     }
 
     .card-stepper-control {
-        height: 36px;
+        height: 32px;
     }
 
     .dock-action-btn span:first-child {
-        font-size: 0.78rem;
+        font-size: 0.72rem;
     }
 }
