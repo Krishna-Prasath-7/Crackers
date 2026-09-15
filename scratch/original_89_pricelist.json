@@ -1,0 +1,562 @@
+[
+  {
+    "sNo": 1,
+    "name": "F.P BIG",
+    "company": "KALIS",
+    "price": "₹70",
+    "category": "flower_pots"
+  },
+  {
+    "sNo": 2,
+    "name": "F.P SPL",
+    "company": "KALIS",
+    "price": "₹95",
+    "category": "flower_pots"
+  },
+  {
+    "sNo": 3,
+    "name": "F.P ASHOKA",
+    "company": "KALIS",
+    "price": "₹140",
+    "category": "flower_pots"
+  },
+  {
+    "sNo": 4,
+    "name": "F.P GAINT",
+    "company": "KALIS",
+    "price": "₹170",
+    "category": "flower_pots"
+  },
+  {
+    "sNo": 5,
+    "name": "COLOUR KOTI",
+    "company": "KALIS",
+    "price": "₹200",
+    "category": "flower_pots"
+  },
+  {
+    "sNo": 6,
+    "name": "COLOUR KOTI DLX",
+    "company": "KALIS",
+    "price": "₹300",
+    "category": "flower_pots"
+  },
+  {
+    "sNo": 7,
+    "name": "F.P SMALL",
+    "company": "KALIS",
+    "price": "₹50",
+    "category": "flower_pots"
+  },
+  {
+    "sNo": 8,
+    "name": "F.P DELUXE",
+    "company": "KALIS",
+    "price": "₹120",
+    "category": "flower_pots"
+  },
+  {
+    "sNo": 9,
+    "name": "TRI COLOUR FOUNTAIN",
+    "company": "KALIS",
+    "price": "₹240",
+    "category": "flower_pots"
+  },
+  {
+    "sNo": 10,
+    "name": "G.C BIG (10PCS)",
+    "company": "KALIS",
+    "price": "₹40",
+    "category": "ground_chakkars"
+  },
+  {
+    "sNo": 11,
+    "name": "G.C SPL",
+    "company": "KALIS",
+    "price": "₹70",
+    "category": "ground_chakkars"
+  },
+  {
+    "sNo": 12,
+    "name": "G.C DLX",
+    "company": "KALIS",
+    "price": "₹130",
+    "category": "ground_chakkars"
+  },
+  {
+    "sNo": 13,
+    "name": "G.C SPECIAL (PLASTIC)",
+    "company": "KALIS",
+    "price": "₹160",
+    "category": "ground_chakkars"
+  },
+  {
+    "sNo": 14,
+    "name": "DISCO WHEEL",
+    "company": "KALIS",
+    "price": "₹180",
+    "category": "ground_chakkars"
+  },
+  {
+    "sNo": 15,
+    "name": "WHIRLING WHEEL (RED & GREEN)",
+    "company": "KALIS",
+    "price": "₹150",
+    "category": "ground_chakkars"
+  },
+  {
+    "sNo": 16,
+    "name": "2 3/4\" KURUVI",
+    "company": "STANDARD",
+    "price": "₹9",
+    "category": "one_sound"
+  },
+  {
+    "sNo": 17,
+    "name": "3 1/2\" LAKSHMI",
+    "company": "STANDARD",
+    "price": "₹18",
+    "category": "one_sound"
+  },
+  {
+    "sNo": 18,
+    "name": "4\" DELUXE LAKSHMI",
+    "company": "STANDARD",
+    "price": "₹28",
+    "category": "one_sound"
+  },
+  {
+    "sNo": 19,
+    "name": "4\" GOLD LAKSHMI",
+    "company": "STANDARD",
+    "price": "₹36",
+    "category": "one_sound"
+  },
+  {
+    "sNo": 20,
+    "name": "5\" MEGA SOUND",
+    "company": "KALIS",
+    "price": "₹55",
+    "category": "one_sound"
+  },
+  {
+    "sNo": 21,
+    "name": "28 CHORSA",
+    "company": "KALIS",
+    "price": "₹20",
+    "category": "one_sound"
+  },
+  {
+    "sNo": 22,
+    "name": "RED BIJILI (50 PCS)",
+    "company": "STANDARD",
+    "price": "₹20",
+    "category": "bijili"
+  },
+  {
+    "sNo": 23,
+    "name": "RED BIJILI (100 PCS)",
+    "company": "STANDARD",
+    "price": "₹38",
+    "category": "bijili"
+  },
+  {
+    "sNo": 24,
+    "name": "STRIPED BIJILI (50 PCS)",
+    "company": "STANDARD",
+    "price": "₹24",
+    "category": "bijili"
+  },
+  {
+    "sNo": 25,
+    "name": "STRIPED BIJILI (100 PCS)",
+    "company": "STANDARD",
+    "price": "₹46",
+    "category": "bijili"
+  },
+  {
+    "sNo": 26,
+    "name": "1 1/2\" TWINKLING STAR",
+    "company": "KALIS",
+    "price": "₹35",
+    "category": "twinkling_star"
+  },
+  {
+    "sNo": 27,
+    "name": "4\" TWINKLING STAR",
+    "company": "KALIS",
+    "price": "₹85",
+    "category": "twinkling_star"
+  },
+  {
+    "sNo": 28,
+    "name": "BULLET BOMB",
+    "company": "KALIS",
+    "price": "₹45",
+    "category": "bombs"
+  },
+  {
+    "sNo": 29,
+    "name": "HYDRO BOMB",
+    "company": "KALIS",
+    "price": "₹80",
+    "category": "bombs"
+  },
+  {
+    "sNo": 30,
+    "name": "KING BOMB",
+    "company": "KALIS",
+    "price": "₹120",
+    "category": "bombs"
+  },
+  {
+    "sNo": 31,
+    "name": "CLASSIC BOMB",
+    "company": "KALIS",
+    "price": "₹90",
+    "category": "bombs"
+  },
+  {
+    "sNo": 32,
+    "name": "SIREN BOMB",
+    "company": "KALIS",
+    "price": "₹110",
+    "category": "bombs"
+  },
+  {
+    "sNo": 33,
+    "name": "BABY ROCKET",
+    "company": "KALIS",
+    "price": "₹65",
+    "category": "rockets"
+  },
+  {
+    "sNo": 34,
+    "name": "ROCKET BOMB",
+    "company": "S.KALA",
+    "price": "₹70",
+    "category": "rockets"
+  },
+  {
+    "sNo": 35,
+    "name": "LUNIK ROCKET",
+    "company": "KALIS",
+    "price": "₹110",
+    "category": "rockets"
+  },
+  {
+    "sNo": 36,
+    "name": "WHISTLING ROCKET",
+    "company": "KALIS",
+    "price": "₹130",
+    "category": "rockets"
+  },
+  {
+    "sNo": 37,
+    "name": "1/4 KG PAPER BOMB",
+    "company": "KALIS",
+    "price": "₹65",
+    "category": "paper_bomb"
+  },
+  {
+    "sNo": 38,
+    "name": "1/2 KG PAPER BOMB",
+    "company": "KALIS",
+    "price": "₹125",
+    "category": "paper_bomb"
+  },
+  {
+    "sNo": 39,
+    "name": "1 KG PAPER BOMB",
+    "company": "KALIS",
+    "price": "₹240",
+    "category": "paper_bomb"
+  },
+  {
+    "sNo": 40,
+    "name": "7 SHOT REPEATER",
+    "company": "KALIS",
+    "price": "₹120",
+    "category": "sky_shots"
+  },
+  {
+    "sNo": 41,
+    "name": "12 SHOT RIDER",
+    "company": "KALIS",
+    "price": "₹220",
+    "category": "sky_shots"
+  },
+  {
+    "sNo": 42,
+    "name": "12 SHOT AERIAL CAKE",
+    "company": "KALIS",
+    "price": "₹340",
+    "category": "sky_shots"
+  },
+  {
+    "sNo": 43,
+    "name": "25 SHOT MULTI-COLOUR CAKE",
+    "company": "KALIS",
+    "price": "₹680",
+    "category": "sky_shots"
+  },
+  {
+    "sNo": 44,
+    "name": "30 SHOT SKY CARNIVAL",
+    "company": "KALIS",
+    "price": "₹850",
+    "category": "sky_shots"
+  },
+  {
+    "sNo": 45,
+    "name": "50 SHOT GALAXY CAKE",
+    "company": "KALIS",
+    "price": "₹1,450",
+    "category": "sky_shots"
+  },
+  {
+    "sNo": 46,
+    "name": "COLOUR POPS",
+    "company": "KALIS",
+    "price": "₹90",
+    "category": "fancy_items"
+  },
+  {
+    "sNo": 47,
+    "name": "PEACOCK FEATHER",
+    "company": "KALIS",
+    "price": "₹150",
+    "category": "fancy_items"
+  },
+  {
+    "sNo": 48,
+    "name": "DRONE BUTTERFLY",
+    "company": "KALIS",
+    "price": "₹180",
+    "category": "fancy_items"
+  },
+  {
+    "sNo": 49,
+    "name": "SELFIE STICK",
+    "company": "KALIS",
+    "price": "₹160",
+    "category": "fancy_items"
+  },
+  {
+    "sNo": 50,
+    "name": "HELICOPTER ROTOR",
+    "company": "KALIS",
+    "price": "₹140",
+    "category": "fancy_items"
+  },
+  {
+    "sNo": 51,
+    "name": "WATERFALL FOUNTAIN",
+    "company": "KALIS",
+    "price": "₹190",
+    "category": "fancy_items"
+  },
+  {
+    "sNo": 52,
+    "name": "10 CM ELE",
+    "company": "KALIS",
+    "price": "₹20",
+    "category": "sparklers"
+  },
+  {
+    "sNo": 53,
+    "name": "10 CM COLOUR",
+    "company": "KALIS",
+    "price": "₹24",
+    "category": "sparklers"
+  },
+  {
+    "sNo": 54,
+    "name": "10 CM GREEN",
+    "company": "KALIS",
+    "price": "₹26",
+    "category": "sparklers"
+  },
+  {
+    "sNo": 55,
+    "name": "12 CM ELE",
+    "company": "KALIS",
+    "price": "₹30",
+    "category": "sparklers"
+  },
+  {
+    "sNo": 56,
+    "name": "12 CM COLOUR",
+    "company": "KALIS",
+    "price": "₹36",
+    "category": "sparklers"
+  },
+  {
+    "sNo": 57,
+    "name": "15 CM ELE",
+    "company": "KALIS",
+    "price": "₹48",
+    "category": "sparklers"
+  },
+  {
+    "sNo": 58,
+    "name": "15 CM COLOUR",
+    "company": "KALIS",
+    "price": "₹55",
+    "category": "sparklers"
+  },
+  {
+    "sNo": 59,
+    "name": "15 CM GREEN",
+    "company": "KALIS",
+    "price": "₹65",
+    "category": "sparklers"
+  },
+  {
+    "sNo": 60,
+    "name": "30 CM ELE",
+    "company": "KALIS",
+    "price": "₹110",
+    "category": "sparklers"
+  },
+  {
+    "sNo": 61,
+    "name": "30 CM COLOUR",
+    "company": "KALIS",
+    "price": "₹130",
+    "category": "sparklers"
+  },
+  {
+    "sNo": 62,
+    "name": "50 CM MEGA SPARKLERS",
+    "company": "KALIS",
+    "price": "₹220",
+    "category": "sparklers"
+  },
+  {
+    "sNo": 63,
+    "name": "50 WALA",
+    "company": "KALIS",
+    "price": "₹45",
+    "category": "garlands"
+  },
+  {
+    "sNo": 64,
+    "name": "100 WALA",
+    "company": "KALIS",
+    "price": "₹95",
+    "category": "garlands"
+  },
+  {
+    "sNo": 65,
+    "name": "300 WALA",
+    "company": "KALIS",
+    "price": "₹260",
+    "category": "garlands"
+  },
+  {
+    "sNo": 66,
+    "name": "1000 WALA",
+    "company": "KALIS",
+    "price": "₹750",
+    "category": "garlands"
+  },
+  {
+    "sNo": 67,
+    "name": "2000 WALA",
+    "company": "KALIS",
+    "price": "₹1,500",
+    "category": "garlands"
+  },
+  {
+    "sNo": 68,
+    "name": "5000 WALA",
+    "company": "KALIS",
+    "price": "₹3,600",
+    "category": "garlands"
+  },
+  {
+    "sNo": 69,
+    "name": "35 ITEMS",
+    "company": "KALIS",
+    "price": "₹700",
+    "category": "gift_boxes"
+  },
+  {
+    "sNo": 70,
+    "name": "40 ITEMS",
+    "company": "KALIS",
+    "price": "₹850",
+    "category": "gift_boxes"
+  },
+  {
+    "sNo": 71,
+    "name": "50 ITEMS",
+    "company": "KALIS",
+    "price": "₹1,000",
+    "category": "gift_boxes"
+  },
+  {
+    "sNo": 72,
+    "name": "60 ITEMS",
+    "company": "KALIS",
+    "price": "₹1,250",
+    "category": "gift_boxes"
+  },
+  {
+    "sNo": 73,
+    "name": "70 ITEMS",
+    "company": "KALIS",
+    "price": "₹1,400",
+    "category": "gift_boxes"
+  },
+  {
+    "sNo": 74,
+    "name": "SNAKE TABLETS",
+    "company": "KALIS",
+    "price": "₹25",
+    "category": "other_items"
+  },
+  {
+    "sNo": 75,
+    "name": "PHOTO FLASH",
+    "company": "KALIS",
+    "price": "₹80",
+    "category": "other_items"
+  },
+  {
+    "sNo": 76,
+    "name": "COLOUR SHOWER",
+    "company": "KALIS",
+    "price": "₹110",
+    "category": "other_items"
+  },
+  {
+    "sNo": 77,
+    "name": "COLOUR MATCHES",
+    "company": "KALIS",
+    "price": "₹60",
+    "category": "other_items"
+  },
+  {
+    "sNo": 78,
+    "name": "POP POP (SNAPPERS)",
+    "company": "KALIS",
+    "price": "₹30",
+    "category": "other_items"
+  },
+  {
+    "sNo": 79,
+    "name": "POGO CRACKERS",
+    "company": "KALIS",
+    "price": "₹85",
+    "category": "other_items"
+  },
+  {
+    "sNo": 80,
+    "name": "MAGIC WHIP",
+    "company": "KALIS",
+    "price": "₹95",
+    "category": "other_items"
+  }
+]

@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRANAV CRACKERS | Premium Fireworks Wholesale Sivakasi</title>
+    <meta name="description" content="Official website of PRANAV CRACKERS, Sivakasi. Browse premium fireworks, 9 ECHO luxury gift boxes, wholesale price list, and direct customer ordering with post-confirmation payment. Available in English, Tamil, Hindi, Telugu, Malayalam, and Kannada.">
+    <meta name="keywords" content="Pranav Crackers, Sivakasi Crackers, Fireworks Wholesale, Gift Boxes, Echo Gift Box, Sparklers, Flower Pots, Sky Shots, Diwali Crackers Online">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Accessibility Skip Link (WCAG 2.4.1) -->
+    <a href="#products" class="skip-to-content">Skip to Product Catalogue</a>
+
+    <!-- Screen Reader Live Announcer -->
+    <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Site Header & Navigation (2-Tier High Performance Layout) -->
+    <header class="site-header" id="site-header">
+        <!-- Top Tier: Brand, Call, Track, Language & Cart -->
+        <div class="header-top-bar">
+            <div class="container header-top-container">
+                <a href="#home" class="brand-logo-link" onclick="App.scrollToSection('home')">
+                    <img src="assets/logo.jpeg" alt="PRANAV CRACKERS Official Logo" class="brand-logo-img">
+                    <div class="brand-text-block">
+                        <span class="brand-title">PRANAV CRACKERS</span>
+                        <span class="brand-subtitle" data-i18n="heroSubtitle">Direct Sivakasi Crackers & Gift Boxes</span>
+                    </div>
+                </a>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <!-- Quick Call Pill -->
+                    <a href="tel:7708532334" class="header-call-pill" title="Call PRANAV CRACKERS">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span>Call</span>
+                    </a>
+
+                    <!-- Quick WhatsApp Pill -->
+                    <a href="https://wa.me/919385787363?text=Hello%20PRANAV%20CRACKERS,%20I%20would%20like%20to%20enquire%20about%20fireworks." target="_blank" class="header-whatsapp-pill" title="WhatsApp PRANAV CRACKERS">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+                        <span>WhatsApp</span>
+                    </a>
+
+                    <!-- Multilingual Language Selector (English, தமிழ், हिन्दी, తెలుగు, മലയാളം, ಕನ್ನಡ) -->
+                    <div class="lang-selector-wrapper" id="header-lang-wrapper" title="Select Language">
+                        <svg class="lang-globe-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <select class="lang-select-dropdown" id="header-lang-select" onchange="LanguageManager.setLanguage(this.value)" aria-label="Change Language">
+                            <option value="en">English</option>
+                            <option value="ta">தமிழ் (Tamil)</option>
+                            <option value="hi">हिन्दी (Hindi)</option>
+                            <option value="te">తెలుగు (Telugu)</option>
+                            <option value="ml">മലയാളം (Malayalam)</option>
+                            <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                        </select>
+                    </div>
+
+                    <!-- Cart Button (Always visible on desktop) -->
+                    <button class="header-cart-btn" onclick="App.openCartDrawer()" aria-label="View Cart">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                        <span>Cart</span>
+                        <span class="cart-badge-count" id="header-cart-count">0</span>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-toggle" id="mobile-menu-btn" onclick="App.toggleMobileMenu()" aria-label="Toggle Navigation Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Tier: Navigation Bar (Desktop) -->
+        <div class="header-nav-bar">
+            <div class="container nav-bar-container">
+                <nav class="desktop-nav" aria-label="Main Navigation">
+                    <a href="#home" class="nav-link active" onclick="App.scrollToSection('home')" data-i18n="navHome">Home</a>
+                    <a href="#products" class="nav-link" onclick="App.scrollToSection('products')" data-i18n="navProducts">Products</a>
+                    <a href="#gift-boxes" class="nav-link" onclick="App.scrollToSection('gift-boxes')" data-i18n="navGiftBoxes">Gift Boxes</a>
+                    <a href="#price-list" class="nav-link" onclick="App.scrollToSection('price-list')" data-i18n="navPriceList">Price List</a>
+                    <a href="#how-to-order" class="nav-link" onclick="App.scrollToSection('how-to-order')" data-i18n="navHowToOrder">How to Order</a>
+                    <a href="#about" class="nav-link" onclick="App.scrollToSection('about')" data-i18n="navAbout">About Us</a>
+                    <a href="#contact" class="nav-link" onclick="App.scrollToSection('contact')" data-i18n="navContact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-menu">
+        <div class="drawer-header">
+            <span class="brand-title">PRANAV CRACKERS</span>
+            <button class="drawer-close-btn" onclick="App.closeMobileMenu()">×</button>
+        </div>
+
+        <!-- Mobile Language Selector Grid -->
+        <div class="mobile-lang-box">
+            <label class="mobile-lang-label">Select Language / மொழி / भाषा:</label>
+            <div class="mobile-lang-grid">
+                <button class="mobile-lang-btn" data-lang="en" onclick="LanguageManager.setLanguage('en'); App.closeMobileMenu();">English</button>
+                <button class="mobile-lang-btn" data-lang="ta" onclick="LanguageManager.setLanguage('ta'); App.closeMobileMenu();">தமிழ்</button>
+                <button class="mobile-lang-btn" data-lang="hi" onclick="LanguageManager.setLanguage('hi'); App.closeMobileMenu();">हिन्दी</button>
+                <button class="mobile-lang-btn" data-lang="te" onclick="LanguageManager.setLanguage('te'); App.closeMobileMenu();">తెలుగు</button>
+                <button class="mobile-lang-btn" data-lang="ml" onclick="LanguageManager.setLanguage('ml'); App.closeMobileMenu();">മലയാളം</button>
+                <button class="mobile-lang-btn" data-lang="kn" onclick="LanguageManager.setLanguage('kn'); App.closeMobileMenu();">ಕನ್ನಡ</button>
+            </div>
+        </div>
+
+        <a href="#home" class="mobile-nav-link" onclick="App.scrollToSection('home')" data-i18n="navHome">Home</a>
+        <a href="#products" class="mobile-nav-link" onclick="App.scrollToSection('products')" data-i18n="navProducts">Products</a>
+        <a href="#gift-boxes" class="mobile-nav-link" onclick="App.scrollToSection('gift-boxes')" data-i18n="navGiftBoxes">Gift Boxes</a>
+        <a href="#price-list" class="mobile-nav-link" onclick="App.scrollToSection('price-list')" data-i18n="navPriceList">Price List</a>
+        <a href="#how-to-order" class="mobile-nav-link" onclick="App.scrollToSection('how-to-order')" data-i18n="navHowToOrder">How to Order</a>
+        <a href="#about" class="mobile-nav-link" onclick="App.scrollToSection('about')" data-i18n="navAbout">About Us</a>
+        <a href="#contact" class="mobile-nav-link" onclick="App.scrollToSection('contact')" data-i18n="navContact">Contact</a>
+        <div class="mt-3">
+            <button class="btn btn-secondary full-width mb-2" onclick="App.closeMobileMenu(); CartManager.openTrackOrderModal();">
+                <span data-i18n="navTrackOrder">Track Order</span>
+            </button>
+            <button class="btn btn-whatsapp full-width" onclick="window.open('https://wa.me/919385787363', '_blank')">
+                <span data-i18n="headerWhatsAppBtn">WhatsApp Us</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section (Festive Navy, High-Conversion, Transparent Value) -->
+        <section class="hero-section" id="home">
+            <div class="container hero-content">
+                <div class="hero-badge-pill">
+                    <span class="pulse-dot"></span>
+                    <span>Direct Sivakasi Factory Wholesale</span>
+                </div>
+                
+                <h1 class="hero-title">PRANAV CRACKERS</h1>
+                <p class="hero-tagline-text">Direct Sivakasi Crackers at Clear Prices</p>
+
+                <!-- Starting Prices Callout Strip -->
+                <div class="hero-price-highlights">
+                    <span class="hero-price-badge">Crackers starting from <strong>₹9</strong></span>
+                    <span class="hero-price-sep">•</span>
+                    <span class="hero-price-badge">Gift Boxes from <strong>₹700</strong></span>
+                </div>
+
+                <!-- Clear Customer Value Explanation -->
+                <p class="hero-subtitle">
+                    Browse 120+ crackers and gift boxes. Select your requirement and send it directly through WhatsApp.
+                </p>
+
+                <!-- Main Action Buttons -->
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-lg" onclick="App.scrollToSection('popular-products')">
+                        <span>VIEW PRODUCTS</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                    <button class="btn btn-secondary btn-lg" onclick="App.scrollToSection('gift-boxes')">
+                        <span>VIEW GIFT BOXES</span>
+                    </button>
+                    <a href="https://wa.me/919385787363?text=Hello%20PRANAV%20CRACKERS,%20I%20would%20like%20to%20enquire%20about%20fireworks." target="_blank" class="btn btn-whatsapp btn-lg">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+                        <span>WHATSAPP US</span>
+                    </a>
+                </div>
+
+                <!-- Popular Prices Strip (Item 3) -->
+                <div class="popular-prices-strip" aria-label="Popular Price Highlights">
+                    <span class="popular-prices-label">Popular Prices:</span>
+                    <span class="popular-price-pill">Flower Pots from <strong>₹70</strong></span>
+                    <span class="popular-price-pill">Chakkars from <strong>₹40</strong></span>
+                    <span class="popular-price-pill">Rockets from <strong>₹70</strong></span>
+                    <span class="popular-price-pill">Sparklers from <strong>₹20</strong></span>
+                    <span class="popular-price-pill highlight">Gift Boxes from <strong>₹700</strong></span>
+                </div>
+
+                <!-- Search Bar Directly Inside Hero (Item 4) -->
+                <div class="hero-search-container">
+                    <div class="hero-search-box">
+                        <svg class="hero-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <input type="text" id="hero-quick-search" class="hero-search-input" placeholder="Search crackers, gift boxes or categories..." oninput="App.handleHeroSearch(this.value)">
+                        <button class="hero-search-btn" onclick="App.focusCatalogSearch()">
+                            <span>Search</span>
+                        </button>
+                    </div>
+                    <div class="hero-search-hints">Examples: Flower Pot • Rocket • Sparklers • 35 Items</div>
+
+                    <!-- Category Shortcuts - Clean Pills, No Emojis (Item 5) -->
+                    <div class="hero-quick-chips">
+                        <span class="chips-label">Popular:</span>
+                        <button class="hero-chip" onclick="App.filterByCategory('flower_pots')">Flower Pots</button>
+                        <button class="hero-chip" onclick="App.filterByCategory('ground_chakkars')">Chakkars</button>
+                        <button class="hero-chip" onclick="App.filterByCategory('sky_rockets')">Rockets</button>
+                        <button class="hero-chip" onclick="App.filterByCategory('sparklers')">Sparklers</button>
+                        <button class="hero-chip" onclick="App.scrollToSection('gift-boxes')">Gift Boxes</button>
+                    </div>
+                </div>
+
+                <!-- Quick Trust Information (Item 6) -->
+                <div class="hero-trust-strip">
+                    <div class="trust-pill">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span>Direct Sivakasi Products</span>
+                    </div>
+                    <div class="trust-pill">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><line x1="12" y1="6" x2="12" y2="18"/></svg>
+                        <span>Clear Catalogue Prices</span>
+                    </div>
+                    <div class="trust-pill">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                        <span>Easy WhatsApp Requirement</span>
+                    </div>
+                    <div class="trust-pill">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        <span>Bulk Orders Available</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Products Section (Immediately Below Hero - Item 7) -->
+        <section class="popular-products-section" id="popular-products">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Direct Wholesale</span>
+                    <h2 class="section-title">POPULAR PRODUCTS</h2>
+                    <p class="section-subtitle">Real products at genuine Sivakasi factory prices. Add items to your cart or order directly.</p>
+                </div>
+
+                <!-- 8 Popular Product Cards Grid -->
+                <div class="products-grid popular-products-grid" id="popular-products-grid">
+                    <!-- Injected via App.renderPopularProducts() -->
+                </div>
+
+                <!-- View All Products CTA Row -->
+                <div class="view-all-products-row">
+                    <button class="btn btn-primary btn-lg" onclick="App.scrollToSection('products')">
+                        <span>VIEW ALL PRODUCTS (120+)</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dedicated Official 5 ECHO Gift Boxes Showcase (Item 8) -->
+        <section class="gift-boxes-section" id="gift-boxes">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">ECHO Collection</span>
+                    <h2 class="section-title">ECHO CITY GIFT BOXES</h2>
+                    <p class="section-subtitle">
+                        5 City Gift Box collections: Italy (35 Items - ₹700), Singapore (40 Items - ₹850), Dubai (50 Items - ₹1,000), Paris (60 Items - ₹1,250), Germany (70 Items - ₹1,400).
+                    </p>
+                </div>
+
+                <!-- Gift Box Filter Tabs -->
+                <div class="gb-filter-container">
+                    <button class="gb-filter-btn active" data-filter="all" onclick="App.setGiftBoxFilter('all')">All Gift Boxes (5)</button>
+                    <button class="gb-filter-btn" data-filter="35-50" onclick="App.setGiftBoxFilter('35-50')">35–50 Items</button>
+                    <button class="gb-filter-btn" data-filter="60-70" onclick="App.setGiftBoxFilter('60-70')">60–70 Items</button>
+                </div>
+
+                <!-- 5 Gift Boxes Grid -->
+                <div class="gift-boxes-grid" id="gift-boxes-grid">
+                    <!-- Injected via App.renderGiftBoxesSection() -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Compare All 5 Gift Boxes Table -->
+        <section class="compare-gift-boxes-section" style="padding: 3.5rem 0; border-top: 1px solid var(--border-light); background: #FFFFFF;">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Comparison</span>
+                    <h2 class="section-title">Compare All 5 ECHO Gift Boxes</h2>
+                    <p class="section-subtitle">Compare item counts, key inclusions, and prices before ordering.</p>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="custom-table" id="gb-compare-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Gift Box Name</th>
+                                <th>Total Items</th>
+                                <th>Key Inclusions</th>
+                                <th>Price</th>
+                                <th class="text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="gb-compare-tbody">
+                            <!-- Injected via App.renderGiftBoxCompareSection() -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order in 3 Simple Steps Section (Item 9) -->
+        <section class="how-to-order-section" id="how-to-order">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Simple & Fast</span>
+                    <h2 class="section-title">ORDER IN 3 SIMPLE STEPS</h2>
+                    <p class="section-subtitle">Direct Sivakasi wholesale requirement with no complicated online payment</p>
+                </div>
+
+                <div class="order-steps-grid">
+                    <div class="order-step-card">
+                        <div class="order-step-badge">Step 1</div>
+                        <h3 class="order-step-title">Choose your crackers</h3>
+                        <p class="order-step-desc">Browse crackers or gift boxes at clear factory prices.</p>
+                    </div>
+
+                    <div class="order-step-card">
+                        <div class="order-step-badge">Step 2</div>
+                        <h3 class="order-step-title">Add products to Cart</h3>
+                        <p class="order-step-desc">Adjust quantities easily and review your items anytime.</p>
+                    </div>
+
+                    <div class="order-step-card">
+                        <div class="order-step-badge">Step 3</div>
+                        <h3 class="order-step-title">Send your requirement through WhatsApp</h3>
+                        <p class="order-step-desc">Click Send Requirement to instantly message our Sivakasi desk.</p>
+                    </div>
+                </div>
+
+                <div class="order-manual-confirmation-note">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                    <span>We will confirm availability and final amount manually.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why PRANAV CRACKERS Section (Item 6 & 13: Small trust points only) -->
+        <section class="why-us-section" id="why-us">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Genuine Sivakasi</span>
+                    <h2 class="section-title">WHY PRANAV CRACKERS</h2>
+                    <p class="section-subtitle">Real factory wholesale experience trusted by families and wholesale buyers</p>
+                </div>
+
+                <div class="why-us-grid">
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3 class="why-us-title">Direct Sivakasi Products</h3>
+                        <p class="why-us-desc">All crackers sourced directly from genuine, licensed manufacturers in Sivakasi.</p>
+                    </div>
+
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><line x1="12" y1="6" x2="12" y2="18"/></svg>
+                        </div>
+                        <h3 class="why-us-title">Clear Catalogue Prices</h3>
+                        <p class="why-us-desc">Honest, transparent rate list with zero hidden charges or inflated retail margins.</p>
+                    </div>
+
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                        </div>
+                        <h3 class="why-us-title">Easy WhatsApp Requirement</h3>
+                        <p class="why-us-desc">No complicated checkout forms. Simply submit your requirement directly on WhatsApp.</p>
+                    </div>
+
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        </div>
+                        <h3 class="why-us-title">Bulk Orders Available</h3>
+                        <p class="why-us-desc">Attractive discounts and dedicated coordination for bulk and group requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final WhatsApp & Call CTA Section (Item 10) -->
+        <section class="whatsapp-cta-section" id="whatsapp-help-cta">
+            <div class="container">
+                <div class="whatsapp-cta-box">
+                    <h3 class="whatsapp-cta-title">Need Help Choosing Crackers?</h3>
+                    <p class="whatsapp-cta-subtitle">Send your requirement through WhatsApp and our team will assist you.</p>
+                    <div class="whatsapp-cta-actions">
+                        <a href="https://wa.me/919385787363?text=Hello%20PRANAV%20CRACKERS,%20I%20would%20like%20help%20choosing%20crackers." target="_blank" class="btn btn-whatsapp btn-lg">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+                            <span>WHATSAPP US</span>
+                        </a>
+                        <a href="tel:7708532334" class="btn btn-secondary btn-lg">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <span>CALL NOW</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Categories Section -->
+        <section class="categories-section" id="categories">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="qaProductsTitle">Categories</span>
+                    <h2 class="section-title" data-i18n="catSectionTitle">Product Categories</h2>
+                    <p class="section-subtitle" data-i18n="catSectionSubtitle">Choose from our extensive range of certified Sivakasi fireworks</p>
+                </div>
+
+                <div class="categories-grid" id="categories-grid">
+                    <!-- Injected via App.renderCategoriesSection() -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Fireworks Products Catalogue Grid -->
+        <section class="products-section" id="products">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Direct Wholesale</span>
+                    <h2 class="section-title" data-i18n="catalogSectionTitle">Our Fireworks Catalogue</h2>
+                    <p class="section-subtitle" data-i18n="catalogSearchHeading">Explore certified wholesale fireworks. Add items to your cart or order directly.</p>
+                </div>
+
+                <!-- Search and Filters Bar -->
+                <div class="search-filter-box" role="region" aria-label="Product Search and Categories">
+                    <div class="search-input-wrapper">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <input type="text" id="product-search-input" class="search-input" placeholder="Search crackers (Sparklers, Pots, Rockets)..." data-i18n-placeholder="catalogSearchPlaceholder" aria-label="Search fireworks catalogue">
+                        <button type="button" id="search-clear-btn" class="search-clear-btn" style="display:none;" onclick="App.clearSearchInput()" aria-label="Clear search input">✕</button>
+                    </div>
+                    <div class="filter-pills-bar" id="category-filter-pills" role="tablist" aria-label="Product categories">
+                        <!-- Injected via App.renderCategoryFilterPills() -->
+                    </div>
+                </div>
+
+                <!-- Active Filter & Results Status Bar -->
+                <div id="catalog-active-filter-bar" class="catalog-active-filter-bar" style="display:none;" role="status" aria-live="polite"></div>
+
+                <!-- Product Cards Grid (Equal Height) -->
+                <div class="products-grid" id="products-grid">
+                    <!-- Injected via App.renderProductCatalog() -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Official Interactive Price List Section -->
+        <section class="price-list-section" id="price-list">
+            <div class="container">
+                <div class="price-list-header">
+                    <h2 class="price-list-main-title" data-i18n="priceListSectionTitle">PRICE LIST</h2>
+                    <p class="price-list-main-sub" data-i18n="priceListSectionSubtitle">PRANAV CRACKERS – Crackers & Gift Boxes</p>
+                </div>
+
+                <!-- Price List Search, Filters & Action Buttons Bar -->
+                <div class="price-list-toolbar">
+                    <div class="price-search-wrapper">
+                        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <input type="text" id="price-list-search" class="price-search-input" placeholder="Search products..." data-i18n-placeholder="priceListSearchPlaceholder" oninput="App.onPriceSearch(this.value)">
+                        <button type="button" id="price-search-clear" class="price-search-clear" onclick="App.clearPriceSearch()" title="Clear search" aria-label="Clear search" style="display:none;">&times;</button>
+                    </div>
+                    <div class="price-list-actions">
+                        <button type="button" class="btn-print-sheet" onclick="App.printPriceList()" title="Print or save official price sheet" aria-label="Print or save official price sheet">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                            <span data-i18n="printPriceSheetBtn">Print / Save Price Sheet</span>
+                        </button>
+                        <a class="btn btn-whatsapp btn-sm" href="https://wa.me/919385787363?text=Hello%20PRANAV%20CRACKERS,%20I%20would%20like%20to%20enquire%20about%20the%20Price%20List." target="_blank" rel="noopener">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+                            <span data-i18n="whatsappPriceListBtn">WhatsApp Us</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="price-cat-filters" id="price-cat-filters" role="tablist" aria-label="Price list category filters">
+                    <!-- Injected via App.renderPriceCategoryFilters() -->
+                </div>
+
+                <!-- Price List Categorized Tables Container -->
+                <div id="price-list-container" class="price-list-container">
+                    <!-- Injected via App.renderPriceListSection() -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us & Values Section -->
+        <section class="about-section" id="about" style="padding: 4rem 0; border-top: 1px solid var(--border-dark);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">About Brand</span>
+                    <h2 class="section-title" data-i18n="aboutSectionTitle">About PRANAV CRACKERS</h2>
+                    <p class="section-subtitle" data-i18n="aboutDesc">
+                        PRANAV CRACKERS is committed to delivering quality fireworks directly from Sivakasi. We ensure honest wholesale pricing, reliable customer service, and verified celebrations for families and businesses.
+                    </p>
+                </div>
+
+                <div class="quick-actions-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="qa-card" style="cursor:default;">
+                        <div class="qa-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3 class="qa-card-title" data-i18n="value1Title">QUALITY</h3>
+                        <p class="qa-card-desc" data-i18n="value1Desc">Carefully selected fireworks from trusted Sivakasi manufacturers.</p>
+                    </div>
+
+                    <div class="qa-card" style="cursor:default;">
+                        <div class="qa-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                        <h3 class="qa-card-title" data-i18n="value2Title">TRUST</h3>
+                        <p class="qa-card-desc" data-i18n="value2Desc">Clear communication, authentic product weights, and transparent enquiries.</p>
+                    </div>
+
+                    <div class="qa-card" style="cursor:default;">
+                        <div class="qa-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                        </div>
+                        <h3 class="qa-card-title" data-i18n="value3Title">CUSTOMER SATISFACTION</h3>
+                        <p class="qa-card-desc" data-i18n="value3Desc">We focus on making every celebration bright, joyful, and hassle-free.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safety Guidelines Section (Do's & Don'ts) -->
+        <section class="safety-section" id="safety">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Safety First</span>
+                    <h2 class="section-title" data-i18n="safetySectionTitle">Diwali Fireworks Safety Guidelines</h2>
+                    <p class="section-subtitle" data-i18n="safetySectionSubtitle">Ensure a safe, joyful and memorable celebration with your family</p>
+                </div>
+
+                <div class="safety-grid">
+                    <!-- Safety Do's -->
+                    <div class="safety-card dos">
+                        <div class="safety-card-header">
+                            <div class="safety-badge-icon" aria-hidden="true">✓</div>
+                            <h3 class="safety-card-title">SAFETY DO'S</h3>
+                        </div>
+                        <ul class="safety-list">
+                            <li class="safety-item">
+                                <svg class="safety-check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Always light fireworks outdoors in wide, open spaces away from buildings and dry vegetation.</span>
+                            </li>
+                            <li class="safety-item">
+                                <svg class="safety-check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Keep a bucket of clean water and sand readily available nearby for emergency damping.</span>
+                            </li>
+                            <li class="safety-item">
+                                <svg class="safety-check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Use an agarbatti (incense stick) or sparkler to light crackers from arm's length.</span>
+                            </li>
+                            <li class="safety-item">
+                                <svg class="safety-check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Wear well-fitted cotton clothes; ensure children celebrate under responsible adult guidance.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Safety Don'ts -->
+                    <div class="safety-card donts">
+                        <div class="safety-card-header">
+                            <div class="safety-badge-icon" aria-hidden="true">✕</div>
+                            <h3 class="safety-card-title">SAFETY DON'TS</h3>
+                        </div>
+                        <ul class="safety-list">
+                            <li class="safety-item">
+                                <svg class="safety-check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                <span>Never light crackers indoors, inside narrow balconies, or near parked vehicles.</span>
+                            </li>
+                            <li class="safety-item">
+                                <svg class="safety-check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                <span>Never put crackers inside glass bottles, metal tins, or containers to burst them.</span>
+                            </li>
+                            <li class="safety-item">
+                                <svg class="safety-check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                <span>Never bend over a firework while lighting or attempt to relight a dud or unexploded cracker.</span>
+                            </li>
+                            <li class="safety-item">
+                                <svg class="safety-check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                <span>Never carry loose crackers in pant pockets or store them near heat or cooking gas cylinders.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="safety-banner-notice">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <span><strong>100% Certified Green Crackers:</strong> All PRANAV CRACKERS products are sourced from licensed Sivakasi manufacturers compliant with PESO and environmental emission guidelines.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact" style="padding: 4rem 0; border-top: 1px solid var(--border-dark);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Direct Support</span>
+                    <h2 class="section-title" data-i18n="contactSectionTitle">Contact PRANAV CRACKERS</h2>
+                    <p class="section-subtitle" data-i18n="contactSectionSubtitle">We are here to assist with your wholesale enquiries and festive requirements</p>
+                </div>
+
+                <div class="quick-actions-grid" style="grid-template-columns: 1fr 1fr; max-width:860px; margin:0 auto;">
+                    <div class="qa-card" style="text-align:left; align-items:flex-start;">
+                        <div class="qa-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <h4 class="qa-card-title">Phone & WhatsApp Support</h4>
+                        <p style="margin-bottom:0.35rem;"><span class="text-muted">Primary Phone:</span> <a href="tel:7708532334" class="gold-text font-bold">+91 77085 32334</a></p>
+                        <p style="margin-bottom:0.35rem;"><span class="text-muted">Secondary Phone:</span> <a href="tel:9791045933" class="gold-text font-bold">+91 97910 45933</a></p>
+                        <p style="margin-bottom:0.35rem;"><span class="text-muted">WhatsApp:</span> <a href="https://wa.me/919385787363" target="_blank" class="gold-text font-bold">+91 93857 87363</a></p>
+                        <div style="display:flex; gap:0.5rem; margin-top:0.75rem;">
+                            <a href="tel:7708532334" class="btn btn-secondary btn-sm">Call Us</a>
+                            <a href="https://wa.me/919385787363?text=Hello%20PRANAV%20CRACKERS,%20I%20would%20like%20to%20enquire%20about%20fireworks." target="_blank" class="btn btn-whatsapp btn-sm">
+                                <span>WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="qa-card" style="text-align:left; align-items:flex-start;">
+                        <div class="qa-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <h4 class="qa-card-title">Email & Location</h4>
+                        <p style="margin-bottom:0.35rem;"><span class="text-muted">Email:</span> <a href="mailto:crackerspranav@gmail.com" class="gold-text font-bold">crackerspranav@gmail.com</a></p>
+                        <p style="margin-bottom:0.35rem;"><span class="text-muted">Address:</span> <span>Sivakasi, Tamil Nadu, India</span></p>
+                        <p style="margin-bottom:0.5rem;"><span class="text-muted">Website:</span> <a href="https://pranavcrackers.com" target="_blank" class="gold-text">pranavcrackers.com</a></p>
+                        <div style="display:flex; gap:0.5rem; margin-top:0.75rem;">
+                            <a href="mailto:crackerspranav@gmail.com" class="btn btn-secondary btn-sm">Send Email</a>
+                            <button class="btn btn-secondary btn-sm" onclick="window.open('https://maps.google.com/?q=Sivakasi+Tamil+Nadu', '_blank')">View Map</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-brand-title">PRANAV CRACKERS</h3>
+                    <p class="footer-subtitle" style="font-style:italic; color:var(--gold-light); margin-bottom:0.5rem;">Celebrate &bull; Enjoy &bull; Shine</p>
+                    <p class="footer-subtitle" data-i18n="footerTagline">Premium Fireworks &bull; Wholesale</p>
+                    <p class="footer-desc" data-i18n="aboutDesc">
+                        PRANAV CRACKERS is committed to delivering quality fireworks directly from Sivakasi. We ensure honest wholesale pricing, reliable customer service, and verified celebrations for families and businesses.
+                    </p>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-i18n="footerQuickLinksTitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#products" onclick="App.scrollToSection('products')" data-i18n="navProducts">Products</a></li>
+                        <li><a href="#gift-boxes" onclick="App.scrollToSection('gift-boxes')" data-i18n="navGiftBoxes">Gift Boxes (9 Tiers)</a></li>
+                        <li><a href="#price-list" onclick="App.scrollToSection('price-list')" data-i18n="navPriceList">Price List</a></li>
+                        <li><a href="#how-to-order" onclick="App.scrollToSection('how-to-order')" data-i18n="navHowToOrder">How to Order</a></li>
+                        <li><a href="javascript:void(0)" onclick="CartManager.openTrackOrderModal()" data-i18n="navTrackOrder">Track Order</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-i18n="footerContactTitle">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><span>Sivakasi, Tamil Nadu, India</span></li>
+                        <li><a href="tel:7708532334">Call: +91 77085 32334</a></li>
+                        <li><a href="tel:9791045933">Call: +91 97910 45933</a></li>
+                        <li><a href="https://wa.me/919385787363" target="_blank" class="gold-text">WhatsApp: +91 93857 87363</a></li>
+                        <li><a href="mailto:crackerspranav@gmail.com" class="gold-text">crackerspranav@gmail.com</a></li>
+                        <li><a href="https://pranavcrackers.com" target="_blank">pranavcrackers.com</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-legal-bar">
+                <p data-i18n="footerLegalNote">Notice: Sales, handling, and logistics strictly adhere to applicable Fireworks Acts, local safety laws, and statutory regulations. We do not support unlawful transit.</p>
+                <div style="display:flex; justify-content:space-between; width:100%; align-items:center; margin-top:0.75rem;">
+                    <p data-i18n="footerCopyright">© 2026 PRANAV CRACKERS, Sivakasi. All Rights Reserved.</p>
+                    <span class="footer-admin-link" onclick="AdminManager.openAdminModal()">Admin Login</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Slide-over Drawer -->
+    <div class="drawer-overlay" id="drawer-overlay" onclick="App.closeCartDrawer()"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="drawer-header">
+            <h3 class="drawer-title" data-i18n="cartDrawerTitle">Shopping Cart</h3>
+            <button class="drawer-close-btn" onclick="App.closeCartDrawer()">×</button>
+        </div>
+        <div class="drawer-body" id="cart-drawer-items">
+            <!-- Dynamic Cart Items injected via CartManager.renderCartDrawer() -->
+        </div>
+        <div class="drawer-footer" id="cart-drawer-summary" style="display:none;">
+            <!-- Dynamic Cart Summary injected via CartManager.renderCartDrawer() -->
+        </div>
+    </div>
+
+    <!-- Product & Gift Box Detail Modal -->
+    <div class="modal-backdrop" id="product-detail-modal" onclick="if(event.target === this) App.closeProductModal()">
+        <div class="modal-window modal-wide">
+            <div class="modal-header">
+                <span class="modal-title">Product Details</span>
+                <button class="modal-close-btn" onclick="App.closeProductModal()">×</button>
+            </div>
+            <div class="modal-body" id="product-modal-body">
+                <!-- Injected via App.openProductModal() -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout & Requirement Modal (Step 1: Details, Step 2: Summary) -->
+    <div class="modal-backdrop" id="checkout-modal" onclick="if(event.target === this) CartManager.closeCheckoutModal()">
+        <div class="modal-window">
+            <!-- Step 1: Customer Details Form -->
+            <div id="checkout-step-details">
+                <div class="modal-header">
+                    <span class="modal-title">Customer Details</span>
+                    <button class="modal-close-btn" onclick="CartManager.closeCheckoutModal()">×</button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted mb-3" style="font-size:0.88rem;">Please provide your contact and delivery address to prepare your requirement.</p>
+
+                    <form id="checkout-form" onsubmit="CartManager.handleDetailsSubmit(event)">
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label for="cust-name">Full Name *</label>
+                                <input type="text" id="cust-name" class="form-control" required placeholder="Enter your full name">
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="cust-phone">Mobile Number *</label>
+                                <input type="tel" id="cust-phone" class="form-control" required placeholder="10-digit mobile number">
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="cust-address">Address *</label>
+                                <input type="text" id="cust-address" class="form-control" required placeholder="House No., Street Name, Landmark">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cust-city">City *</label>
+                                <input type="text" id="cust-city" class="form-control" required placeholder="City">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cust-state">State *</label>
+                                <input type="text" id="cust-state" class="form-control" required value="Tamil Nadu" placeholder="State">
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="cust-pincode">PIN Code *</label>
+                                <input type="text" id="cust-pincode" class="form-control" required placeholder="6-digit PIN Code">
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="cust-notes">Notes (Optional)</label>
+                                <textarea id="cust-notes" class="form-control" rows="2" placeholder="e.g. Family Diwali requirement"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-actions mt-3">
+                            <button type="submit" class="btn btn-primary flex-1" style="font-size: 0.95rem; font-weight:700; padding: 0.75rem 1rem;">
+                                <span>PROCEED TO SUMMARY</span>
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="CartManager.closeCheckoutModal()">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Step 2: Order / Requirement Summary -->
+            <div id="checkout-step-summary" style="display:none;">
+                <div class="modal-header">
+                    <span class="modal-title">ORDER / REQUIREMENT SUMMARY</span>
+                    <button class="modal-close-btn" onclick="CartManager.closeCheckoutModal()">×</button>
+                </div>
+                <div class="modal-body" id="checkout-summary-body">
+                    <!-- Injected dynamically via CartManager.renderOrderSummary() -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Requirement Prepared Modal (After WhatsApp) -->
+    <div class="modal-backdrop" id="order-confirmation-modal" onclick="if(event.target === this) CartManager.closeConfirmationModal()">
+        <div class="modal-window">
+            <div class="modal-header">
+                <span class="modal-title">Requirement Prepared</span>
+                <button class="modal-close-btn" onclick="CartManager.closeConfirmationModal()">×</button>
+            </div>
+            <div class="modal-body" id="order-confirmation-content">
+                <!-- Injected via CartManager.showOrderConfirmation() -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Tracking Modal -->
+    <div class="modal-backdrop" id="track-order-modal" onclick="if(event.target === this) CartManager.closeTrackOrderModal()">
+        <div class="modal-window">
+            <div class="modal-header">
+                <span class="modal-title" data-i18n="trackOrderTitle">Track Your Order</span>
+                <button class="modal-close-btn" onclick="CartManager.closeTrackOrderModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <p class="text-muted mb-3" data-i18n="trackOrderSubtitle">Enter your Order Number (e.g. PC-2026-1001) or Mobile Number to check status and payment.</p>
+
+                <form onsubmit="CartManager.handleTrackLookup(event)" style="display:flex; gap:0.5rem; margin-bottom:1.25rem;">
+                    <input type="text" id="track-query-input" class="form-control flex-1" placeholder="Enter Order Number or Phone..." data-i18n-placeholder="trackInputPlaceholder" required>
+                    <button type="submit" class="btn btn-primary btn-sm" data-i18n="trackLookupBtn">Check Status</button>
+                </form>
+
+                <div id="track-order-result"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Discount Request Modal -->
+    <div class="modal-backdrop" id="discount-modal" onclick="if(event.target === this) CartManager.closeDiscountModal()">
+        <div class="modal-window">
+            <div class="modal-header">
+                <span class="modal-title" data-i18n="discountModalTitle">Request Bulk Discount</span>
+                <button class="modal-close-btn" onclick="CartManager.closeDiscountModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <p class="text-muted mb-3" data-i18n="discountModalSubtitle">Submit your requirement for review by our wholesale team. No automatic discount is applied.</p>
+
+                <form onsubmit="CartManager.handleDiscountSubmit(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="disc-name" data-i18n="discountCustomerName">Your Name *</label>
+                            <input type="text" id="disc-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="disc-phone" data-i18n="discountCustomerPhone">Mobile Number *</label>
+                            <input type="tel" id="disc-phone" class="form-control" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="disc-items" data-i18n="discountItemsLabel">Selected Products for Discount *</label>
+                            <input type="text" id="disc-items" class="form-control" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="disc-message" data-i18n="discountMessage">Target Budget / Quantity Details *</label>
+                            <textarea id="disc-message" class="form-control" rows="3" required placeholder="e.g. Planning a bulk order for 20 families or corporate gifting..."></textarea>
+                        </div>
+                    </div>
+                    <div class="form-actions mt-3">
+                        <button type="submit" class="btn btn-primary flex-1" data-i18n="sendDiscountRequestBtn">Send Discount Request</button>
+                        <button type="button" class="btn btn-secondary" onclick="CartManager.closeDiscountModal()" data-i18n="cancelBtn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Owner Admin View Modal -->
+    <div class="modal-backdrop" id="admin-modal" onclick="if(event.target === this) AdminManager.closeAdminModal()">
+        <div class="modal-window modal-admin">
+            <div class="modal-header">
+                <span class="modal-title">PRANAV CRACKERS - Owner Admin Portal</span>
+                <button class="modal-close-btn" onclick="AdminManager.closeAdminModal()">×</button>
+            </div>
+            <div class="modal-body" id="admin-modal-content">
+                <!-- Injected via AdminManager.renderPanel() -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Persistent Floating Smart Requirement Banner (Shows when items in requirement) -->
+    <div class="floating-cart-banner" id="floating-cart-banner">
+        <div class="container floating-cart-inner">
+            <div class="floating-cart-info" onclick="App.openCartDrawer()">
+                <div class="floating-cart-icon-box">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    <span class="floating-badge-val" id="floating-cart-items-count">0</span>
+                </div>
+                <div class="floating-cart-text">
+                    <span class="floating-items-label" id="floating-items-text">0 items in requirement</span>
+                    <strong class="floating-price-val" id="floating-total-price">₹0</strong>
+                </div>
+            </div>
+            <div class="floating-cart-actions">
+                <button class="btn btn-secondary btn-sm" onclick="App.openCartDrawer()">
+                    <span>View Requirement</span>
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="CartManager.openCheckoutModal()">
+                    <span>Send Requirement</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Button for Desktop WhatsApp -->
+    <a href="https://wa.me/919385787363?text=Hello%20PRANAV%20CRACKERS,%20I%20would%20like%20to%20enquire%20about%20fireworks." target="_blank" class="desktop-floating-whatsapp" aria-label="Direct WhatsApp Contact">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+        <span>WhatsApp Us</span>
+    </a>
+
+    <!-- Mobile Fixed Bottom Bar (Section 2 & 8: Cart Visible at all times + Call/WhatsApp) -->
+    <div class="mobile-fixed-bottom-bar" id="mobile-fixed-bottom-bar">
+        <!-- State A: When cart has items (> 0 items): e.g. "3 Items | ₹940 | VIEW CART" -->
+        <div class="mobile-cart-strip" id="mobile-cart-strip" onclick="App.openCartDrawer()" style="display:none;">
+            <div class="mobile-cart-info">
+                <span class="mobile-cart-count" id="mobile-cart-count">0 Items</span>
+                <span class="mobile-cart-sep">|</span>
+                <strong class="mobile-cart-price" id="mobile-cart-price">₹0</strong>
+            </div>
+            <button class="btn-mobile-view-cart" aria-label="View Cart">
+                <span>VIEW CART</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+
+        <!-- State B: When cart is empty (Compact CALL | WHATSAPP strip) -->
+        <div class="mobile-contact-strip" id="mobile-contact-strip">
+            <a href="tel:7708532334" class="mobile-contact-btn mobile-call-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>CALL US</span>
+            </a>
+            <span class="mobile-contact-sep">|</span>
+            <a href="https://wa.me/919385787363?text=Hello%20PRANAV%20CRACKERS,%20I%20would%20like%20to%20enquire%20about%20fireworks." target="_blank" class="mobile-contact-btn mobile-wa-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+                <span>WHATSAPP</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Application Javascript Modules -->
+    <script src="js/data.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/enquiry.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

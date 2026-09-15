@@ -1,0 +1,234 @@
+/* ==========================================================================
+   PRANAV CRACKERS - Mobile-First Responsive Stylesheet
+   Breakpoints: 360px, 430px, 768px, 992px, 1200px+
+   ========================================================================== */
+
+/* --- Tablet & Down (<= 1024px) --- */
+@media (max-width: 1024px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .desktop-floating-whatsapp {
+        display: none;
+    }
+
+    .floating-mobile-bar {
+        display: flex;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.75rem;
+    }
+
+    .quick-actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-product-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .modal-img-col {
+        height: 220px;
+    }
+}
+
+/* --- Mobile Landscape & Small Tablets (<= 768px) --- */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .hero-section {
+        padding: 1.75rem 0 1.25rem 0;
+    }
+
+    .hero-title {
+        font-size: 1.85rem;
+    }
+
+    .quick-actions-section {
+        padding: 1rem 0;
+        margin-top: 0;
+    }
+
+    .quick-actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 0.85rem;
+    }
+
+    .product-img-box {
+        height: 105px;
+        padding: 6px 10px;
+    }
+
+    .gift-box-img-container {
+        height: 120px;
+        padding: 6px 10px;
+    }
+
+    .product-info {
+        padding: 0.75rem;
+    }
+
+    .product-name {
+        font-size: 0.95rem;
+    }
+
+    .product-price {
+        font-size: 1.25rem;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.85rem;
+    }
+
+    .cat-img-wrapper {
+        height: 120px;
+    }
+
+    .gift-boxes-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .safety-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .site-footer {
+        padding-bottom: 5rem; /* Room for floating mobile bar */
+    }
+}
+
+/* --- Standard Mobile Phones (<= 430px) --- */
+@media (max-width: 430px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .brand-title {
+        font-size: 1.05rem;
+    }
+
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .hero-tagline-text {
+        font-size: 0.98rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.88rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        padding: 0.65rem 1rem;
+    }
+
+    .quick-actions-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+
+    .qa-card {
+        padding: 0.85rem 0.65rem;
+    }
+
+    .qa-icon-box {
+        width: 36px;
+        height: 36px;
+        margin-bottom: 0.4rem;
+    }
+
+    .qa-card-title {
+        font-size: 0.82rem;
+    }
+
+    .qa-card-desc {
+        display: none;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+
+    .product-img-box {
+        height: 105px;
+        padding: 6px 10px;
+    }
+
+    .gift-box-img-container {
+        height: 120px;
+        padding: 6px 10px;
+    }
+
+    .filter-pill {
+        padding: 0.35rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .modal-window {
+        max-height: 94vh;
+        padding: 0;
+    }
+
+    .modal-body {
+        padding: 1rem;
+    }
+}
+
+/* --- Compact Mobile Devices (<= 360px) --- */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.4rem;
+    }
+
+    .brand-title {
+        font-size: 0.95rem;
+    }
+
+    .quick-actions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn {
+        padding: 0.55rem 0.85rem;
+        font-size: 0.82rem;
+    }
+}
