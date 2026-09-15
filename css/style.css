@@ -56,8 +56,8 @@
     --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.45);
     --shadow-gold: 0 0 20px rgba(245, 158, 11, 0.25);
     --shadow-floating: 0 12px 40px rgba(0, 0, 0, 0.6);
-    --transition-fast: all 0.15s ease;
-    --transition-smooth: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition-smooth: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* Strict Box Reset */
@@ -76,14 +76,33 @@ html {
     background-color: var(--navy-darkest);
 }
 
+/* Smooth, calm dark-theme scrollbar */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+::-webkit-scrollbar-track {
+    background: #050811;
+}
+::-webkit-scrollbar-thumb {
+    background: #1E3458;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #D97706;
+}
+
 body {
     font-family: var(--font-body);
     background-color: var(--navy-darkest);
     background-image: 
-        radial-gradient(ellipse at top center, rgba(245, 158, 11, 0.06) 0%, transparent 60%),
-        radial-gradient(ellipse at bottom right, rgba(239, 68, 68, 0.04) 0%, transparent 50%);
+        radial-gradient(ellipse 80% 40% at 50% -10%, rgba(245, 158, 11, 0.08) 0%, transparent 70%),
+        radial-gradient(circle at 10% 40%, rgba(239, 68, 68, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.04) 0%, transparent 60%);
+    background-attachment: fixed;
     color: var(--text-primary);
-    line-height: 1.45;
+    line-height: 1.5;
+    font-variant-numeric: tabular-nums;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
