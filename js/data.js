@@ -1222,6 +1222,43 @@ class DataStore {
         return s;
     }
 
+    static getCatalogueItems() {
+        const priceList = this.getPriceList();
+        const giftBoxes = this.getGiftBoxes();
+        const prods = this.getProducts();
+
+        const items = priceList.map(pl => {
+            const matchedProd = prods.find(p => p.nameEn.toLowerCase() === pl.name.toLowerCase() || p.sNo === pl.sNo);
+            return {
+                id: matchedProd ? matchedProd.id : `pl-${pl.sNo}`,
+                sNo: pl.sNo,
+                name: pl.name,
+                nameEn: pl.name,
+                company: pl.company || 'KALIS',
+                price: pl.price,
+                category: pl.category,
+                isAvailable: true,
+                isPopular: [1, 2, 11, 12, 19, 24, 25, 31, 37, 44, 60, 67, 72].includes(pl.sNo)
+            };
+        });
+
+        giftBoxes.forEach(gb => {
+            items.push({
+                id: gb.id,
+                name: `${gb.city} Gift Box`,
+                nameEn: `${gb.city} Gift Box (${gb.itemCountNumber || 35} Items)`,
+                company: 'PRANAV',
+                price: gb.price,
+                category: 'gift_boxes',
+                isAvailable: true,
+                isPopular: true,
+                itemCount: gb.itemCount
+            });
+        });
+
+        return items;
+    }
+
     static getProducts() {
         const data = localStorage.getItem(STORAGE_KEYS.PRODUCTS);
         if (!data) {
