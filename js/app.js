@@ -1,23 +1,25 @@
 /**
- * PRANAV CRACKERS - Modern Digital Crackers Price List Controller
- * Core UX: Find Cracker -> Press + -> See Estimated Total -> View Quotation -> Enter Details -> Send to WhatsApp
+ * PRANAV CRACKERS - Modern Digital Crackers Catalogue & Rate Sheet Controller
+ * Seamless Dual View (Cards & Rate Sheet), instant category chips, and live cart stepper interactions.
  */
 
 class App {
     static currentCategory = 'all';
     static searchQuery = '';
+    static viewMode = 'cards'; // 'cards' or 'table'
 
     static categoryGroups = [
-        { key: 'flower_pots', title: 'FLOWER POTS' },
-        { key: 'ground_chakkars', title: 'GROUND CHAKKARS' },
-        { key: 'sound_crackers', title: 'SOUND CRACKERS' },
-        { key: 'bombs', title: 'BOMBS' },
-        { key: 'rockets', title: 'ROCKETS' },
-        { key: 'sky_shots', title: 'SKY SHOTS' },
-        { key: 'sparklers', title: 'SPARKLERS' },
-        { key: 'fancy_items', title: 'FANCY ITEMS' },
-        { key: 'garlands', title: 'GARLANDS' },
-        { key: 'gift_boxes', title: 'GIFT BOXES' }
+        { key: 'all', title: 'All Crackers', icon: '🎆' },
+        { key: 'flower_pots', title: 'Flower Pots', icon: '🪔' },
+        { key: 'ground_chakkars', title: 'Ground Chakkars', icon: '🌀' },
+        { key: 'sound_crackers', title: 'Sound Crackers', icon: '💥' },
+        { key: 'bombs', title: 'Bombs', icon: '💣' },
+        { key: 'rockets', title: 'Rockets', icon: '🚀' },
+        { key: 'sky_shots', title: 'Sky Shots', icon: '✨' },
+        { key: 'sparklers', title: 'Sparklers', icon: '🪄' },
+        { key: 'fancy_items', title: 'Fancy Items', icon: '🎉' },
+        { key: 'garlands', title: 'Garlands', icon: '🎇' },
+        { key: 'gift_boxes', title: 'Gift Boxes', icon: '🎁' }
     ];
 
     static mapToGroupKey(cat) {
@@ -42,8 +44,14 @@ class App {
         }
     }
 
+    static calculateMRP(priceNum) {
+        // Authentic Sivakasi factory direct wholesale is ~60% off standard retail MRP
+        return Math.round(priceNum * 2.5);
+    }
+
     static init() {
-        this.renderPriceList();
+        this.renderCategoryChips();
+        this.renderCatalogue();
         this.setupEventListeners();
         CartManager.updateCartBadges();
 
@@ -52,7 +60,7 @@ class App {
             AdminManager.openAdminModal();
         }
 
-        console.log('PRANAV CRACKERS Digital Price List Initialized.');
+        console.log('PRANAV CRACKERS: Modern Catalogue & Rate Sheet Controller Initialized.');
     }
 
     static setupEventListeners() {
@@ -63,14 +71,14 @@ class App {
                 this.searchQuery = e.target.value.toLowerCase().trim();
                 const clearBtn = document.getElementById('search-clear-btn');
                 if (clearBtn) clearBtn.style.display = this.searchQuery ? 'flex' : 'none';
-                this.renderPriceList();
+                this.renderCatalogue();
             });
         }
 
         // Global cartUpdated listener
         window.addEventListener('cartUpdated', () => {
             CartManager.updateCartBadges();
-            this.syncAllRowSteppers();
+            this.syncAllSteppers();
         });
 
         // Close modals with Escape key
@@ -84,6 +92,90 @@ class App {
         });
     }
 
+    static setViewMode(mode) {
+        if (mode !== 'cards' && mode !== 'table') return;
+        this.viewMode = mode;
+
+        const cardsBtn = document.getElementById('view-cards-btn');
+        const tableBtn = document.getElementById('view-table-btn');
+        const container = document.getElementById('catalogue-items-container');
+
+        if (cardsBtn && tableBtn) {
+            if (mode === 'cards') {
+                cardsBtn.classList.add('active');
+                tableBtn.classList.remove('active');
+                if (container) {
+                    container.classList.add('view-cards');
+                    container.classList.remove('view-table');
+                }
+            } else {
+                tableBtn.classList.add('active');
+                cardsBtn.classList.remove('active');
+                if (container) {
+                    container.classList.add('view-table');
+                    container.classList.remove('view-cards');
+                }
+            }
+        }
+
+        this.renderCatalogue();
+    }
+
+    static renderCategoryChips() {
+        const chipsContainer = document.getElementById('category-chips-row');
+        if (!chipsContainer) return;
+
+        const allItems = DataStore.getCatalogueItems();
+
+        // Calculate counts per category
+        const counts = { all: allItems.length };
+        this.categoryGroups.forEach(grp => {
+            if (grp.key !== 'all') counts[grp.key] = 0;
+        });
+
+        allItems.forEach(item => {
+            const grpKey = this.mapToGroupKey(item.category);
+            if (counts[grpKey] !== undefined) {
+                counts[grpKey]++;
+            }
+        });
+
+        let html = '';
+        this.categoryGroups.forEach(grp => {
+            const isActive = this.currentCategory === grp.key;
+            const count = counts[grp.key] || 0;
+            html += `
+                <button type="button" 
+                        class="cat-chip-btn ${isActive ? 'active' : ''}" 
+                        data-cat="${grp.key}" 
+                        onclick="App.filterCategory('${grp.key}')" 
+                        role="tab" 
+                        aria-selected="${isActive}">
+                    <span class="chip-icon">${grp.icon}</span>
+                    <span class="chip-title">${grp.title}</span>
+                    <span class="chip-count">${count}</span>
+                </button>
+            `;
+        });
+
+        chipsContainer.innerHTML = html;
+    }
+
+    static filterCategory(catKey) {
+        this.currentCategory = catKey;
+        document.querySelectorAll('.cat-chip-btn').forEach(chip => {
+            if (chip.dataset.cat === catKey) {
+                chip.classList.add('active');
+                chip.setAttribute('aria-selected', 'true');
+                chip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            } else {
+                chip.classList.remove('active');
+                chip.setAttribute('aria-selected', 'false');
+            }
+        });
+        this.renderCatalogue();
+    }
+
     static clearSearch() {
         const input = document.getElementById('product-search-input');
         if (input) {
@@ -91,7 +183,7 @@ class App {
             this.searchQuery = '';
             const clearBtn = document.getElementById('search-clear-btn');
             if (clearBtn) clearBtn.style.display = 'none';
-            this.renderPriceList();
+            this.renderCatalogue();
             input.focus();
         }
     }
@@ -102,63 +194,110 @@ class App {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    static filterCategory(catKey) {
-        this.currentCategory = catKey;
-        document.querySelectorAll('.cat-chip').forEach(chip => {
-            if (chip.dataset.cat === catKey) {
-                chip.classList.add('active');
-                chip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            } else {
-                chip.classList.remove('active');
-            }
-        });
-        this.renderPriceList();
-    }
-
     static changeQty(itemId, delta) {
         const nextQty = CartManager.changeQty(itemId, delta);
         
-        // Instant row UI update
-        const qtyEl = document.getElementById(`qty-${itemId}`);
-        if (qtyEl) qtyEl.textContent = nextQty;
+        // Instant tactile update in DOM for any matching element
+        document.querySelectorAll(`.stepper-val-${itemId}`).forEach(el => {
+            el.textContent = nextQty;
+        });
 
+        // Update Card / Row state and subtotal
+        const item = CartManager.getFullItemDetails(itemId);
+        const priceNum = item && item.price && item.price.includes('₹')
+            ? parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0
+            : 0;
+        const subtotal = priceNum * nextQty;
+
+        // Card view update
+        const cardEl = document.getElementById(`pcard-${itemId}`);
+        if (cardEl && cardEl.querySelector) {
+            if (nextQty > 0) {
+                cardEl.classList.add('is-selected');
+                const subEl = cardEl.querySelector('.card-subtotal-tag');
+                if (subEl) {
+                    subEl.style.display = 'inline-block';
+                    subEl.textContent = `Subtotal: ₹${subtotal.toLocaleString('en-IN')}`;
+                }
+            } else {
+                cardEl.classList.remove('is-selected');
+                const subEl = cardEl.querySelector('.card-subtotal-tag');
+                if (subEl) subEl.style.display = 'none';
+            }
+        }
+
+        // Table view update
         const rowEl = document.getElementById(`prow-${itemId}`);
-        if (rowEl) {
+        if (rowEl && rowEl.querySelector) {
             if (nextQty > 0) {
                 rowEl.classList.add('is-selected');
+                const subRowEl = rowEl.querySelector('.table-subtotal-val');
+                if (subRowEl) subRowEl.textContent = `₹${subtotal.toLocaleString('en-IN')}`;
             } else {
                 rowEl.classList.remove('is-selected');
+                const subRowEl = rowEl.querySelector('.table-subtotal-val');
+                if (subRowEl) subRowEl.textContent = '₹0';
             }
         }
 
         // If quotation modal is currently open, re-render it
         const modal = document.getElementById('quotation-modal');
-        if (modal && modal.classList.contains('open')) {
+        if (modal && modal.classList && modal.classList.contains && modal.classList.contains('open')) {
             CartManager.renderQuotationModal();
         }
     }
 
-    static syncAllRowSteppers() {
+    static syncAllSteppers() {
+        if (typeof document === 'undefined') return;
         const cart = CartManager.getCart();
         const items = DataStore.getCatalogueItems();
         items.forEach(item => {
             const qty = cart[item.id] || 0;
-            const qtyEl = document.getElementById(`qty-${item.id}`);
-            if (qtyEl) qtyEl.textContent = qty;
+            const priceNum = (item.price && item.price.includes('₹'))
+                ? parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0
+                : 0;
+            const subtotal = priceNum * qty;
+
+            if (document.querySelectorAll) {
+                document.querySelectorAll(`.stepper-val-${item.id}`).forEach(el => {
+                    el.textContent = qty;
+                });
+            }
+
+            const cardEl = document.getElementById(`pcard-${item.id}`);
+            if (cardEl && cardEl.querySelector) {
+                if (qty > 0) {
+                    cardEl.classList.add('is-selected');
+                    const subEl = cardEl.querySelector('.card-subtotal-tag');
+                    if (subEl) {
+                        subEl.style.display = 'inline-block';
+                        subEl.textContent = `Subtotal: ₹${subtotal.toLocaleString('en-IN')}`;
+                    }
+                } else {
+                    cardEl.classList.remove('is-selected');
+                    const subEl = cardEl.querySelector('.card-subtotal-tag');
+                    if (subEl) subEl.style.display = 'none';
+                }
+            }
+
             const rowEl = document.getElementById(`prow-${item.id}`);
-            if (rowEl) {
+            if (rowEl && rowEl.querySelector) {
                 if (qty > 0) {
                     rowEl.classList.add('is-selected');
+                    const subRowEl = rowEl.querySelector('.table-subtotal-val');
+                    if (subRowEl) subRowEl.textContent = `₹${subtotal.toLocaleString('en-IN')}`;
                 } else {
                     rowEl.classList.remove('is-selected');
+                    const subRowEl = rowEl.querySelector('.table-subtotal-val');
+                    if (subRowEl) subRowEl.textContent = '₹0';
                 }
             }
         });
     }
 
-    static renderPriceList() {
-        const container = document.getElementById('price-list-rows');
-        const statusBar = document.getElementById('filter-status-bar');
+    static renderCatalogue() {
+        const container = document.getElementById('catalogue-items-container');
+        const statusBanner = document.getElementById('filter-status-banner');
         if (!container) return;
 
         const allItems = DataStore.getCatalogueItems();
@@ -169,7 +308,7 @@ class App {
         // Group items
         const grouped = {};
         this.categoryGroups.forEach(grp => {
-            grouped[grp.key] = [];
+            if (grp.key !== 'all') grouped[grp.key] = [];
         });
 
         let totalMatched = 0;
@@ -187,9 +326,8 @@ class App {
             if (query) {
                 const nameMatch = (item.name || '').toLowerCase().includes(query);
                 const compMatch = (item.company || '').toLowerCase().includes(query);
-                const aliasMatch = (item.aliases || []).some(a => a.toLowerCase().includes(query));
                 const catMatch = (item.category || '').toLowerCase().includes(query);
-                if (!nameMatch && !compMatch && !aliasMatch && !catMatch) {
+                if (!nameMatch && !compMatch && !catMatch) {
                     return;
                 }
             }
@@ -198,10 +336,10 @@ class App {
             totalMatched++;
         });
 
-        // Filter status bar
-        if (statusBar) {
+        // Filter status banner
+        if (statusBanner) {
             if (query || activeCat !== 'all') {
-                statusBar.style.display = 'flex';
+                statusBanner.style.display = 'flex';
                 let filterText = '';
                 if (activeCat !== 'all') {
                     const grp = this.categoryGroups.find(g => g.key === activeCat);
@@ -211,58 +349,87 @@ class App {
                     filterText += `Search: "<strong>${query}</strong>" `;
                 }
                 filterText += `(${totalMatched} crackers found)`;
-                statusBar.innerHTML = `
-                    <div class="status-text">${filterText}</div>
-                    <button type="button" class="btn-clear-filters" onclick="App.resetView()">Show All</button>
+                statusBanner.innerHTML = `
+                    <div class="status-banner-text">${filterText}</div>
+                    <button type="button" class="btn-reset-filter" onclick="App.resetView()">Show All Crackers</button>
                 `;
             } else {
-                statusBar.style.display = 'none';
+                statusBanner.style.display = 'none';
             }
         }
 
         // Empty state
         if (totalMatched === 0) {
             container.innerHTML = `
-                <div class="empty-results-box">
-                    <p class="empty-title">No crackers found matching "${query}"</p>
-                    <p class="empty-sub">Try searching for generic names like Flower Pot, Chakkar, Sparkler, or 35 Items.</p>
-                    <button type="button" class="btn-reset-search" onclick="App.clearSearch()">Clear Search</button>
+                <div class="empty-catalogue-box" style="text-align:center; padding: 3rem 1.5rem; background:#FFFFFF; border-radius:12px; border:1px solid #E2E8F0; margin: 1rem 0;">
+                    <span style="font-size: 3rem; display:block; margin-bottom: 0.75rem;">🔍</span>
+                    <h3 style="font-size: 1.25rem; font-weight:800; color:#0F1B2F; margin-bottom: 0.5rem;">No crackers found matching "${query}"</h3>
+                    <p style="color:#64748B; font-size: 0.9rem; max-width: 420px; margin: 0 auto 1.25rem;">Try searching for popular crackers like Flower Pot, Chakkar, 12 Shot, Sparklers, or Gift Box.</p>
+                    <button type="button" class="btn-reset-filter" style="background:#0F1B2F; color:#FFFFFF; padding: 0.6rem 1.25rem; border-radius:6px; font-weight:700;" onclick="App.clearSearch()">Clear Search</button>
                 </div>
             `;
             return;
         }
 
+        if (this.viewMode === 'cards') {
+            this.renderCardsView(container, grouped, cart);
+        } else {
+            this.renderTableView(container, grouped, cart);
+        }
+    }
+
+    static renderCardsView(container, grouped, cart) {
         let html = '';
 
         this.categoryGroups.forEach(grp => {
+            if (grp.key === 'all') return;
             const items = grouped[grp.key];
             if (!items || items.length === 0) return;
 
             html += `
-                <section class="price-category-group" id="grp-${grp.key}">
-                    <h3 class="category-group-header">${grp.title}</h3>
-                    <div class="category-rows-list">
+                <section class="category-group-block" id="cat-group-${grp.key}">
+                    <div class="category-group-heading-bar">
+                        <h3 class="group-title">
+                            <span>${grp.icon}</span>
+                            <span>${grp.title}</span>
+                        </h3>
+                        <span class="group-item-count">${items.length} ${items.length === 1 ? 'item' : 'items'}</span>
+                    </div>
+
+                    <div class="product-cards-grid">
             `;
 
             items.forEach(item => {
                 const qty = cart[item.id] || 0;
                 const isSelected = qty > 0;
                 const company = item.company || (item.category === 'gift_boxes' ? 'PRANAV' : 'KALIS');
-                const price = item.price || 'Contact';
+                const priceNum = (item.price && item.price.includes('₹'))
+                    ? parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0
+                    : 0;
+                const mrp = this.calculateMRP(priceNum);
+                const subtotal = priceNum * qty;
 
                 html += `
-                    <div class="product-row ${isSelected ? 'is-selected' : ''}" id="prow-${item.id}">
-                        <div class="row-main">
-                            <span class="row-name">${item.name}</span>
-                            <span class="row-company">${company}</span>
+                    <div class="cracker-card ${isSelected ? 'is-selected' : ''}" id="pcard-${item.id}">
+                        <div class="card-badge-row">
+                            <span class="card-brand-badge">${company}</span>
+                            <span class="card-discount-badge">SAVE 60%</span>
                         </div>
-                        <div class="row-controls">
-                            <span class="row-price">${price}</span>
-                            <div class="row-stepper">
-                                <button type="button" class="stepper-btn minus" onclick="App.changeQty('${item.id}', -1)" aria-label="Decrease quantity for ${item.name}">−</button>
-                                <span class="stepper-val" id="qty-${item.id}">${qty}</span>
-                                <button type="button" class="stepper-btn plus" onclick="App.changeQty('${item.id}', 1)" aria-label="Increase quantity for ${item.name}">+</button>
+
+                        <h4 class="card-name" title="${item.name}">${item.name}</h4>
+
+                        <div class="card-pricing-block">
+                            <div class="price-box">
+                                <span class="mrp-strike">₹${mrp.toLocaleString('en-IN')}</span>
+                                <strong class="wholesale-price">₹${priceNum.toLocaleString('en-IN')}</strong>
                             </div>
+                            <span class="card-subtotal-tag" style="${isSelected ? 'display:inline-block;' : 'display:none;'}">Subtotal: ₹${subtotal.toLocaleString('en-IN')}</span>
+                        </div>
+
+                        <div class="card-stepper-control">
+                            <button type="button" class="stepper-btn minus" onclick="App.changeQty('${item.id}', -1)" aria-label="Decrease quantity for ${item.name}">−</button>
+                            <span class="stepper-val stepper-val-${item.id}">${qty}</span>
+                            <button type="button" class="stepper-btn plus" onclick="App.changeQty('${item.id}', 1)" aria-label="Increase quantity for ${item.name}">+</button>
                         </div>
                     </div>
                 `;
@@ -273,6 +440,83 @@ class App {
                 </section>
             `;
         });
+
+        container.innerHTML = html;
+    }
+
+    static renderTableView(container, grouped, cart) {
+        let html = `
+            <div class="rate-sheet-table-wrapper">
+                <table class="rate-sheet-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;" class="text-center">#</th>
+                            <th>Cracker Item & Brand</th>
+                            <th class="text-right" style="width: 100px;">Retail MRP</th>
+                            <th class="text-right" style="width: 130px;">Wholesale Rate</th>
+                            <th class="text-center" style="width: 140px;">Quantity</th>
+                            <th class="text-right" style="width: 120px;">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        `;
+
+        let rowCounter = 1;
+
+        this.categoryGroups.forEach(grp => {
+            if (grp.key === 'all') return;
+            const items = grouped[grp.key];
+            if (!items || items.length === 0) return;
+
+            html += `
+                <tr class="table-group-header-row" style="background:#1E2E4B; color:#FCD34D;">
+                    <td colspan="6" style="padding: 0.65rem 0.85rem; font-weight:800; font-size:0.85rem; letter-spacing:0.04em;">
+                        ${grp.icon} ${grp.title} (${items.length} items)
+                    </td>
+                </tr>
+            `;
+
+            items.forEach(item => {
+                const qty = cart[item.id] || 0;
+                const isSelected = qty > 0;
+                const company = item.company || (item.category === 'gift_boxes' ? 'PRANAV' : 'KALIS');
+                const priceNum = (item.price && item.price.includes('₹'))
+                    ? parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0
+                    : 0;
+                const mrp = this.calculateMRP(priceNum);
+                const subtotal = priceNum * qty;
+
+                html += `
+                    <tr class="rate-sheet-row ${isSelected ? 'is-selected' : ''}" id="prow-${item.id}">
+                        <td class="text-center" style="color:#64748B; font-weight:600;">${rowCounter++}</td>
+                        <td>
+                            <strong style="color:#0F172A; display:block; font-size:0.92rem;">${item.name}</strong>
+                            <span style="font-size:0.72rem; color:#92400E; background:#FEF3C7; padding:1px 5px; border-radius:3px; font-weight:700;">${company}</span>
+                        </td>
+                        <td class="text-right mrp-strike">₹${mrp.toLocaleString('en-IN')}</td>
+                        <td class="text-right">
+                            <strong style="color:#B45309; font-size:1.05rem;">₹${priceNum.toLocaleString('en-IN')}</strong>
+                        </td>
+                        <td class="text-center">
+                            <div class="card-stepper-control" style="width: 120px; margin: 0 auto; height: 32px;">
+                                <button type="button" class="stepper-btn minus" onclick="App.changeQty('${item.id}', -1)" aria-label="Decrease">−</button>
+                                <span class="stepper-val stepper-val-${item.id}">${qty}</span>
+                                <button type="button" class="stepper-btn plus" onclick="App.changeQty('${item.id}', 1)" aria-label="Increase">+</button>
+                            </div>
+                        </td>
+                        <td class="text-right">
+                            <strong class="table-subtotal-val" style="color:#15803D; font-size:0.95rem;">₹${subtotal.toLocaleString('en-IN')}</strong>
+                        </td>
+                    </tr>
+                `;
+            });
+        });
+
+        html += `
+                    </tbody>
+                </table>
+            </div>
+        `;
 
         container.innerHTML = html;
     }

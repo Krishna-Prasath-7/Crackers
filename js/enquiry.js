@@ -1,6 +1,6 @@
 /**
  * PRANAV CRACKERS - Cart, Live Quotation & WhatsApp Engine
- * Ultra-fast digital price list quotation flow.
+ * Ultra-fast digital price list quotation flow with instant tactile updates and accurate Sivakasi savings calculation.
  */
 
 class CartManager {
@@ -35,10 +35,17 @@ class CartManager {
         return next;
     }
 
+    static addToCart(itemId, qty = 1) {
+        return this.changeQty(itemId, qty);
+    }
+
     static clearCart() {
         localStorage.removeItem(STORAGE_KEYS.CART);
         this.updateCartBadges();
         window.dispatchEvent(new CustomEvent('cartUpdated', { detail: { cart: {} } }));
+        if (typeof App !== 'undefined' && App.syncAllSteppers) {
+            App.syncAllSteppers();
+        }
     }
 
     static getItemCount() {
@@ -46,17 +53,34 @@ class CartManager {
         return Object.values(cart).reduce((acc, qty) => acc + qty, 0);
     }
 
-    static getCartEstimatedTotal() {
+    static getCartTotals() {
         const cart = this.getCart();
-        let total = 0;
+        let totalWholesale = 0;
+        let totalMRP = 0;
+
         for (const [id, qty] of Object.entries(cart)) {
             const item = this.getFullItemDetails(id);
             if (item && item.price && item.price.includes('₹')) {
-                const num = parseFloat(item.price.replace(/[^0-9.]/g, ''));
-                if (!isNaN(num)) total += num * qty;
+                const priceNum = parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0;
+                const mrp = (typeof App !== 'undefined' && App.calculateMRP) 
+                    ? App.calculateMRP(priceNum) 
+                    : Math.round(priceNum * 2.5);
+                totalWholesale += priceNum * qty;
+                totalMRP += mrp * qty;
             }
         }
-        return total;
+
+        const savings = Math.max(0, totalMRP - totalWholesale);
+
+        return {
+            wholesale: totalWholesale,
+            mrp: totalMRP,
+            savings: savings
+        };
+    }
+
+    static getCartEstimatedTotal() {
+        return this.getCartTotals().wholesale;
     }
 
     static getFullItemDetails(itemId) {
@@ -84,57 +108,92 @@ class CartManager {
     }
 
     static updateCartBadges() {
+        if (typeof document === 'undefined') return;
         const count = this.getItemCount();
-        const total = this.getCartEstimatedTotal();
+        const { wholesale, mrp, savings } = this.getCartTotals();
 
-        // Header Quotation Badge
-        const headerCount = document.getElementById('header-q-count');
-        if (headerCount) {
-            headerCount.textContent = count;
+        // 1. Header Quotation Badge
+        const headerBadge = document.getElementById('header-cart-badge') || document.getElementById('header-q-count');
+        if (headerBadge) {
+            headerBadge.textContent = count;
             if (count > 0) {
-                headerCount.classList.add('visible');
+                headerBadge.classList.add('visible');
             } else {
-                headerCount.classList.remove('visible');
+                headerBadge.classList.remove('visible');
             }
         }
 
-        // Sticky Bottom Quotation Bar (Section 8)
-        const barItemsCount = document.getElementById('bar-items-count');
-        const barTotalAmount = document.getElementById('bar-total-amount');
-        const btnViewQuotation = document.getElementById('btn-bar-view-quotation');
+        // 2. Floating Quotation Dock
+        const dockCount = document.getElementById('dock-items-count');
+        const dockPrice = document.getElementById('dock-total-price');
+        const dockSavings = document.getElementById('dock-savings-tag');
+        const dockBtn = document.getElementById('dock-action-btn');
 
-        if (barItemsCount) {
-            barItemsCount.textContent = `${count} ${count === 1 ? 'Item' : 'Items'}`;
+        if (dockCount) {
+            dockCount.textContent = `${count} ${count === 1 ? 'Item' : 'Items'}`;
         }
-        if (barTotalAmount) {
-            barTotalAmount.textContent = `₹${total.toLocaleString('en-IN')}`;
+        if (dockPrice) {
+            dockPrice.textContent = `₹${wholesale.toLocaleString('en-IN')}`;
         }
-        if (btnViewQuotation) {
-            if (count > 0) {
-                btnViewQuotation.disabled = false;
-                btnViewQuotation.classList.remove('disabled');
+        if (dockSavings) {
+            if (count > 0 && savings > 0) {
+                dockSavings.style.display = 'inline-block';
+                dockSavings.textContent = `Save ₹${savings.toLocaleString('en-IN')} (60% OFF)`;
             } else {
-                btnViewQuotation.disabled = true;
-                btnViewQuotation.classList.add('disabled');
+                dockSavings.style.display = 'none';
+            }
+        }
+        if (dockBtn) {
+            if (count > 0) {
+                dockBtn.disabled = false;
+                dockBtn.classList.remove('disabled');
+            } else {
+                dockBtn.disabled = true;
+                dockBtn.classList.add('disabled');
             }
         }
 
-        // Live update in open modal if visible
-        const modalCount = document.getElementById('q-modal-items-count');
-        const modalGrand = document.getElementById('q-modal-grand-amount');
-        if (modalCount) modalCount.textContent = count;
-        if (modalGrand) modalGrand.textContent = `₹${total.toLocaleString('en-IN')}`;
+        // 3. Backward-compatible fallback for legacy bar elements
+        const legacyItems = document.getElementById('bar-items-count');
+        const legacyTotal = document.getElementById('bar-total-amount');
+        const legacyBtn = document.getElementById('btn-bar-view-quotation');
+        if (legacyItems) legacyItems.textContent = `${count} ${count === 1 ? 'Item' : 'Items'}`;
+        if (legacyTotal) legacyTotal.textContent = `₹${wholesale.toLocaleString('en-IN')}`;
+        if (legacyBtn) legacyBtn.disabled = (count === 0);
+
+        // 4. Quotation Modal Totals (if currently open)
+        const qSumCount = document.getElementById('q-sum-items-count');
+        const qSumMrp = document.getElementById('q-sum-mrp-price');
+        const qSumGrand = document.getElementById('q-sum-grand-total');
+        const qSumSavingsLine = document.getElementById('q-sum-savings-line');
+
+        if (qSumCount) qSumCount.textContent = count;
+        if (qSumMrp) qSumMrp.textContent = `₹${mrp.toLocaleString('en-IN')}`;
+        if (qSumGrand) qSumGrand.textContent = `₹${wholesale.toLocaleString('en-IN')}`;
+        if (qSumSavingsLine) {
+            qSumSavingsLine.style.display = count > 0 ? 'flex' : 'none';
+        }
     }
 
-    // --- 7. UNIFIED QUOTATION MODAL (Section 9) ---
+    // --- Unified Quotation Modal ---
     static openQuotationModal() {
         const count = this.getItemCount();
         if (count === 0) {
-            alert('Your quotation is currently empty. Please select crackers to view quotation.');
+            alert('Your quotation is currently empty. Please select crackers from the catalogue first.');
             return;
         }
 
+        if (!this.currentQuotationId) {
+            this.currentQuotationId = this.generateQuotationId();
+        }
+
+        const refTag = document.getElementById('q-modal-ref-tag');
+        if (refTag) {
+            refTag.textContent = `Ref: ${this.currentQuotationId}`;
+        }
+
         this.renderQuotationModal();
+
         const modal = document.getElementById('quotation-modal');
         if (modal) {
             modal.classList.add('open');
@@ -156,16 +215,13 @@ class CartManager {
 
         const cart = this.getCart();
         const entries = Object.entries(cart);
-        const count = this.getItemCount();
-        const total = this.getCartEstimatedTotal();
-
         this.updateCartBadges();
 
         if (entries.length === 0) {
             itemsContainer.innerHTML = `
-                <div class="q-modal-empty">
-                    <p>Your quotation is empty. Please select crackers from the price list.</p>
-                    <button type="button" class="btn btn-secondary mt-2" onclick="CartManager.closeQuotationModal()">Browse Crackers</button>
+                <div class="q-modal-empty" style="text-align:center; padding: 2rem 1rem; color:#64748B;">
+                    <p style="font-size:1rem; margin-bottom:0.75rem;">Your quotation is currently empty.</p>
+                    <button type="button" class="btn btn-secondary" style="background:#0F1B2F; color:#FFFFFF; padding:0.5rem 1rem; border-radius:6px; font-weight:700; border:none; cursor:pointer;" onclick="CartManager.closeQuotationModal()">Browse Crackers</button>
                 </div>
             `;
             return;
@@ -186,13 +242,13 @@ class CartManager {
             html += `
                 <div class="q-modal-row" id="qmodal-row-${id}">
                     <div class="q-row-info">
-                        <span class="q-row-name">${name}</span>
+                        <strong class="q-row-name">${name}</strong>
                         <span class="q-row-comp">${comp}</span>
                     </div>
                     <div class="q-row-stepper">
-                        <button type="button" class="stepper-btn minus" onclick="App.changeQty('${id}', -1)">−</button>
-                        <span class="stepper-val">${qty}</span>
-                        <button type="button" class="stepper-btn plus" onclick="App.changeQty('${id}', 1)">+</button>
+                        <button type="button" class="stepper-btn minus" onclick="App.changeQty('${id}', -1)" aria-label="Decrease">−</button>
+                        <span class="stepper-val stepper-val-${id}">${qty}</span>
+                        <button type="button" class="stepper-btn plus" onclick="App.changeQty('${id}', 1)" aria-label="Increase">+</button>
                     </div>
                     <div class="q-row-pricing">
                         <span class="q-row-calc">₹${unitPriceNum.toLocaleString('en-IN')} × ${qty}</span>
@@ -205,24 +261,36 @@ class CartManager {
         itemsContainer.innerHTML = html;
     }
 
-    // --- 8. SEND REQUIREMENT ON WHATSAPP (Section 9) ---
+    // --- Send Requirement on WhatsApp ---
+    static placeRequirementAndContinueWhatsApp(event) {
+        return this.handleSendRequirement(event);
+    }
+
     static handleSendRequirement(event) {
         if (event) event.preventDefault();
 
         const count = this.getItemCount();
         if (count === 0) {
-            alert('Your quotation is empty.');
+            alert('Your quotation is empty. Please select crackers first.');
             return;
         }
 
         // Validate form fields
-        const name = (document.getElementById('cust-name').value || '').trim();
-        const phone = (document.getElementById('cust-phone').value || '').trim();
-        const address = (document.getElementById('cust-address').value || '').trim();
-        const city = (document.getElementById('cust-city').value || '').trim();
-        const state = (document.getElementById('cust-state').value || '').trim() || 'Tamil Nadu';
-        const pincode = (document.getElementById('cust-pincode').value || '').trim();
-        const notes = (document.getElementById('cust-notes').value || '').trim();
+        const pending = CartManager.pendingDetails || {};
+        const nameInput = document.getElementById('cust-name');
+        const name = (nameInput && nameInput.value ? nameInput.value : pending.name || '').trim();
+        const phoneInput = document.getElementById('cust-phone');
+        const phone = (phoneInput && phoneInput.value ? phoneInput.value : pending.phone || '').trim();
+        const addrInput = document.getElementById('cust-address');
+        const address = (addrInput && addrInput.value ? addrInput.value : pending.address || '').trim();
+        const cityInput = document.getElementById('cust-city');
+        const city = (cityInput && cityInput.value ? cityInput.value : pending.city || '').trim();
+        const stateInput = document.getElementById('cust-state');
+        const state = (stateInput && stateInput.value ? stateInput.value : pending.state || 'Tamil Nadu').trim() || 'Tamil Nadu';
+        const pinInput = document.getElementById('cust-pincode');
+        const pincode = (pinInput && pinInput.value ? pinInput.value : pending.pincode || '').trim();
+        const notesInput = document.getElementById('cust-notes');
+        const notes = (notesInput && notesInput.value ? notesInput.value : pending.notes || '').trim();
 
         if (!name || !phone || !address || !city || !pincode) {
             alert('Please fill in all required customer details (*).');
@@ -235,7 +303,7 @@ class CartManager {
             return;
         }
 
-        // Compile items
+        // Compile items and calculations
         const cart = this.getCart();
         const items = [];
         let grandTotal = 0;
@@ -264,8 +332,8 @@ class CartManager {
             }
         }
 
-        // Generate Quotation Reference
-        const quotationId = this.generateQuotationId();
+        // Use active quotation reference or generate one
+        const quotationId = this.currentQuotationId || this.generateQuotationId();
 
         const order = {
             id: quotationId,
@@ -284,17 +352,17 @@ class CartManager {
             createdAt: new Date().toISOString()
         };
 
-        // Save into local data store
+        // Save order in local storage
         DataStore.saveOrder(order);
 
-        // Build WhatsApp pre-filled message (Section 9)
+        // Build WhatsApp message
         const settings = DataStore.getSettings();
         const waNumber = settings.whatsappPhoneRaw || '919385787363';
 
         const itemLines = items.map((it, idx) => {
             const unitText = `₹${it.unitPriceNum.toLocaleString('en-IN')}`;
             const subtotalText = `₹${it.lineTotalNum.toLocaleString('en-IN')}`;
-            return `${idx + 1}. ${it.name}\n   ${it.company}\n   ${unitText} × ${it.quantity} = ${subtotalText}`;
+            return `${idx + 1}. ${it.name}\n   Brand: ${it.company}\n   ${unitText} × ${it.quantity} = ${subtotalText}`;
         }).join('\n\n');
 
         const messageLines = [
@@ -302,8 +370,7 @@ class CartManager {
             ``,
             `Quotation: ${order.id}`,
             ``,
-            `CUSTOMER DETAILS`,
-            ``,
+            `CUSTOMER DETAILS:`,
             `Name: ${order.customerName}`,
             `Mobile: ${order.phone}`,
             `Address: ${order.address}`,
@@ -311,8 +378,7 @@ class CartManager {
             `State: ${order.state}`,
             `PIN Code: ${order.pincode}`,
             ``,
-            `SELECTED CRACKERS`,
-            ``,
+            `SELECTED CRACKERS:`,
             itemLines,
             ``,
             `TOTAL ITEMS: ${order.itemsCount}`,
@@ -331,13 +397,14 @@ class CartManager {
         const fullMsg = messageLines.join('\n');
         const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(fullMsg)}`;
 
-        // Clear cart
+        // Clear cart and reset reference
         this.clearCart();
+        this.currentQuotationId = null;
 
         // Close Quotation Modal
         this.closeQuotationModal();
 
-        // Open WhatsApp
+        // Open WhatsApp in new tab
         window.open(waUrl, '_blank');
 
         // Show Requirement Prepared confirmation screen
@@ -358,7 +425,7 @@ class CartManager {
                     <strong class="ref-val">${order.id}</strong>
                 </div>
                 <p class="confirmation-msg">
-                    Your estimated quotation requirement has been opened in WhatsApp. Please press <strong>Send</strong> inside WhatsApp so our Sivakasi desk can confirm product availability and final amount.
+                    Your estimated quotation requirement has been compiled and opened in WhatsApp. Please press <strong>Send</strong> in WhatsApp so our Sivakasi team can review and confirm product availability.
                 </p>
                 <div class="confirmation-actions">
                     <button type="button" class="btn btn-secondary full-width" onclick="CartManager.closeConfirmationModal()">
@@ -380,7 +447,7 @@ class CartManager {
         }
     }
 
-    // --- 9. TRACK QUOTATION / REQUIREMENT ---
+    // --- Track Quotation / Requirement ---
     static openTrackOrderModal(initialId = '') {
         const modal = document.getElementById('track-order-modal');
         if (!modal) return;
@@ -420,35 +487,36 @@ class CartManager {
         const order = DataStore.getOrderById(query);
         if (!order) {
             resultContainer.innerHTML = `
-                <div class="track-not-found">
-                    <p>No quotation found matching "<strong>${query}</strong>".</p>
-                    <small class="text-muted">Please double-check your Reference Number (e.g. PCQ-260915-1042) or mobile number.</small>
+                <div class="track-not-found" style="text-align:center; padding:1.5rem; background:#FFF5F5; border-radius:8px; border:1px solid #FED7D7;">
+                    <p style="color:#C53030; font-weight:700; margin-bottom:0.4rem;">No quotation found matching "${query}"</p>
+                    <small style="color:#718096;">Please check your Reference Number (e.g. PCQ-260915-1042) or 10-digit mobile number.</small>
                 </div>
             `;
             return;
         }
 
         resultContainer.innerHTML = `
-            <div class="track-order-card">
-                <div class="track-card-header">
+            <div class="track-order-card" style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:10px; padding:1.25rem;">
+                <div class="track-card-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; border-bottom:1px solid #EDF2F7; padding-bottom:0.75rem;">
                     <div>
-                        <span class="text-muted">Quotation ID:</span>
-                        <strong class="gold-text">${order.id}</strong>
+                        <span style="font-size:0.75rem; color:#64748B; display:block;">Quotation ID</span>
+                        <strong style="color:#0F1B2F; font-size:1.1rem;">${order.id}</strong>
                     </div>
-                    <div class="order-status-pill">${order.status}</div>
+                    <div class="order-status-pill" style="background:#FEF3C7; color:#92400E; font-weight:800; font-size:0.75rem; padding:4px 10px; border-radius:9999px;">${order.status}</div>
                 </div>
 
-                <div class="track-details-grid">
+                <div class="track-details-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; font-size:0.85rem; margin-bottom:1rem;">
                     <div><strong>Customer:</strong> ${order.customerName}</div>
                     <div><strong>Phone:</strong> ${order.phone}</div>
-                    <div><strong>Address:</strong> ${order.address}, ${order.city} – ${order.pincode}</div>
-                    <div><strong>Total:</strong> <strong class="gold-price">₹${order.estimatedTotal.toLocaleString('en-IN')}</strong></div>
+                    <div style="grid-column:span 2;"><strong>Address:</strong> ${order.address}, ${order.city} – ${order.pincode}</div>
+                    <div><strong>Total Items:</strong> ${order.itemsCount}</div>
+                    <div><strong>Wholesale Total:</strong> <strong style="color:#B45309;">₹${order.estimatedTotal.toLocaleString('en-IN')}</strong></div>
                 </div>
 
-                <div class="track-items-box">
-                    <div class="track-items-title">Selected Crackers (${order.itemsCount} items)</div>
+                <div class="track-items-box" style="background:#F8FAFC; border-radius:8px; padding:0.75rem;">
+                    <div style="font-weight:700; font-size:0.82rem; margin-bottom:0.5rem; color:#334155;">Selected Crackers</div>
                     ${(order.items || []).map(it => `
-                        <div class="track-item-row">
+                        <div style="display:flex; justify-content:space-between; font-size:0.82rem; padding:0.25rem 0; border-bottom:1px dashed #E2E8F0;">
                             <span>${it.name} (${it.company || 'KALIS'}) × ${it.quantity}</span>
                             <strong>₹${(it.lineTotalNum || 0).toLocaleString('en-IN')}</strong>
                         </div>
@@ -459,6 +527,6 @@ class CartManager {
     }
 }
 
-// Window global assignment
+// Window global assignments
 window.CartManager = CartManager;
 window.EnquiryManager = CartManager;
