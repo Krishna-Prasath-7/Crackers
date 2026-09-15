@@ -1,0 +1,19 @@
+{
+  "name": "pranav-crackers",
+  "version": "1.0.0",
+  "description": "PRANAV CRACKERS - Premium Fireworks Wholesale Sivakasi",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "fireworks",
+    "crackers",
+    "sivakasi"
+  ],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
