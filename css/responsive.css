@@ -1,6 +1,10 @@
 /* ==========================================================================
-   PRANAV CRACKERS - Mobile-First Responsive Stylesheet
-   Breakpoints: 320px, 360px, 375px, 390px, 430px, 768px, 1024px, 1440px, 1920px
+   PRANAV CRACKERS - RESPONSIVE & MOBILE ERGONOMICS STYLESHEET
+   ==========================================================================
+   HOW TO USE THIS FILE:
+   - Mobile Phones (≤ 480px): Compact headers, 2-column cards, sticky bottom dock
+   - Tablets (481px - 768px): Medium card grid, optimized font sizes
+   - Desktops (≥ 1024px): Full widescreen multi-column layouts
    ========================================================================== */
 
 /* Strict Global Anti-Overflow */

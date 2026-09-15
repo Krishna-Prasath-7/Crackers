@@ -1,6 +1,15 @@
 /**
- * PRANAV CRACKERS - Owner Admin Management Panel
- * Separate, secure management view for Orders, Discounts, Products, Gift Boxes, Prices, and Settings.
+ * =============================================================================
+ * PRANAV CRACKERS - OWNER ADMIN MANAGEMENT PANEL
+ * =============================================================================
+ * 
+ * ROLE OF THIS FILE:
+ * - Admin Authentication (Default PIN is in 'js/config.js': 'pranav123')
+ * - Viewing customer orders and requirements
+ * - Updating order fulfillment and payment statuses
+ * - Contacting customers directly via WhatsApp
+ * - Exporting orders to CSV spreadsheet
+ * =============================================================================
  */
 
 class AdminManager {

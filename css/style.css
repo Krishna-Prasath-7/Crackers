@@ -1,7 +1,13 @@
 /* ==========================================================================
-   PRANAV CRACKERS - Festive Diwali Design System & Tokens
-   Direct Sivakasi Factory Wholesale Fireworks Platform
-   Theme: Midnight Sky & Glowing Festive Diwali Gold
+   PRANAV CRACKERS - GLOBAL DESIGN SYSTEM & TOKENS
+   ==========================================================================
+   HOW TO USE THIS FILE:
+   - TO CHANGE THEME COLORS (Gold, Navy, WhatsApp Green):
+     Edit the CSS variables in the :root section below.
+   - TO CHANGE FONTS OR TYPOGRAPHY:
+     Edit font-family and text utilities in this file.
+   - TO CHANGE BUTTONS:
+     Scroll down to '.btn-whatsapp-submit' or button classes.
    ========================================================================== */
 
 :root {

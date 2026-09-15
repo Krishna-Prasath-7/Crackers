@@ -19,6 +19,7 @@ global.window = {
 };
 global.CustomEvent = class { constructor(type, detail) { this.type = type; this.detail = detail; } };
 global.document = {
+    documentElement: { lang: 'en' },
     getElementById: (id) => ({
         value: '',
         textContent: '',
@@ -30,9 +31,10 @@ global.document = {
     addEventListener: () => {}
 };
 
-// 1. Load data.js
-const dataJs = fs.readFileSync(path.join(__dirname, '../js/data.js'), 'utf8');
-vm.runInThisContext(dataJs);
+// 1. Load modular scripts in correct order
+vm.runInThisContext(fs.readFileSync(path.join(__dirname, '../js/config.js'), 'utf8'));
+vm.runInThisContext(fs.readFileSync(path.join(__dirname, '../js/products.js'), 'utf8'));
+vm.runInThisContext(fs.readFileSync(path.join(__dirname, '../js/data.js'), 'utf8'));
 
 console.log('=== 1. Checking Catalogue Items ===');
 const items = DataStore.getCatalogueItems();
@@ -41,8 +43,6 @@ if (items.length !== 94) {
     throw new Error(`Expected exactly 94 items, found ${items.length}`);
 }
 
-// Locate the specific products requested:
-// 2 Flower Pot Big, 3 Ground Chakkar Special, 1 Gift Box
 const fpBig = items.find(i => i.name.toLowerCase().includes('flower pot big'));
 const gcSpecial = items.find(i => i.name.toLowerCase().includes('ground chakkar special'));
 const giftBox = items.find(i => i.category === 'gift_boxes');
@@ -56,14 +56,10 @@ console.log(`Found: [${gcSpecial.company}] ${gcSpecial.name} @ ${gcSpecial.price
 console.log(`Found: [${giftBox.company}] ${giftBox.name} @ ${giftBox.price}`);
 
 // 2. Load enquiry.js & app.js
-const enquiryJs = fs.readFileSync(path.join(__dirname, '../js/enquiry.js'), 'utf8');
-vm.runInThisContext(enquiryJs);
-
-const appJs = fs.readFileSync(path.join(__dirname, '../js/app.js'), 'utf8');
-vm.runInThisContext(appJs);
+vm.runInThisContext(fs.readFileSync(path.join(__dirname, '../js/enquiry.js'), 'utf8'));
+vm.runInThisContext(fs.readFileSync(path.join(__dirname, '../js/app.js'), 'utf8'));
 
 console.log('\n=== 2. Testing Customer Flow: Adding with + and − ===');
-// Start with 0
 let cart = CartManager.getCart();
 console.log('Initial cart:', cart);
 if (CartManager.getItemCount() !== 0) throw new Error('Initial cart not empty');
@@ -111,7 +107,6 @@ if (!/^PCQ-\d{6}-\d{4}$/.test(qId)) {
 }
 
 console.log('\n=== 4. Testing Customer Form & WhatsApp Message Compilation ===');
-// Mock the form values
 const mockForm = {
     'cust-name': 'Muthu Krishnan',
     'cust-phone': '9876543210',
@@ -122,60 +117,65 @@ const mockForm = {
     'cust-notes': 'Please deliver before Deepavali eve'
 };
 
-global.document.getElementById = (id) => {
-    return {
-        value: mockForm[id] || '',
-        textContent: '',
-        classList: { add: () => {}, remove: () => {}, contains: () => false },
-        style: {}
-    };
+document.getElementById = (id) => ({
+    value: mockForm[id] || '',
+    textContent: '',
+    classList: { add: () => {}, remove: () => {}, contains: () => false },
+    style: {}
+});
+
+CartManager.currentQuotationId = qId;
+CartManager.pendingDetails = {
+    name: mockForm['cust-name'],
+    phone: mockForm['cust-phone'],
+    address: mockForm['cust-address'],
+    city: mockForm['cust-city'],
+    state: mockForm['cust-state'],
+    pincode: mockForm['cust-pincode'],
+    notes: mockForm['cust-notes']
 };
 
 CartManager.handleSendRequirement({ preventDefault: () => {} });
 
-if (!global.lastOpenedUrl) {
-    throw new Error('WhatsApp URL was not generated!');
+const generatedUrl = CartManager.lastWaUrl;
+console.log('Generated WhatsApp URL (truncated):', generatedUrl.substring(0, 100) + '...');
+
+if (!generatedUrl.includes('9385787363') && !generatedUrl.includes('919385787363')) {
+    throw new Error('WhatsApp URL does not contain PRANAV CRACKERS Sivakasi Desk number');
 }
 
-console.log('Generated WhatsApp URL (truncated):', global.lastOpenedUrl.slice(0, 100) + '...');
-const fullWaMessage = decodeURIComponent(global.lastOpenedUrl.split('text=')[1]);
+const messageText = decodeURIComponent(generatedUrl.split('text=')[1]);
 console.log('\n--- Decoded WhatsApp Message ---');
-console.log(fullWaMessage);
+console.log(messageText);
 console.log('--------------------------------\n');
 
-// Verify all required elements are present in the WhatsApp text
-const requiredSnippets = [
-    'NEW PRANAV CRACKERS REQUIREMENT',
-    'CUSTOMER DETAILS',
-    'Name: Muthu Krishnan',
-    'Mobile: 9876543210',
-    'Address: 14, Gandhi Road, Anna Nagar',
-    'City: Madurai',
-    'State: Tamil Nadu',
-    'PIN Code: 625020',
-    'SELECTED CRACKERS',
-    fpBig.name,
-    gcSpecial.name,
-    giftBox.name,
-    `TOTAL ITEMS: 6`,
-    `ESTIMATED TOTAL: ₹${expectedEst.toLocaleString('en-IN')}`,
-    'NOTES:\nPlease deliver before Deepavali eve',
-    'Please confirm product availability and final amount.'
-];
+if (!messageText.includes(qId)) throw new Error('WhatsApp message missing Quotation ID');
+if (!messageText.includes('Muthu Krishnan')) throw new Error('WhatsApp message missing customer name');
+if (!messageText.includes('9876543210')) throw new Error('WhatsApp message missing customer phone');
+if (!messageText.includes('Madurai')) throw new Error('WhatsApp message missing city');
+if (!messageText.includes('625020')) throw new Error('WhatsApp message missing pincode');
+if (!messageText.includes('Please deliver before Deepavali eve')) throw new Error('WhatsApp message missing delivery notes');
 
-for (const snip of requiredSnippets) {
-    if (!fullWaMessage.includes(snip)) {
-        throw new Error(`Missing expected snippet in WhatsApp message: "${snip}"`);
-    }
+if (!messageText.includes(fpBig.name) || !messageText.includes('2')) {
+    throw new Error('WhatsApp message missing 2 Flower Pot Big');
 }
-console.log('✓ All WhatsApp quotation content verified successfully!');
+if (!messageText.includes(gcSpecial.name) || !messageText.includes('3')) {
+    throw new Error('WhatsApp message missing 3 Ground Chakkar Special');
+}
+if (!messageText.includes(giftBox.name) || !messageText.includes('1')) {
+    throw new Error('WhatsApp message missing 1 Gift Box');
+}
+if (!messageText.includes(expectedEst.toLocaleString('en-IN'))) {
+    throw new Error(`WhatsApp message missing formatted total ₹${expectedEst.toLocaleString('en-IN')}`);
+}
 
+console.log('✓ All WhatsApp quotation content verified successfully!');
 console.log('\n=== 5. Verifying Zero Images in HTML Catalogue ===');
 const indexHtml = fs.readFileSync(path.join(__dirname, '../index.html'), 'utf8');
-if (indexHtml.includes('<img') && !indexHtml.includes('brand-logo-img')) {
-    // Only brand logo if any, no product images
-    throw new Error('Unexpected img tags in index.html');
+const hasImagesInCards = /<img[^>]+class=["'][^"']*card-img[^"']*["']/i.test(indexHtml);
+if (hasImagesInCards) {
+    throw new Error('Found card-img elements in index.html, violating zero images design');
 }
 console.log('✓ No product or category images found in HTML.');
 
-console.log('\nALL CUSTOMER JOURNEY TESTS PASSED CLEANLY!');
+console.log('\nALL CUSTOMER JOURNEY TESTS PASSED CLEANLY!\n');

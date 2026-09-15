@@ -1,7 +1,15 @@
 /**
- * PRANAV CRACKERS - Multilingual Localization Module
- * Supported Languages: English (en), தமிழ் (ta), हिन्दी (hi), తెలుగు (te), മലയാളം (ml), ಕನ್ನಡ (kn), ગુજરાતી (gu), मराठी (mr), বাংলা (bn)
- * Complete natural translation for customer-facing UI while preserving product names, company names, prices, and calculations.
+ * =============================================================================
+ * PRANAV CRACKERS - MULTILINGUAL LOCALIZATION & TRANSLATIONS
+ * =============================================================================
+ * 
+ * HOW TO USE THIS FILE:
+ * - Supported Languages: English (en), Tamil (ta), Hindi (hi), Telugu (te),
+ *   Malayalam (ml), Kannada (kn), Gujarati (gu), Marathi (mr), Bengali (bn).
+ * - TO EDIT ANY BUTTON, LABEL OR BANNER TEXT:
+ *   Find the language code below (e.g., 'en' for English, 'ta' for Tamil)
+ *   and edit the corresponding text value.
+ * =============================================================================
  */
 
 const SUPPORTED_LANGUAGES = [

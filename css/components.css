@@ -1,6 +1,14 @@
 /* ==========================================================================
-   PRANAV CRACKERS - Festive Diwali Components Stylesheet
-   Compact, High-Density, Exciting Visual Experience (Zero Images)
+   PRANAV CRACKERS - COMPONENT STYLESHEET
+   ==========================================================================
+   HOW TO USE THIS FILE:
+   - Header & Navigation: Section 2 (.site-header)
+   - Category Chips: Section 3 (.category-tabs)
+   - Cracker Cards Grid: Section 5 (.cards-grid, .cracker-card)
+   - Rate Sheet Table: Section 5.1 (.rate-table)
+   - Bottom Dock: Section 6 (.cart-dock)
+   - Quotation Modal & Form: Section 7 (.modal-window, .q-submit-container)
+   - Admin Panel: Section 8 (.admin-modal-window)
    ========================================================================== */
 
 /* 1. Top Festive Announcement Bar */

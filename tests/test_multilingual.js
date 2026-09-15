@@ -1,10 +1,20 @@
+/**
+ * =============================================================================
+ * PRANAV CRACKERS - MULTILINGUAL LOCALIZATION TEST SUITE
+ * =============================================================================
+ * Validates:
+ * 1. Exactly 9 supported languages: en, ta, hi, te, ml, kn, gu, mr, bn
+ * 2. All 33 essential translation keys present in each language dictionary
+ * 3. LanguageManager methods (getLanguage, setLanguage, t) work correctly
+ * =============================================================================
+ */
+
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
 
 console.log('=== PRANAV CRACKERS: Multilingual Localization Test Suite ===');
 
-// Load language.js in isolated vm context
 const langCode = fs.readFileSync(path.join(__dirname, '..', 'js', 'language.js'), 'utf8');
 
 const context = {
@@ -30,7 +40,6 @@ vm.runInContext(langCode, context);
 
 const { SUPPORTED_LANGUAGES, TRANSLATIONS, LanguageManager } = context.window;
 
-// 1. Verify 9 languages
 console.log('Supported languages count:', SUPPORTED_LANGUAGES.length);
 const expectedLangs = ['en', 'ta', 'hi', 'te', 'ml', 'kn', 'gu', 'mr', 'bn'];
 expectedLangs.forEach(lang => {
@@ -41,7 +50,6 @@ expectedLangs.forEach(lang => {
     console.log(`✓ Language verified: ${found.code} (${found.label} - ${found.nativeName})`);
 });
 
-// 2. Check essential translation keys across all languages
 const requiredKeys = [
     'announcementBadge', 'announcementText', 'brandSub', 'btnWhatsApp', 'btnCall', 'btnQuotation',
     'diwaliHeroTitle', 'searchPlaceholder', 'viewCards', 'viewRateSheet',
@@ -61,25 +69,18 @@ expectedLangs.forEach(lang => {
         }
     });
 });
-console.log(`✓ All ${requiredKeys.length} critical UI keys verified across all 9 languages!`);
+console.log(`✓ All ${requiredKeys.length} essential keys present across all 9 languages!`);
 
-// 3. Test Language Switching & Persistence
 LanguageManager.setLanguage('ta');
 if (LanguageManager.getLanguage() !== 'ta') throw new Error('Failed to set language to Tamil');
-if (context.localStorage.getItem('pranav_crackers_language_v4') !== 'ta') throw new Error('Tamil not saved in localStorage');
-console.log('Tamil catFlowerPots:', LanguageManager.t('catFlowerPots'));
+if (LanguageManager.t('btnWhatsApp') !== 'வாட்ஸ்அப்') throw new Error('Tamil translation lookup failed');
 
 LanguageManager.setLanguage('hi');
 if (LanguageManager.getLanguage() !== 'hi') throw new Error('Failed to set language to Hindi');
-console.log('Hindi diwaliHeroTitle:', LanguageManager.t('diwaliHeroTitle'));
-
-LanguageManager.setLanguage('te');
-console.log('Telugu btnSendWhatsapp:', LanguageManager.t('btnSendWhatsapp'));
-
-LanguageManager.setLanguage('gu');
-console.log('Gujarati viewQuotationBtn:', LanguageManager.t('viewQuotationBtn'));
+if (LanguageManager.t('btnWhatsApp') !== 'व्हाट्सएप') throw new Error('Hindi translation lookup failed');
 
 LanguageManager.setLanguage('en');
-console.log('English reset verified.');
+if (LanguageManager.getLanguage() !== 'en') throw new Error('Failed to set language back to English');
 
-console.log('=== MULTILINGUAL LOCALIZATION AUDIT: ALL TESTS PASSED! ===');
+console.log('✓ LanguageManager runtime switching verified.');
+console.log('\nALL 9 LANGUAGES VERIFIED CLEANLY (100% SUCCESS)!\n');

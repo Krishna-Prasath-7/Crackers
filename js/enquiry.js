@@ -1,6 +1,15 @@
 /**
- * PRANAV CRACKERS - Cart, Live Quotation & WhatsApp Engine
- * Ultra-fast digital price list quotation flow with instant tactile updates and accurate Sivakasi savings calculation.
+ * =============================================================================
+ * PRANAV CRACKERS - CART, LIVE QUOTATION & WHATSAPP ENGINE
+ * =============================================================================
+ * 
+ * ROLE OF THIS FILE:
+ * - Manages shopping cart items and quantities (+ / - steppers)
+ * - Computes estimated wholesale totals and estimated retail savings
+ * - Generates unique quotation reference IDs (e.g., PCQ-260915-1042)
+ * - Compiles and formats the itemized WhatsApp ordering requirement message
+ * - Opens WhatsApp deep link (mobile app / web) and displays confirmation modal
+ * =============================================================================
  */
 
 class CartManager {

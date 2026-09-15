@@ -1,31 +1,161 @@
-const fs = require('fs');
-const path = require('path');
+/**
+ * =============================================================================
+ * PRANAV CRACKERS - PRODUCTS, WHOLESALE PRICES & CATEGORIES
+ * =============================================================================
+ *
+ * HOW TO USE THIS FILE:
+ * 1. TO CHANGE A CRACKER'S PRICE:
+ *    Scroll down to 'INITIAL_PRICE_LIST' and update the 'price' field (e.g. price: '₹75').
+ *
+ * 2. TO ADD A NEW CRACKER:
+ *    Add a new object inside 'INITIAL_PRICE_LIST' with sNo, name, company, price, and category.
+ *
+ * 3. TO EDIT GIFT BOXES:
+ *    Scroll down to 'INITIAL_GIFT_BOXES' where the City Series (ITALY, DUBAI, etc.) are listed.
+ *
+ * 4. TO ADD OR RENAME CATEGORIES:
+ *    Update 'PRICE_LIST_CATEGORIES' and 'INITIAL_CATEGORIES'.
+ * =============================================================================
+ */
 
-const dataPath = path.join(__dirname, '../js/data.js');
-let dataContent = fs.readFileSync(dataPath, 'utf8');
+const PRICE_LIST_CATEGORIES = [
+    { id: 'all', name: 'All' },
+    { id: 'flower_pots', name: 'Flowerpots', title: 'FLOWERPOTS' },
+    { id: 'ground_chakkars', name: 'Chakkars', title: 'GROUND CHAKKARS' },
+    { id: 'one_sound', name: 'One Sound', title: 'ONE SOUND CRACKERS' },
+    { id: 'bijili', name: 'Bijili', title: 'BIJILI CRACKERS' },
+    { id: 'twinkling_star', name: 'Twinkling Star', title: 'TWINKLING STAR' },
+    { id: 'bombs', name: 'Bombs', title: 'BOMBS' },
+    { id: 'rockets', name: 'Rockets', title: 'ROCKETS' },
+    { id: 'paper_bomb', name: 'Paper Bomb', title: 'PAPER BOMB' },
+    { id: 'sky_shots', name: 'Sky Shots', title: 'SKY SHOTS' },
+    { id: 'fancy_items', name: 'Fancy Items', title: 'FANCY ITEMS' },
+    { id: 'sparklers', name: 'Sparklers', title: 'SPARKLERS' },
+    { id: 'garlands', name: 'Garlands', title: 'GARLANDS' },
+    { id: 'gift_boxes', name: 'Gift Boxes', title: 'GIFT BOXES' },
+    { id: 'other_items', name: 'Other Items', title: 'OTHER ITEMS' }
+];
 
-// Find the FIRST occurrence of INITIAL_CATEGORIES
-const catIdx = dataContent.indexOf('const INITIAL_CATEGORIES = [');
-if (catIdx === -1) {
-    console.error("Could not find INITIAL_CATEGORIES");
-    process.exit(1);
-}
+const INITIAL_PRICE_LIST = [
+    // --- 1. FLOWERPOTS ---
+    { sNo: 1, name: 'Flower Pot Big', company: 'KALIS', price: '₹70', category: 'flower_pots' },
+    { sNo: 2, name: 'Flower Pot Special', company: 'KALIS', price: '₹95', category: 'flower_pots' },
+    { sNo: 3, name: 'Flower Pot Ashoka', company: 'KALIS', price: '₹140', category: 'flower_pots' },
+    { sNo: 4, name: 'Flower Pot Giant', company: 'KALIS', price: '₹170', category: 'flower_pots' },
+    { sNo: 5, name: 'Flower Pot Deluxe (5 Pcs)', company: 'KALIS', price: '₹120', category: 'flower_pots' },
+    { sNo: 6, name: 'Flower Pot Super Deluxe (2 Pcs)', company: 'KALIS', price: '₹150', category: 'flower_pots' },
+    { sNo: 7, name: 'Flower Pot Small', company: 'KALIS', price: '₹50', category: 'flower_pots' },
+    { sNo: 8, name: 'Colour Koti', company: 'KALIS', price: '₹200', category: 'flower_pots' },
+    { sNo: 9, name: 'Colour Koti Deluxe', company: 'KALIS', price: '₹300', category: 'flower_pots' },
+    { sNo: 10, name: 'Tri Colour Fountain', company: 'KALIS', price: '₹240', category: 'flower_pots' },
 
-// Find where INITIAL_SETTINGS begins after INITIAL_GIFT_BOXES
-const settingsIdx = dataContent.indexOf('const INITIAL_SETTINGS = {');
-if (settingsIdx === -1) {
-    console.error("Could not find INITIAL_SETTINGS");
-    process.exit(1);
-}
+    // --- 2. GROUND CHAKKARS ---
+    { sNo: 11, name: 'Ground Chakkar Big (10 Pcs)', company: 'KALIS', price: '₹40', category: 'ground_chakkars' },
+    { sNo: 12, name: 'Ground Chakkar Special', company: 'KALIS', price: '₹70', category: 'ground_chakkars' },
+    { sNo: 13, name: 'Ground Chakkar Deluxe', company: 'KALIS', price: '₹130', category: 'ground_chakkars' },
+    { sNo: 14, name: 'Spinner Special', company: 'KALIS', price: '₹110', category: 'ground_chakkars' },
+    { sNo: 15, name: 'Spinner Deluxe', company: 'KALIS', price: '₹140', category: 'ground_chakkars' },
+    { sNo: 16, name: 'Ground Chakkar Special (Plastic)', company: 'KALIS', price: '₹160', category: 'ground_chakkars' },
+    { sNo: 17, name: 'Disco Wheel', company: 'KALIS', price: '₹180', category: 'ground_chakkars' },
+    { sNo: 18, name: 'Whirling Wheel (Red & Green)', company: 'KALIS', price: '₹150', category: 'ground_chakkars' },
 
-// Extract portion before FIRST INITIAL_CATEGORIES
-const prefix = dataContent.slice(0, catIdx);
+    // --- 3. ONE SOUND CRACKERS ---
+    { sNo: 19, name: '2 3/4" Kuruvi', company: 'STANDARD', price: '₹9', category: 'one_sound' },
+    { sNo: 20, name: '3 1/2" Lakshmi', company: 'STANDARD', price: '₹18', category: 'one_sound' },
+    { sNo: 21, name: '4" Deluxe Lakshmi', company: 'STANDARD', price: '₹28', category: 'one_sound' },
+    { sNo: 22, name: '4" Gold Lakshmi', company: 'STANDARD', price: '₹36', category: 'one_sound' },
+    { sNo: 23, name: '5" Mega Sound', company: 'KALIS', price: '₹55', category: 'one_sound' },
+    { sNo: 24, name: '28 Chorsa', company: 'KALIS', price: '₹20', category: 'one_sound' },
 
-// Extract portion from INITIAL_SETTINGS onwards
-const suffix = dataContent.slice(settingsIdx);
+    // --- 4. BIJILI CRACKERS ---
+    { sNo: 25, name: 'Red Bijili (50 Pcs)', company: 'STANDARD', price: '₹20', category: 'bijili' },
+    { sNo: 26, name: 'Red Bijili (100 Pcs)', company: 'STANDARD', price: '₹38', category: 'bijili' },
+    { sNo: 27, name: 'Striped Bijili (50 Pcs)', company: 'STANDARD', price: '₹24', category: 'bijili' },
+    { sNo: 28, name: 'Striped Bijili (100 Pcs)', company: 'STANDARD', price: '₹46', category: 'bijili' },
 
-// Reconstruct clean INITIAL_CATEGORIES, INITIAL_PRODUCTS, INITIAL_GIFT_BOXES
-const cleanMiddle = `const INITIAL_CATEGORIES = [
+    // --- 5. TWINKLING STAR ---
+    { sNo: 29, name: '1 1/2" Twinkling Star', company: 'KALIS', price: '₹35', category: 'twinkling_star' },
+    { sNo: 30, name: '4" Twinkling Star', company: 'KALIS', price: '₹85', category: 'twinkling_star' },
+
+    // --- 6. BOMBS ---
+    { sNo: 31, name: 'Bullet Bomb', company: 'KALIS', price: '₹45', category: 'bombs' },
+    { sNo: 32, name: 'Hydro Bomb', company: 'KALIS', price: '₹80', category: 'bombs' },
+    { sNo: 33, name: 'King Bomb', company: 'KALIS', price: '₹120', category: 'bombs' },
+    { sNo: 34, name: 'Classic Bomb', company: 'KALIS', price: '₹90', category: 'bombs' },
+    { sNo: 35, name: 'Siren Bomb', company: 'KALIS', price: '₹110', category: 'bombs' },
+
+    // --- 7. ROCKETS ---
+    { sNo: 36, name: 'Baby Rocket', company: 'KALIS', price: '₹65', category: 'rockets' },
+    { sNo: 37, name: 'Rocket Bomb', company: 'S.KALA', price: '₹70', category: 'rockets' },
+    { sNo: 38, name: 'Lunik Rocket', company: 'KALIS', price: '₹110', category: 'rockets' },
+    { sNo: 39, name: 'Whistling Rocket', company: 'KALIS', price: '₹130', category: 'rockets' },
+
+    // --- 8. PAPER BOMB ---
+    { sNo: 40, name: '1/4 Kg Paper Bomb', company: 'KALIS', price: '₹65', category: 'paper_bomb' },
+    { sNo: 41, name: '1/2 Kg Paper Bomb', company: 'KALIS', price: '₹125', category: 'paper_bomb' },
+    { sNo: 42, name: '1 Kg Paper Bomb', company: 'KALIS', price: '₹240', category: 'paper_bomb' },
+
+    // --- 9. SKY SHOTS ---
+    { sNo: 43, name: '6 Shot Multi Colour', company: 'KALIS', price: '₹100', category: 'sky_shots' },
+    { sNo: 44, name: '7 Shot Repeater', company: 'KALIS', price: '₹120', category: 'sky_shots' },
+    { sNo: 45, name: '12 Shot Multi Colour', company: 'KALIS', price: '₹220', category: 'sky_shots' },
+    { sNo: 46, name: '12 Shot Aerial Cake', company: 'KALIS', price: '₹340', category: 'sky_shots' },
+    { sNo: 47, name: '15 Shot Multi Colour', company: 'KALIS', price: '₹380', category: 'sky_shots' },
+    { sNo: 48, name: '25 Shot Multi Colour Cake', company: 'KALIS', price: '₹680', category: 'sky_shots' },
+    { sNo: 49, name: '30 Shot Multi Colour', company: 'KALIS', price: '₹850', category: 'sky_shots' },
+    { sNo: 50, name: '50 Shot Galaxy Cake', company: 'KALIS', price: '₹1,450', category: 'sky_shots' },
+    { sNo: 51, name: '60 Shot Multi Colour', company: 'KALIS', price: '₹1,650', category: 'sky_shots' },
+
+    // --- 10. FANCY ITEMS ---
+    { sNo: 52, name: '3 Pcs Fancy', company: 'KALIS', price: '₹130', category: 'fancy_items' },
+    { sNo: 53, name: 'Colour Pops', company: 'KALIS', price: '₹90', category: 'fancy_items' },
+    { sNo: 54, name: 'Peacock Feather', company: 'KALIS', price: '₹150', category: 'fancy_items' },
+    { sNo: 55, name: 'Drone Butterfly', company: 'KALIS', price: '₹180', category: 'fancy_items' },
+    { sNo: 56, name: 'Selfie Stick', company: 'KALIS', price: '₹160', category: 'fancy_items' },
+    { sNo: 57, name: 'Helicopter Rotor', company: 'KALIS', price: '₹140', category: 'fancy_items' },
+    { sNo: 58, name: 'Waterfall Fountain', company: 'KALIS', price: '₹190', category: 'fancy_items' },
+
+    // --- 11. SPARKLERS ---
+    { sNo: 59, name: '10 CM Electric Sparkler', company: 'KALIS', price: '₹20', category: 'sparklers' },
+    { sNo: 60, name: '10 CM Colour Sparkler', company: 'KALIS', price: '₹24', category: 'sparklers' },
+    { sNo: 61, name: '10 CM Green Sparkler', company: 'KALIS', price: '₹26', category: 'sparklers' },
+    { sNo: 62, name: '10 CM Red Sparkler', company: 'KALIS', price: '₹28', category: 'sparklers' },
+    { sNo: 63, name: '12 CM Electric Sparkler', company: 'KALIS', price: '₹30', category: 'sparklers' },
+    { sNo: 64, name: '12 CM Colour Sparkler', company: 'KALIS', price: '₹36', category: 'sparklers' },
+    { sNo: 65, name: '15 CM Electric Sparkler', company: 'KALIS', price: '₹48', category: 'sparklers' },
+    { sNo: 66, name: '15 CM Colour Sparkler', company: 'KALIS', price: '₹55', category: 'sparklers' },
+    { sNo: 67, name: '15 CM Green Sparkler', company: 'KALIS', price: '₹65', category: 'sparklers' },
+    { sNo: 68, name: '30 CM Electric Sparkler', company: 'KALIS', price: '₹110', category: 'sparklers' },
+    { sNo: 69, name: '30 CM Colour Sparkler', company: 'KALIS', price: '₹130', category: 'sparklers' },
+    { sNo: 70, name: '50 CM Electric Sparkler', company: 'KALIS', price: '₹220', category: 'sparklers' },
+
+    // --- 12. GARLANDS ---
+    { sNo: 71, name: '50 Wala Garland', company: 'KALIS', price: '₹45', category: 'garlands' },
+    { sNo: 72, name: '100 Wala Garland', company: 'KALIS', price: '₹95', category: 'garlands' },
+    { sNo: 73, name: '300 Wala Garland', company: 'KALIS', price: '₹260', category: 'garlands' },
+    { sNo: 74, name: '1K Roll (Full Count)', company: 'KALIS', price: '₹750', category: 'garlands' },
+    { sNo: 75, name: '2K Roll (Full Count)', company: 'KALIS', price: '₹1,500', category: 'garlands' },
+    { sNo: 76, name: '5K Roll (Full Count)', company: 'KALIS', price: '₹3,600', category: 'garlands' },
+    { sNo: 77, name: '10K Roll (Full Count)', company: 'KALIS', price: '₹7,200', category: 'garlands' },
+
+    // --- 13. GIFT BOXES ---
+    { sNo: 78, name: '35 Items Gift Box', company: 'KALIS', price: '₹700', category: 'gift_boxes' },
+    { sNo: 79, name: '40 Items Gift Box', company: 'KALIS', price: '₹850', category: 'gift_boxes' },
+    { sNo: 80, name: '50 Items Gift Box', company: 'KALIS', price: '₹1,000', category: 'gift_boxes' },
+    { sNo: 81, name: '60 Items Gift Box', company: 'KALIS', price: '₹1,250', category: 'gift_boxes' },
+    { sNo: 82, name: '70 Items Gift Box', company: 'KALIS', price: '₹1,400', category: 'gift_boxes' },
+
+    // --- 14. OTHER ITEMS ---
+    { sNo: 83, name: 'Snake Tablets', company: 'KALIS', price: '₹25', category: 'other_items' },
+    { sNo: 84, name: 'Photo Flash', company: 'KALIS', price: '₹80', category: 'other_items' },
+    { sNo: 85, name: 'Colour Shower', company: 'KALIS', price: '₹110', category: 'other_items' },
+    { sNo: 86, name: 'Colour Matches', company: 'KALIS', price: '₹60', category: 'other_items' },
+    { sNo: 87, name: 'Pop Pop Snappers', company: 'KALIS', price: '₹30', category: 'other_items' },
+    { sNo: 88, name: 'Pogo Crackers', company: 'KALIS', price: '₹85', category: 'other_items' },
+    { sNo: 89, name: 'Magic Whip', company: 'KALIS', price: '₹95', category: 'other_items' }
+];
+
+const INITIAL_CATEGORIES = [
     { 
         id: 'all', 
         nameEn: 'All Fireworks', 
@@ -470,6 +600,7 @@ const INITIAL_PRODUCTS = [
         nameTe: 'గ్రౌండ్ చక్కర్ స్పెషల్',
         nameMl: 'ഗ്രൗണ്ട് ചക്രം സ്പെഷ്യൽ',
         nameKn: 'ನೆಲಚಕ್ರ ಸ್ಪೆಷಲ್',
+        company: 'KALIS',
         category: 'ground_chakkars',
         price: '₹110',
         packSize: '1 Box (10 Pcs)',
@@ -488,6 +619,7 @@ const INITIAL_PRODUCTS = [
         nameTe: 'ప్లాస్టిక్ స్పిన్నింగ్ చక్రం',
         nameMl: 'പ്ലാസ്റ്റിക് വീലിംഗ് ചക്രം',
         nameKn: 'ಪ್ಲಾಸ್ಟಿಕ್ ಸ್ಪಿನ್ನಿಂಗ್ ನೆಲಚಕ್ರ',
+        company: 'KALIS',
         category: 'ground_chakkars',
         price: '₹150',
         packSize: '1 Box (10 Pcs)',
@@ -508,6 +640,7 @@ const INITIAL_PRODUCTS = [
         nameTe: 'బేబీ రాకెట్',
         nameMl: 'ബേബി റോക്കറ്റ്',
         nameKn: 'ಬೇಬಿ ರಾಕೆಟ್',
+        company: 'KALIS',
         category: 'sky_rockets',
         price: '₹65',
         packSize: '1 Box (10 Pcs)',
@@ -526,6 +659,7 @@ const INITIAL_PRODUCTS = [
         nameTe: 'విజిల్ రాకెట్',
         nameMl: 'വിസിലിംഗ് റോക്കറ്റ്',
         nameKn: 'ವಿಸ್ಲಿಂಗ್ ರಾಕೆಟ್',
+        company: 'KALIS',
         category: 'sky_rockets',
         price: '₹130',
         packSize: '1 Box (10 Pcs)',
@@ -546,6 +680,7 @@ const INITIAL_PRODUCTS = [
         nameTe: '28 చోర్సా సాంప్రదాయ టపాసులు',
         nameMl: '28 ചോർസ പരമ്പരാഗത പടക്കം',
         nameKn: '28 ಚೋರ್ಸಾ ಸಾಂಪ್ರದಾಯಿಕ ಪಟಾಕಿ',
+        company: 'KALIS',
         category: 'sound_crackers',
         price: '₹35',
         packSize: '1 Pkt (28 Pcs)',
@@ -564,6 +699,7 @@ const INITIAL_PRODUCTS = [
         nameTe: '100 వాలా లడీ (మాల)',
         nameMl: '100 വാല മാല പടക്കം',
         nameKn: '100 ವಾಲಾ ಪಟಾಕಿ ಸರ',
+        company: 'KALIS',
         category: 'sound_crackers',
         price: '₹95',
         packSize: '1 Roll',
@@ -582,6 +718,7 @@ const INITIAL_PRODUCTS = [
         nameTe: 'హైడ్రో బాంబ్ (భారీ శబ్దం)',
         nameMl: 'ഹൈഡ്രോ ബോംബ്',
         nameKn: 'ಹೈಡ್ರೋ ಬಾಂಬ್',
+        company: 'KALIS',
         category: 'sound_crackers',
         price: '₹80',
         packSize: '1 Box (10 Pcs)',
@@ -602,6 +739,7 @@ const INITIAL_PRODUCTS = [
         nameTe: '7 షాట్స్ కలర్ స్కై రిపీటర్',
         nameMl: '7 ഷോട്ട്സ് കളർ സ്കൈ റിപ്പീറ്റർ',
         nameKn: '7 ಶಾಟ್ಸ್ ಬಣ್ಣದ ಸ್ಕೈ ರಿಪೀಟರ್',
+        company: 'KALIS',
         category: 'sky_shots',
         price: '₹175',
         packSize: '1 Piece (7 Shots)',
@@ -620,6 +758,7 @@ const INITIAL_PRODUCTS = [
         nameTe: '12 షాట్స్ ఏరియల్ కేక్',
         nameMl: '12 ഷോട്ട്സ് ഏരിയൽ കേക്ക്',
         nameKn: '12 ಶಾಟ್ಸ್ ಏರಿಯಲ್ ಕೇಕ್',
+        company: 'KALIS',
         category: 'sky_shots',
         price: '₹340',
         packSize: '1 Box Cake (12 Shots)',
@@ -638,6 +777,7 @@ const INITIAL_PRODUCTS = [
         nameTe: '25 షాట్స్ గ్రాండ్ స్కై సింఫనీ',
         nameMl: '25 ഷോട്ട്സ് ഗ്രാൻഡ് സ്കൈ സിംഫണി',
         nameKn: '25 ಶಾಟ್ಸ್ ಗ್ರಾಂಡ್ ಸ್ಕೈ ಸಿಂಫನಿ',
+        company: 'KALIS',
         category: 'sky_shots',
         price: '₹680',
         packSize: '1 Box Cake (25 Shots)',
@@ -1018,8 +1158,22 @@ const INITIAL_GIFT_BOXES = [
         ]
     }
 ];
-\n`;
 
-const finalContent = prefix + cleanMiddle + suffix;
-fs.writeFileSync(dataPath, finalContent, 'utf8');
-console.log("Successfully rebuilt data.js from first INITIAL_CATEGORIES!");
+// Global window & module exports
+if (typeof window !== 'undefined') {
+    window.PRICE_LIST_CATEGORIES = PRICE_LIST_CATEGORIES;
+    window.INITIAL_PRICE_LIST = INITIAL_PRICE_LIST;
+    window.INITIAL_CATEGORIES = INITIAL_CATEGORIES;
+    window.INITIAL_PRODUCTS = INITIAL_PRODUCTS;
+    window.INITIAL_GIFT_BOXES = INITIAL_GIFT_BOXES;
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        PRICE_LIST_CATEGORIES,
+        INITIAL_PRICE_LIST,
+        INITIAL_CATEGORIES,
+        INITIAL_PRODUCTS,
+        INITIAL_GIFT_BOXES
+    };
+}

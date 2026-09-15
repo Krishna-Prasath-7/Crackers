@@ -1,6 +1,15 @@
 /**
- * PRANAV CRACKERS - Modern Digital Crackers Catalogue & Rate Sheet Controller
- * Seamless Dual View (Cards & Rate Sheet), instant category chips, and live cart stepper interactions.
+ * =============================================================================
+ * PRANAV CRACKERS - FRONTEND APPLICATION CONTROLLER
+ * =============================================================================
+ * 
+ * ROLE OF THIS FILE:
+ * - Controls catalogue rendering (cards grid & table rate sheet view)
+ * - Category filtering tabs and live search bar
+ * - Quantity steppers (+ / - buttons on product cards)
+ * - Synchronizing bottom dock and cart count badges
+ * - Initializing event listeners on page load
+ * =============================================================================
  */
 
 class App {
