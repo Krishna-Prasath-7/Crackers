@@ -25,9 +25,9 @@
     <!-- 1. Top Festive Announcement Bar -->
     <div class="top-announcement-bar">
         <div class="container announcement-inner">
-            <span class="announcement-badge">💥 DIWALI 2026</span>
-            <span class="announcement-text">Direct Sivakasi Factory Wholesale • Up to 70% Off Retail MRP • Safe All-India Delivery</span>
-            <a href="tel:7708532334" class="announcement-phone">📞 Sivakasi Desk: +91 77085 32334</a>
+            <span class="announcement-badge" data-i18n="announcementBadge">💥 DIWALI 2026</span>
+            <span class="announcement-text" data-i18n="announcementText">Direct Sivakasi Factory Wholesale • Up to 70% Off Retail MRP • Safe All-India Delivery</span>
+            <a href="tel:7708532334" class="announcement-phone" data-i18n="announcementPhone">📞 Sivakasi Desk: +91 77085 32334</a>
         </div>
     </div>
 
@@ -39,26 +39,46 @@
                 <div class="brand-logo-icon">✨</div>
                 <div class="brand-text">
                     <h1 class="brand-name">PRANAV CRACKERS</h1>
-                    <span class="brand-sub">Direct Sivakasi Wholesale Fireworks</span>
+                    <span class="brand-sub" data-i18n="brandSub">Direct Sivakasi Wholesale Fireworks</span>
                 </div>
             </a>
 
             <!-- Header Quick Action Buttons -->
             <div class="header-actions">
+                <!-- Language Selector Dropdown -->
+                <div class="lang-selector-wrapper">
+                    <label for="header-lang-select" class="sr-only">Language</label>
+                    <div class="lang-select-box">
+                        <span class="lang-globe-icon" aria-hidden="true">🌐</span>
+                        <select id="header-lang-select" class="lang-select-dropdown" onchange="LanguageManager.setLanguage(this.value)" aria-label="Select Language">
+                            <option value="en">English</option>
+                            <option value="ta">தமிழ்</option>
+                            <option value="hi">हिन्दी</option>
+                            <option value="te">తెలుగు</option>
+                            <option value="ml">മലയാളം</option>
+                            <option value="kn">ಕನ್ನಡ</option>
+                            <option value="gu">ગુજરાતી</option>
+                            <option value="mr">मराठी</option>
+                            <option value="bn">বাংলা</option>
+                        </select>
+                        <span class="lang-arrow-icon" aria-hidden="true">▾</span>
+                    </div>
+                </div>
+
                 <a href="https://wa.me/919385787363?text=Hello%20PRANAV%20CRACKERS,%20I%20would%20like%20to%20enquire%20about%20crackers." target="_blank" class="header-action-btn btn-wa" title="Chat on WhatsApp">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
-                    <span class="action-text">WhatsApp</span>
+                    <span class="action-text" data-i18n="btnWhatsApp">WhatsApp</span>
                 </a>
 
                 <a href="tel:7708532334" class="header-action-btn btn-call" title="Call Sivakasi Desk">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    <span class="action-text">Call Us</span>
+                    <span class="action-text" data-i18n="btnCall">Call Us</span>
                 </a>
 
                 <!-- Quotation Header Pill Trigger -->
                 <button type="button" class="header-action-btn btn-quotation" id="header-quotation-trigger" onclick="CartManager.openQuotationModal()" aria-label="Open Quotation">
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-                    <span class="action-text">Quotation</span>
+                    <span class="action-text" data-i18n="btnQuotation">Quotation</span>
                     <span class="header-badge" id="header-cart-badge">0</span>
                 </button>
             </div>
@@ -71,29 +91,29 @@
             <div class="trust-badge-item">
                 <span class="badge-icon">🏭</span>
                 <div class="badge-texts">
-                    <strong class="badge-title">Direct Sivakasi Factory</strong>
-                    <span class="badge-sub">No middlemen markups</span>
+                    <strong class="badge-title" data-i18n="trustDirectFactory">Direct Sivakasi Factory</strong>
+                    <span class="badge-sub" data-i18n="trustDirectFactorySub">No middlemen markups</span>
                 </div>
             </div>
             <div class="trust-badge-item">
                 <span class="badge-icon">🌱</span>
                 <div class="badge-texts">
-                    <strong class="badge-title">CSIR-NEERI Green</strong>
-                    <span class="badge-sub">Certified eco-friendly</span>
+                    <strong class="badge-title" data-i18n="trustGreen">CSIR-NEERI Green</strong>
+                    <span class="badge-sub" data-i18n="trustGreenSub">Certified eco-friendly</span>
                 </div>
             </div>
             <div class="trust-badge-item">
                 <span class="badge-icon">🏷️</span>
                 <div class="badge-texts">
-                    <strong class="badge-title">Genuine Brands</strong>
-                    <span class="badge-sub">KALIS, STANDARD, S.KALA</span>
+                    <strong class="badge-title" data-i18n="trustBrands">Genuine Brands</strong>
+                    <span class="badge-sub" data-i18n="trustBrandsSub">KALIS, STANDARD, S.KALA</span>
                 </div>
             </div>
             <div class="trust-badge-item">
                 <span class="badge-icon">🚚</span>
                 <div class="badge-texts">
-                    <strong class="badge-title">Safe Transport</strong>
-                    <span class="badge-sub">Direct delivery across India</span>
+                    <strong class="badge-title" data-i18n="trustTransport">Safe Transport</strong>
+                    <span class="badge-sub" data-i18n="trustTransportSub">Direct delivery across India</span>
                 </div>
             </div>
         </div>
@@ -103,22 +123,22 @@
     <section class="diwali-hero-strip">
         <div class="container diwali-hero-inner">
             <div class="diwali-hero-left">
-                <span class="festive-live-pill">🔥 DIWALI 2026 FACTORY SALE LIVE</span>
-                <h2 class="diwali-hero-title">Sivakasi Direct Crackers at Factory Wholesale Rates</h2>
-                <p class="diwali-hero-desc">Select your crackers below, see instant live estimated savings, and send your complete requirement on WhatsApp in 30 seconds.</p>
+                <span class="festive-live-pill" data-i18n="diwaliSaleLive">🔥 DIWALI 2026 FACTORY SALE LIVE</span>
+                <h2 class="diwali-hero-title" data-i18n="diwaliHeroTitle">Sivakasi Direct Crackers at Factory Wholesale Rates</h2>
+                <p class="diwali-hero-desc" data-i18n="diwaliHeroDesc">Select your crackers below, see instant live estimated savings, and send your complete requirement on WhatsApp in 30 seconds.</p>
             </div>
             <div class="diwali-hero-badges">
                 <div class="hero-stat-badge">
                     <span class="stat-num">94+</span>
-                    <span class="stat-lbl">Varieties</span>
+                    <span class="stat-lbl" data-i18n="statVarieties">Varieties</span>
                 </div>
                 <div class="hero-stat-badge highlight">
                     <span class="stat-num">60%</span>
-                    <span class="stat-lbl">Factory Off</span>
+                    <span class="stat-lbl" data-i18n="statFactoryOff">Factory Off</span>
                 </div>
                 <div class="hero-stat-badge">
                     <span class="stat-num">₹0</span>
-                    <span class="stat-lbl">Min. Limit</span>
+                    <span class="stat-lbl" data-i18n="statMinLimit">Min. Limit</span>
                 </div>
             </div>
         </div>
@@ -132,7 +152,7 @@
                 <!-- Search Input -->
                 <div class="search-box">
                     <svg class="search-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                    <input type="text" id="product-search-input" class="search-input" placeholder="Search 94+ crackers (e.g. Flower Pot, Chakkar, 12 Shot, Gift Box)..." aria-label="Search crackers">
+                    <input type="text" id="product-search-input" class="search-input" placeholder="Search 94+ crackers (e.g. Flower Pot, Chakkar, 12 Shot, Gift Box)..." data-i18n-placeholder="searchPlaceholder" aria-label="Search crackers">
                     <button type="button" id="search-clear-btn" class="search-clear-btn" style="display:none;" onclick="App.clearSearch()" aria-label="Clear search">✕</button>
                 </div>
 
@@ -140,11 +160,11 @@
                 <div class="view-mode-switcher" role="radiogroup" aria-label="Catalogue View Mode">
                     <button type="button" class="view-mode-btn active" id="view-cards-btn" onclick="App.setViewMode('cards')" title="Card View">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                        <span>Cards</span>
+                        <span data-i18n="viewCards">Cards</span>
                     </button>
                     <button type="button" class="view-mode-btn" id="view-table-btn" onclick="App.setViewMode('table')" title="Quick Price List View">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-                        <span>Rate Sheet</span>
+                        <span data-i18n="viewRateSheet">Rate Sheet</span>
                     </button>
                 </div>
             </div>
@@ -178,13 +198,13 @@
                     <strong class="dock-items-count" id="dock-items-count">0 Items</strong>
                 </div>
                 <div class="dock-pricing-box">
-                    <span class="dock-label">Wholesale Total:</span>
+                    <span class="dock-label" data-i18n="wholesaleTotalText">Wholesale Total:</span>
                     <strong class="dock-total-price" id="dock-total-price">₹0</strong>
                     <span class="dock-savings-tag" id="dock-savings-tag" style="display:none;"></span>
                 </div>
             </div>
             <button type="button" class="dock-action-btn" id="dock-action-btn" onclick="CartManager.openQuotationModal()" disabled>
-                <span>VIEW QUOTATION & WHATSAPP</span>
+                <span data-i18n="viewQuotationBtn">VIEW QUOTATION & WHATSAPP</span>
                 <span class="dock-arrow">→</span>
             </button>
         </div>
@@ -195,8 +215,8 @@
         <div class="modal-window quotation-modal-window">
             <div class="q-modal-header">
                 <div class="q-modal-title-box">
-                    <span class="q-modal-super">PRANAV CRACKERS • SIVAKASI</span>
-                    <h2 class="q-modal-heading">ESTIMATED QUOTATION</h2>
+                    <span class="q-modal-super" data-i18n="sivakasiSuper">PRANAV CRACKERS • SIVAKASI</span>
+                    <h2 class="q-modal-heading" data-i18n="estQuotationHeading">ESTIMATED QUOTATION</h2>
                     <span class="q-modal-ref-tag" id="q-modal-ref-tag">Ref: PCQ-...</span>
                 </div>
                 <button type="button" class="modal-close-btn" onclick="CartManager.closeQuotationModal()" aria-label="Close">✕</button>
@@ -206,8 +226,8 @@
                 <!-- Selected Items List -->
                 <div class="q-items-block">
                     <div class="q-block-header">
-                        <span>SELECTED CRACKERS</span>
-                        <button type="button" class="btn-clear-cart" onclick="CartManager.clearCart()">Clear All</button>
+                        <span data-i18n="selectedCrackers">SELECTED CRACKERS</span>
+                        <button type="button" class="btn-clear-cart" onclick="CartManager.clearCart()" data-i18n="clearAllBtn">Clear All</button>
                     </div>
                     <div class="q-items-scroll-list" id="quotation-modal-items">
                         <!-- Injected dynamically via CartManager.renderQuotationModal() -->
@@ -217,15 +237,15 @@
                 <!-- Quotation Totals Summary Card -->
                 <div class="q-totals-summary-card">
                     <div class="q-summary-line">
-                        <span>Total Selected Items:</span>
+                        <span data-i18n="totalSelected">Total Selected Items:</span>
                         <strong id="q-sum-items-count">0</strong>
                     </div>
                     <div class="q-summary-line savings-line" id="q-sum-savings-line" style="display:none;">
-                        <span>Estimated Retail MRP:</span>
+                        <span data-i18n="estRetailMrp">Estimated Retail MRP:</span>
                         <span class="mrp-striked" id="q-sum-mrp-price">₹0</span>
                     </div>
                     <div class="q-summary-line grand-total-line">
-                        <span>ESTIMATED WHOLESALE TOTAL:</span>
+                        <span data-i18n="estWholesaleTotal">ESTIMATED WHOLESALE TOTAL:</span>
                         <strong class="grand-price-text" id="q-sum-grand-total">₹0</strong>
                     </div>
                 </div>
@@ -233,49 +253,49 @@
                 <!-- Customer Details Form -->
                 <form id="quotation-form" onsubmit="CartManager.handleSendRequirement(event)">
                     <div class="q-customer-block">
-                        <div class="q-block-header">CUSTOMER & DELIVERY DETAILS</div>
+                        <div class="q-block-header" data-i18n="customerDetailsHeader">CUSTOMER & DELIVERY DETAILS</div>
                         
                         <div class="form-grid">
                             <div class="form-group full-width">
-                                <label for="cust-name">Full Name *</label>
-                                <input type="text" id="cust-name" class="form-control" required placeholder="Enter your full name">
+                                <label for="cust-name" data-i18n="labelName">Full Name *</label>
+                                <input type="text" id="cust-name" class="form-control" required placeholder="Enter your full name" data-i18n-placeholder="placeholderName">
                             </div>
 
                             <div class="form-group full-width">
-                                <label for="cust-phone">WhatsApp / Mobile Number *</label>
-                                <input type="tel" id="cust-phone" class="form-control" required placeholder="10-digit mobile number" pattern="[0-9]{10}">
+                                <label for="cust-phone" data-i18n="labelPhone">WhatsApp / Mobile Number *</label>
+                                <input type="tel" id="cust-phone" class="form-control" required placeholder="10-digit mobile number" pattern="[0-9]{10}" data-i18n-placeholder="placeholderPhone">
                             </div>
 
                             <div class="form-group full-width">
-                                <label for="cust-address">Delivery Address *</label>
-                                <input type="text" id="cust-address" class="form-control" required placeholder="House / Flat No., Street, Area">
+                                <label for="cust-address" data-i18n="labelAddress">Delivery Address *</label>
+                                <input type="text" id="cust-address" class="form-control" required placeholder="House / Flat No., Street, Area" data-i18n-placeholder="placeholderAddress">
                             </div>
 
                             <div class="form-group">
-                                <label for="cust-city">City / Town *</label>
-                                <input type="text" id="cust-city" class="form-control" required placeholder="City">
+                                <label for="cust-city" data-i18n="labelCity">City / Town *</label>
+                                <input type="text" id="cust-city" class="form-control" required placeholder="City" data-i18n-placeholder="placeholderCity">
                             </div>
 
                             <div class="form-group">
-                                <label for="cust-state">State *</label>
-                                <input type="text" id="cust-state" class="form-control" required value="Tamil Nadu" placeholder="State">
+                                <label for="cust-state" data-i18n="labelState">State *</label>
+                                <input type="text" id="cust-state" class="form-control" required value="Tamil Nadu" placeholder="State" data-i18n-placeholder="placeholderState">
                             </div>
 
                             <div class="form-group full-width">
-                                <label for="cust-pincode">PIN Code *</label>
-                                <input type="text" id="cust-pincode" class="form-control" required placeholder="6-digit PIN Code" pattern="[0-9]{6}">
+                                <label for="cust-pincode" data-i18n="labelPincode">PIN Code *</label>
+                                <input type="text" id="cust-pincode" class="form-control" required placeholder="6-digit PIN Code" pattern="[0-9]{6}" data-i18n-placeholder="placeholderPincode">
                             </div>
 
                             <div class="form-group full-width">
-                                <label for="cust-notes">Delivery Notes (Optional)</label>
-                                <textarea id="cust-notes" class="form-control" rows="2" placeholder="e.g. Preferred transport service, delivery timing"></textarea>
+                                <label for="cust-notes" data-i18n="labelNotes">Delivery Notes (Optional)</label>
+                                <textarea id="cust-notes" class="form-control" rows="2" placeholder="e.g. Preferred transport service, delivery timing" data-i18n-placeholder="placeholderNotes"></textarea>
                             </div>
                         </div>
 
                         <!-- Legal Disclaimer Card -->
                         <div class="q-disclaimer-box">
                             <span class="disclaimer-icon">ℹ️</span>
-                            <p class="disclaimer-text">
+                            <p class="disclaimer-text" data-i18n="legalDisclaimer">
                                 This is an estimated quotation based on current catalogue wholesale prices. Product availability and final transport logistics will be confirmed by PRANAV CRACKERS.
                             </p>
                         </div>
@@ -283,7 +303,7 @@
                         <!-- Primary WhatsApp Action Button -->
                         <button type="submit" class="btn btn-whatsapp full-width btn-submit-quotation">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
-                            <span>SEND QUOTATION ON WHATSAPP</span>
+                            <span data-i18n="btnSendWhatsapp">SEND REQUIREMENT ON WHATSAPP</span>
                         </button>
                     </div>
                 </form>
@@ -296,16 +316,16 @@
         <div class="modal-window confirmation-window" id="order-confirmation-content">
             <div class="confirmation-card">
                 <div class="confirmation-icon-circle">✓</div>
-                <h3 class="confirmation-title">Requirement Prepared!</h3>
+                <h3 class="confirmation-title" data-i18n="reqPreparedTitle">Requirement Prepared!</h3>
                 <div class="confirmation-ref-pill">
-                    <span>Quotation Reference:</span>
+                    <span data-i18n="reqPreparedRef">Quotation Reference:</span>
                     <strong id="confirmation-ref-val">PCQ-...</strong>
                 </div>
-                <p class="confirmation-msg">
+                <p class="confirmation-msg" data-i18n="reqPreparedMsg">
                     Your estimated quotation has been prepared and opened in WhatsApp. Please press <strong>Send</strong> inside WhatsApp to confirm your requirement with our Sivakasi desk.
                 </p>
                 <div class="confirmation-actions">
-                    <button type="button" class="btn btn-primary full-width" onclick="CartManager.closeConfirmationModal()">
+                    <button type="button" class="btn btn-primary full-width" onclick="CartManager.closeConfirmationModal()" data-i18n="continueBrowsing">
                         Continue Browsing
                     </button>
                 </div>
@@ -317,14 +337,14 @@
     <div class="modal-backdrop" id="track-order-modal" onclick="if(event.target === this) CartManager.closeTrackOrderModal()">
         <div class="modal-window track-modal-window">
             <div class="modal-header">
-                <h3 class="modal-title">Track Quotation / Requirement</h3>
+                <h3 class="modal-title" data-i18n="trackTitle">Track Quotation / Requirement</h3>
                 <button type="button" class="modal-close-btn" onclick="CartManager.closeTrackOrderModal()">✕</button>
             </div>
             <div class="modal-body">
                 <form id="track-order-form" onsubmit="CartManager.handleTrackLookup(event)">
                     <div class="track-input-group">
-                        <input type="text" id="track-query-input" class="form-control" placeholder="Enter Quotation ID (e.g. PCQ-260915-1042) or Phone" required>
-                        <button type="submit" class="btn btn-primary">Track</button>
+                        <input type="text" id="track-query-input" class="form-control" placeholder="Enter Quotation ID (e.g. PCQ-260915-1042) or Phone" data-i18n-placeholder="trackPlaceholder" required>
+                        <button type="submit" class="btn btn-primary" data-i18n="trackBtn">Track</button>
                     </div>
                 </form>
                 <div id="track-order-result" class="track-result-area">
@@ -354,12 +374,12 @@
                 <span class="footer-caption">Direct Sivakasi Wholesale Fireworks</span>
             </div>
             <div class="footer-links-row">
-                <a href="https://wa.me/919385787363" target="_blank">WhatsApp Sivakasi Desk</a>
-                <a href="tel:7708532334">Call +91 77085 32334</a>
-                <a href="javascript:void(0)" onclick="CartManager.openTrackOrderModal()">Track Quotation</a>
-                <a href="javascript:void(0)" onclick="AdminManager.openAdminModal()">Admin Login</a>
+                <a href="https://wa.me/919385787363" target="_blank" data-i18n="footerDesk">WhatsApp Sivakasi Desk</a>
+                <a href="tel:7708532334" data-i18n="footerCall">Call +91 77085 32334</a>
+                <a href="javascript:void(0)" onclick="CartManager.openTrackOrderModal()" data-i18n="footerTrack">Track Quotation</a>
+                <a href="javascript:void(0)" onclick="AdminManager.openAdminModal()" data-i18n="footerAdmin">Admin Login</a>
             </div>
-            <p class="footer-copyright">
+            <p class="footer-copyright" data-i18n="footerCopyright">
                 © 2026 PRANAV CRACKERS, Sivakasi. All Rights Reserved. Compliant with CSIR-NEERI Green Fireworks Guidelines.
             </p>
         </div>
@@ -367,6 +387,7 @@
 
     <!-- Scripts (with cache-busting parameter) -->
     <script src="js/data.js?v=4.0"></script>
+    <script src="js/language.js?v=4.0"></script>
     <script src="js/enquiry.js?v=4.0"></script>
     <script src="js/admin.js?v=4.0"></script>
     <script src="js/app.js?v=4.0"></script>

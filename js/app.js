@@ -44,6 +44,28 @@ class App {
         }
     }
 
+    static getCategoryTitle(catKey) {
+        const keyMap = {
+            all: 'catAll',
+            flower_pots: 'catFlowerPots',
+            ground_chakkars: 'catGroundChakkars',
+            sound_crackers: 'catSoundCrackers',
+            bombs: 'catBombs',
+            rockets: 'catRockets',
+            sky_shots: 'catSkyShots',
+            sparklers: 'catSparklers',
+            fancy_items: 'catFancyItems',
+            garlands: 'catGarlands',
+            gift_boxes: 'catGiftBoxes'
+        };
+        if (typeof LanguageManager !== 'undefined' && keyMap[catKey]) {
+            const fallback = (this.categoryGroups.find(g => g.key === catKey) || {}).title || catKey;
+            return LanguageManager.t(keyMap[catKey], fallback);
+        }
+        const grp = this.categoryGroups.find(g => g.key === catKey);
+        return grp ? grp.title : catKey;
+    }
+
     static calculateMRP(priceNum) {
         // Authentic Sivakasi factory direct wholesale is ~60% off standard retail MRP
         return Math.round(priceNum * 2.5);
@@ -79,6 +101,12 @@ class App {
         window.addEventListener('cartUpdated', () => {
             CartManager.updateCartBadges();
             this.syncAllSteppers();
+        });
+
+        // Global languageChanged listener
+        window.addEventListener('languageChanged', () => {
+            this.renderCategoryChips();
+            this.renderCatalogue();
         });
 
         // Close modals with Escape key
@@ -144,6 +172,7 @@ class App {
         this.categoryGroups.forEach(grp => {
             const isActive = this.currentCategory === grp.key;
             const count = counts[grp.key] || 0;
+            const title = this.getCategoryTitle(grp.key);
             html += `
                 <button type="button" 
                         class="cat-chip-btn ${isActive ? 'active' : ''}" 
@@ -152,7 +181,7 @@ class App {
                         role="tab" 
                         aria-selected="${isActive}">
                     <span class="chip-icon">${grp.icon}</span>
-                    <span class="chip-title">${grp.title}</span>
+                    <span class="chip-title">${title}</span>
                     <span class="chip-count">${count}</span>
                 </button>
             `;
@@ -216,8 +245,9 @@ class App {
                 cardEl.classList.add('is-selected');
                 const subEl = cardEl.querySelector('.card-subtotal-tag');
                 if (subEl) {
+                    const subLbl = typeof LanguageManager !== 'undefined' ? LanguageManager.t('subtotalText') : 'Subtotal';
                     subEl.style.display = 'inline-block';
-                    subEl.textContent = `Subtotal: ₹${subtotal.toLocaleString('en-IN')}`;
+                    subEl.textContent = `${subLbl}: ₹${subtotal.toLocaleString('en-IN')}`;
                 }
             } else {
                 cardEl.classList.remove('is-selected');
@@ -270,8 +300,9 @@ class App {
                     cardEl.classList.add('is-selected');
                     const subEl = cardEl.querySelector('.card-subtotal-tag');
                     if (subEl) {
+                        const subLbl = typeof LanguageManager !== 'undefined' ? LanguageManager.t('subtotalText') : 'Subtotal';
                         subEl.style.display = 'inline-block';
-                        subEl.textContent = `Subtotal: ₹${subtotal.toLocaleString('en-IN')}`;
+                        subEl.textContent = `${subLbl}: ₹${subtotal.toLocaleString('en-IN')}`;
                     }
                 } else {
                     cardEl.classList.remove('is-selected');
@@ -342,16 +373,17 @@ class App {
                 statusBanner.style.display = 'flex';
                 let filterText = '';
                 if (activeCat !== 'all') {
-                    const grp = this.categoryGroups.find(g => g.key === activeCat);
-                    filterText += `Category: <strong>${grp ? grp.title : activeCat}</strong> `;
+                    const title = this.getCategoryTitle(activeCat);
+                    filterText += `Category: <strong>${title}</strong> `;
                 }
                 if (query) {
                     filterText += `Search: "<strong>${query}</strong>" `;
                 }
                 filterText += `(${totalMatched} crackers found)`;
+                const showAllText = typeof LanguageManager !== 'undefined' ? LanguageManager.t('showAllBtn') : 'Show All Crackers';
                 statusBanner.innerHTML = `
                     <div class="status-banner-text">${filterText}</div>
-                    <button type="button" class="btn-reset-filter" onclick="App.resetView()">Show All Crackers</button>
+                    <button type="button" class="btn-reset-filter" onclick="App.resetView()">${showAllText}</button>
                 `;
             } else {
                 statusBanner.style.display = 'none';
@@ -360,12 +392,15 @@ class App {
 
         // Empty state
         if (totalMatched === 0) {
+            const emptyTitle = typeof LanguageManager !== 'undefined' ? LanguageManager.t('emptySearchTitle') : 'No crackers found matching';
+            const emptyDesc = typeof LanguageManager !== 'undefined' ? LanguageManager.t('emptySearchDesc') : 'Try searching for popular crackers like Flower Pot, Chakkar, 12 Shot, Sparklers, or Gift Box.';
+            const clearBtnText = typeof LanguageManager !== 'undefined' ? LanguageManager.t('clearSearchBtn') : 'Clear Search';
             container.innerHTML = `
                 <div class="empty-catalogue-box" style="text-align:center; padding: 3rem 1.5rem; background:#FFFFFF; border-radius:12px; border:1px solid #E2E8F0; margin: 1rem 0;">
                     <span style="font-size: 3rem; display:block; margin-bottom: 0.75rem;">🔍</span>
-                    <h3 style="font-size: 1.25rem; font-weight:800; color:#0F1B2F; margin-bottom: 0.5rem;">No crackers found matching "${query}"</h3>
-                    <p style="color:#64748B; font-size: 0.9rem; max-width: 420px; margin: 0 auto 1.25rem;">Try searching for popular crackers like Flower Pot, Chakkar, 12 Shot, Sparklers, or Gift Box.</p>
-                    <button type="button" class="btn-reset-filter" style="background:#0F1B2F; color:#FFFFFF; padding: 0.6rem 1.25rem; border-radius:6px; font-weight:700;" onclick="App.clearSearch()">Clear Search</button>
+                    <h3 style="font-size: 1.25rem; font-weight:800; color:#0F1B2F; margin-bottom: 0.5rem;">${emptyTitle} "${query}"</h3>
+                    <p style="color:#64748B; font-size: 0.9rem; max-width: 420px; margin: 0 auto 1.25rem;">${emptyDesc}</p>
+                    <button type="button" class="btn-reset-filter" style="background:#0F1B2F; color:#FFFFFF; padding: 0.6rem 1.25rem; border-radius:6px; font-weight:700;" onclick="App.clearSearch()">${clearBtnText}</button>
                 </div>
             `;
             return;
@@ -380,20 +415,27 @@ class App {
 
     static renderCardsView(container, grouped, cart) {
         let html = '';
+        const discountTag = typeof LanguageManager !== 'undefined' ? LanguageManager.t('saveDiscount') : 'SAVE 60%';
+        const subtotalWord = typeof LanguageManager !== 'undefined' ? LanguageManager.t('subtotalText') : 'Subtotal';
 
         this.categoryGroups.forEach(grp => {
             if (grp.key === 'all') return;
             const items = grouped[grp.key];
             if (!items || items.length === 0) return;
 
+            const grpTitle = this.getCategoryTitle(grp.key);
+            const itemWord = items.length === 1 
+                ? (typeof LanguageManager !== 'undefined' ? LanguageManager.t('itemText') : 'item')
+                : (typeof LanguageManager !== 'undefined' ? LanguageManager.t('itemsText') : 'items');
+
             html += `
                 <section class="category-group-block" id="cat-group-${grp.key}">
                     <div class="category-group-heading-bar">
                         <h3 class="group-title">
                             <span>${grp.icon}</span>
-                            <span>${grp.title}</span>
+                            <span>${grpTitle}</span>
                         </h3>
-                        <span class="group-item-count">${items.length} ${items.length === 1 ? 'item' : 'items'}</span>
+                        <span class="group-item-count">${items.length} ${itemWord}</span>
                     </div>
 
                     <div class="product-cards-grid">
@@ -413,7 +455,7 @@ class App {
                     <div class="cracker-card ${isSelected ? 'is-selected' : ''}" id="pcard-${item.id}">
                         <div class="card-badge-row">
                             <span class="card-brand-badge">${company}</span>
-                            <span class="card-discount-badge">SAVE 60%</span>
+                            <span class="card-discount-badge">${discountTag}</span>
                         </div>
 
                         <h4 class="card-name" title="${item.name}">${item.name}</h4>
@@ -423,7 +465,7 @@ class App {
                                 <span class="mrp-strike">₹${mrp.toLocaleString('en-IN')}</span>
                                 <strong class="wholesale-price">₹${priceNum.toLocaleString('en-IN')}</strong>
                             </div>
-                            <span class="card-subtotal-tag" style="${isSelected ? 'display:inline-block;' : 'display:none;'}">Subtotal: ₹${subtotal.toLocaleString('en-IN')}</span>
+                            <span class="card-subtotal-tag" style="${isSelected ? 'display:inline-block;' : 'display:none;'}">${subtotalWord}: ₹${subtotal.toLocaleString('en-IN')}</span>
                         </div>
 
                         <div class="card-stepper-control">
@@ -445,6 +487,11 @@ class App {
     }
 
     static renderTableView(container, grouped, cart) {
+        const thMrp = typeof LanguageManager !== 'undefined' ? LanguageManager.t('mrpText') : 'Retail MRP';
+        const thRate = typeof LanguageManager !== 'undefined' ? LanguageManager.t('wholesaleRateText') : 'Wholesale Rate';
+        const thQty = typeof LanguageManager !== 'undefined' ? LanguageManager.t('quantityText') : 'Quantity';
+        const thSub = typeof LanguageManager !== 'undefined' ? LanguageManager.t('subtotalText') : 'Subtotal';
+
         let html = `
             <div class="rate-sheet-table-wrapper">
                 <table class="rate-sheet-table">
@@ -452,10 +499,10 @@ class App {
                         <tr>
                             <th style="width: 50px;" class="text-center">#</th>
                             <th>Cracker Item & Brand</th>
-                            <th class="text-right" style="width: 100px;">Retail MRP</th>
-                            <th class="text-right" style="width: 130px;">Wholesale Rate</th>
-                            <th class="text-center" style="width: 140px;">Quantity</th>
-                            <th class="text-right" style="width: 120px;">Subtotal</th>
+                            <th class="text-right" style="width: 100px;">${thMrp}</th>
+                            <th class="text-right" style="width: 130px;">${thRate}</th>
+                            <th class="text-center" style="width: 140px;">${thQty}</th>
+                            <th class="text-right" style="width: 120px;">${thSub}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -468,10 +515,15 @@ class App {
             const items = grouped[grp.key];
             if (!items || items.length === 0) return;
 
+            const grpTitle = this.getCategoryTitle(grp.key);
+            const itemWord = items.length === 1 
+                ? (typeof LanguageManager !== 'undefined' ? LanguageManager.t('itemText') : 'item')
+                : (typeof LanguageManager !== 'undefined' ? LanguageManager.t('itemsText') : 'items');
+
             html += `
                 <tr class="table-group-header-row" style="background:#1E2E4B; color:#FCD34D;">
                     <td colspan="6" style="padding: 0.65rem 0.85rem; font-weight:800; font-size:0.85rem; letter-spacing:0.04em;">
-                        ${grp.icon} ${grp.title} (${items.length} items)
+                        ${grp.icon} ${grpTitle} (${items.length} ${itemWord})
                     </td>
                 </tr>
             `;

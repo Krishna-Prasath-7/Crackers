@@ -129,16 +129,21 @@ class CartManager {
         const dockSavings = document.getElementById('dock-savings-tag');
         const dockBtn = document.getElementById('dock-action-btn');
 
+        const itemLabel = count === 1 
+            ? (typeof LanguageManager !== 'undefined' ? LanguageManager.t('itemText') : 'Item') 
+            : (typeof LanguageManager !== 'undefined' ? LanguageManager.t('itemsText') : 'Items');
+
         if (dockCount) {
-            dockCount.textContent = `${count} ${count === 1 ? 'Item' : 'Items'}`;
+            dockCount.textContent = `${count} ${itemLabel}`;
         }
         if (dockPrice) {
             dockPrice.textContent = `₹${wholesale.toLocaleString('en-IN')}`;
         }
         if (dockSavings) {
             if (count > 0 && savings > 0) {
+                const saveWord = typeof LanguageManager !== 'undefined' ? LanguageManager.t('saveText') : 'Save';
                 dockSavings.style.display = 'inline-block';
-                dockSavings.textContent = `Save ₹${savings.toLocaleString('en-IN')} (60% OFF)`;
+                dockSavings.textContent = `${saveWord} ₹${savings.toLocaleString('en-IN')} (60% OFF)`;
             } else {
                 dockSavings.style.display = 'none';
             }
@@ -416,20 +421,25 @@ class CartManager {
         const content = document.getElementById('order-confirmation-content');
         if (!modal || !content) return;
 
+        const title = typeof LanguageManager !== 'undefined' ? LanguageManager.t('reqPreparedTitle') : 'Requirement Prepared!';
+        const refLabel = typeof LanguageManager !== 'undefined' ? LanguageManager.t('reqPreparedRef') : 'Quotation Reference:';
+        const msg = typeof LanguageManager !== 'undefined' ? LanguageManager.t('reqPreparedMsg') : 'Your estimated quotation has been prepared and opened in WhatsApp. Please press <strong>Send</strong> inside WhatsApp to confirm your requirement with our Sivakasi desk.';
+        const btnText = typeof LanguageManager !== 'undefined' ? LanguageManager.t('continueBrowsing') : 'Continue Browsing';
+
         content.innerHTML = `
             <div class="confirmation-box">
                 <div class="confirmation-icon">✓</div>
-                <h3 class="confirmation-title">Requirement Prepared</h3>
+                <h3 class="confirmation-title">${title}</h3>
                 <div class="confirmation-ref-box">
-                    <span class="ref-label">Quotation Reference:</span>
+                    <span class="ref-label">${refLabel}</span>
                     <strong class="ref-val">${order.id}</strong>
                 </div>
                 <p class="confirmation-msg">
-                    Your estimated quotation requirement has been compiled and opened in WhatsApp. Please press <strong>Send</strong> in WhatsApp so our Sivakasi team can review and confirm product availability.
+                    ${msg}
                 </p>
                 <div class="confirmation-actions">
                     <button type="button" class="btn btn-secondary full-width" onclick="CartManager.closeConfirmationModal()">
-                        Continue Browsing Crackers
+                        ${btnText}
                     </button>
                 </div>
             </div>
@@ -530,3 +540,9 @@ class CartManager {
 // Window global assignments
 window.CartManager = CartManager;
 window.EnquiryManager = CartManager;
+
+if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
+    window.addEventListener('languageChanged', () => {
+        CartManager.updateCartBadges();
+    });
+}

@@ -82,6 +82,27 @@ body {
         display: none; /* Icon only to conserve space */
     }
 
+    .lang-select-box {
+        height: 30px;
+        padding: 0 0.35rem;
+    }
+
+    .lang-select-dropdown {
+        font-size: 0.76rem;
+        padding-right: 0.85rem;
+        max-width: 82px;
+    }
+
+    .lang-globe-icon {
+        font-size: 0.8rem;
+        margin-right: 0.2rem;
+    }
+
+    .lang-arrow-icon {
+        font-size: 0.55rem;
+        margin-left: -0.75rem;
+    }
+
     /* Trust Strip */
     .trust-strip-section {
         padding: 0.45rem 0;
