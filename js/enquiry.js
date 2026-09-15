@@ -297,14 +297,34 @@ class CartManager {
         const notesInput = document.getElementById('cust-notes');
         const notes = (notesInput && notesInput.value ? notesInput.value : pending.notes || '').trim();
 
-        if (!name || !phone || !address || !city || !pincode) {
-            alert('Please fill in all required customer details (*).');
+        if (!name) {
+            alert('Please enter your Full Name.');
+            if (nameInput) { nameInput.focus(); nameInput.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
             return;
         }
 
         const phoneClean = phone.replace(/[^0-9]/g, '');
-        if (phoneClean.length < 10) {
+        if (!phoneClean || phoneClean.length < 10) {
             alert('Please enter a valid 10-digit mobile number.');
+            if (phoneInput) { phoneInput.focus(); phoneInput.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+            return;
+        }
+
+        if (!address) {
+            alert('Please enter your Delivery Address.');
+            if (addrInput) { addrInput.focus(); addrInput.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+            return;
+        }
+
+        if (!city) {
+            alert('Please enter your City / Town.');
+            if (cityInput) { cityInput.focus(); cityInput.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+            return;
+        }
+
+        if (!pincode || !/^[0-9]{6}$/.test(pincode)) {
+            alert('Please enter a valid 6-digit PIN Code.');
+            if (pinInput) { pinInput.focus(); pinInput.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
             return;
         }
 
@@ -402,6 +422,9 @@ class CartManager {
         const fullMsg = messageLines.join('\n');
         const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(fullMsg)}`;
 
+        // Save last WhatsApp URL
+        this.lastWaUrl = waUrl;
+
         // Clear cart and reset reference
         this.clearCart();
         this.currentQuotationId = null;
@@ -409,17 +432,39 @@ class CartManager {
         // Close Quotation Modal
         this.closeQuotationModal();
 
-        // Open WhatsApp in new tab
-        window.open(waUrl, '_blank');
+        // Show Requirement Prepared confirmation screen first so user is never stranded
+        this.showRequirementPrepared(order, waUrl);
 
-        // Show Requirement Prepared confirmation screen
-        this.showRequirementPrepared(order);
+        // Open WhatsApp: direct deep-link redirect on mobile, popup with fallback on desktop
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        let opened = false;
+        if (!isMobile) {
+            try {
+                const win = window.open(waUrl, '_blank');
+                if (win && !win.closed && typeof win.closed !== 'undefined') {
+                    opened = true;
+                }
+            } catch (e) {
+                opened = false;
+            }
+        }
+        if (!opened) {
+            try {
+                if (typeof window !== 'undefined' && window.location) {
+                    window.location.href = waUrl;
+                }
+            } catch (e) {
+                // Fallback for sandboxed or test environments
+            }
+        }
     }
 
-    static showRequirementPrepared(order) {
+    static showRequirementPrepared(order, waUrl) {
         const modal = document.getElementById('order-confirmation-modal');
         const content = document.getElementById('order-confirmation-content');
         if (!modal || !content) return;
+
+        const targetWaUrl = waUrl || this.lastWaUrl || `https://wa.me/${(DataStore.getSettings().whatsappPhoneRaw || '919385787363')}`;
 
         const title = typeof LanguageManager !== 'undefined' ? LanguageManager.t('reqPreparedTitle') : 'Requirement Prepared!';
         const refLabel = typeof LanguageManager !== 'undefined' ? LanguageManager.t('reqPreparedRef') : 'Quotation Reference:';
@@ -437,7 +482,11 @@ class CartManager {
                 <p class="confirmation-msg">
                     ${msg}
                 </p>
-                <div class="confirmation-actions">
+                <div class="confirmation-actions" style="display:flex; flex-direction:column; gap:0.75rem; width:100%; margin-top:1rem;">
+                    <a href="${targetWaUrl}" target="_blank" class="btn-whatsapp-submit full-width" style="text-decoration:none;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+                        <span>OPEN IN WHATSAPP TO SEND</span>
+                    </a>
                     <button type="button" class="btn btn-secondary full-width" onclick="CartManager.closeConfirmationModal()">
                         ${btnText}
                     </button>

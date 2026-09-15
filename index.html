@@ -300,11 +300,13 @@
                             </p>
                         </div>
 
-                        <!-- Primary WhatsApp Action Button -->
-                        <button type="submit" class="btn btn-whatsapp full-width btn-submit-quotation">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
-                            <span data-i18n="btnSendWhatsapp">SEND REQUIREMENT ON WHATSAPP</span>
-                        </button>
+                        <!-- Primary WhatsApp Action Button Container -->
+                        <div class="q-submit-container">
+                            <button type="submit" class="btn-whatsapp-submit btn-submit-quotation full-width" id="btn-submit-quotation">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+                                <span data-i18n="btnSendWhatsapp">SUBMIT ORDER ON WHATSAPP</span>
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -324,7 +326,7 @@
                 <p class="confirmation-msg" data-i18n="reqPreparedMsg">
                     Your estimated quotation has been prepared and opened in WhatsApp. Please press <strong>Send</strong> inside WhatsApp to confirm your requirement with our Sivakasi desk.
                 </p>
-                <div class="confirmation-actions">
+                <div class="confirmation-actions" id="confirmation-actions-box">
                     <button type="button" class="btn btn-primary full-width" onclick="CartManager.closeConfirmationModal()" data-i18n="continueBrowsing">
                         Continue Browsing
                     </button>
