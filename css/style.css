@@ -169,3 +169,37 @@ input, textarea, select {
     0%, 100% { box-shadow: 0 0 8px rgba(245, 158, 11, 0.2); }
     50% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.45); }
 }
+
+/* Primary WhatsApp Action Button (Green Background) */
+.btn-whatsapp-submit,
+.btn-whatsapp,
+.btn-submit-quotation,
+button.btn-submit-quotation,
+button[type="submit"].btn-whatsapp-submit {
+    width: 100% !important;
+    background: #25D366 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    padding: 0.95rem 1.25rem !important;
+    border-radius: var(--radius-md, 8px) !important;
+    font-size: 1.05rem !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.02em !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.6rem !important;
+    box-shadow: 0 4px 18px rgba(37, 211, 102, 0.55) !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-whatsapp-submit:hover,
+.btn-whatsapp:hover,
+.btn-submit-quotation:hover,
+button.btn-submit-quotation:hover {
+    background: #1EBE5D !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7) !important;
+}
+
