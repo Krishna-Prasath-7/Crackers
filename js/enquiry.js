@@ -483,8 +483,8 @@ class CartManager {
                     ${msg}
                 </p>
                 <div class="confirmation-actions" style="display:flex; flex-direction:column; gap:0.75rem; width:100%; margin-top:1rem;">
-                    <a href="${targetWaUrl}" target="_blank" class="btn-whatsapp-submit full-width" style="text-decoration:none;">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+                    <a href="${targetWaUrl}" target="_blank" class="btn-whatsapp-submit full-width" style="background:#25D366 !important; background-color:#25D366 !important; color:#FFFFFF !important; text-decoration:none; padding:14px 20px; font-weight:900; border-radius:8px; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 4px 18px rgba(37,211,102,0.45);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color:#FFFFFF !important; flex-shrink:0;"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
                         <span>OPEN IN WHATSAPP TO SEND</span>
                     </a>
                     <button type="button" class="btn btn-secondary full-width" onclick="CartManager.closeConfirmationModal()">

@@ -86,7 +86,7 @@ const TRANSLATIONS = {
         placeholderPincode: '6-digit PIN Code',
         placeholderNotes: 'e.g. Preferred transport service, delivery timing',
         legalDisclaimer: '⚠️ Legal Notice: In strict compliance with Supreme Court of India directives and CSIR-NEERI green fireworks guidelines, this platform functions as a digital price estimation tool. Products are supplied directly from licensed Sivakasi manufacturers.',
-        btnSendWhatsapp: 'SUBMIT ORDER ON WHATSAPP',
+        btnSendWhatsapp: 'SEND REQUIREMENT ON WHATSAPP',
         reqPreparedTitle: 'Requirement Prepared!',
         reqPreparedRef: 'Quotation Reference:',
         reqPreparedMsg: 'Your estimated quotation has been prepared and opened in WhatsApp. Please press Send inside WhatsApp to confirm your requirement with our Sivakasi desk.',
