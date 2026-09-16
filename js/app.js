@@ -4,32 +4,319 @@
  * =============================================================================
  * 
  * ROLE OF THIS FILE:
- * - Controls catalogue rendering (cards grid & table rate sheet view)
- * - Category filtering tabs and live search bar
+ * - Controls catalogue rendering (reference card layout & rate sheet view)
+ * - Category carousel scrolling and filtering
+ * - Search bar with live autocomplete
  * - Quantity steppers (+ / - buttons on product cards)
- * - Synchronizing bottom dock and cart count badges
- * - Initializing event listeners on page load
+ * - Synchronizing desktop sidebar quotation and mobile bottom dock
+ * - Fancy celebratory fireworks burst opening animation
  * =============================================================================
  */
+
+class FancyFireworks {
+    static animationId = null;
+
+    static start(canvasId = 'opening-fireworks-canvas', overlayId = 'opening-fireworks-overlay') {
+        if (typeof window === 'undefined' || typeof document === 'undefined') return;
+        const canvas = document.getElementById(canvasId);
+        const overlay = document.getElementById(overlayId);
+        if (!canvas || !overlay) return;
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        overlay.style.display = 'block';
+        overlay.style.opacity = '1';
+
+        const width = canvas.width = window.innerWidth;
+        const height = canvas.height = window.innerHeight;
+
+        const particles = [];
+        const rockets = [];
+        const colors = [
+            '#F59E0B', '#FBBF24', '#FCD34D', // Festive Gold
+            '#2563EB', '#1D4ED8', '#60A5FA', // Royal & Sky Blue
+            '#10B981', '#34D399',             // Emerald Savings Green
+            '#EF4444', '#F87171'              // Sivakasi Flame
+        ];
+
+        class Particle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                const angle = Math.random() * Math.PI * 2;
+                const speed = 2.5 + Math.random() * 6.5;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed;
+                this.alpha = 1;
+                this.decay = 0.016 + Math.random() * 0.018;
+                this.size = 2 + Math.random() * 2.5;
+            }
+            update() {
+                this.vx *= 0.96;
+                this.vy *= 0.96;
+                this.vy += 0.09; // subtle gravity
+                this.x += this.vx;
+                this.y += this.vy;
+                this.alpha -= this.decay;
+            }
+            draw(ctx) {
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, this.alpha);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        class Rocket {
+            constructor(startX, targetX, targetY) {
+                this.x = startX;
+                this.y = height;
+                this.targetX = targetX;
+                this.targetY = targetY;
+                this.speed = 11 + Math.random() * 4;
+                const angle = Math.atan2(targetY - height, targetX - startX);
+                this.vx = Math.cos(angle) * this.speed;
+                this.vy = Math.sin(angle) * this.speed;
+                this.exploded = false;
+                this.trail = [];
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.trail.push({ x: this.x, y: this.y, alpha: 0.8 });
+                if (this.trail.length > 8) this.trail.shift();
+                if (this.y <= this.targetY || Math.abs(this.x - this.targetX) < 8) {
+                    this.explode();
+                }
+            }
+            explode() {
+                this.exploded = true;
+                const count = 50 + Math.floor(Math.random() * 30);
+                const baseColor = colors[Math.floor(Math.random() * colors.length)];
+                for (let i = 0; i < count; i++) {
+                    const c = Math.random() > 0.4 ? baseColor : colors[Math.floor(Math.random() * colors.length)];
+                    particles.push(new Particle(this.x, this.y, c));
+                }
+            }
+            draw(ctx) {
+                ctx.save();
+                ctx.fillStyle = '#FCD34D';
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#F59E0B';
+                this.trail.forEach(t => {
+                    ctx.beginPath();
+                    ctx.arc(t.x, t.y, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 3.5, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        const launchRocket = () => {
+            const startX = width * 0.2 + Math.random() * (width * 0.6);
+            const targetX = width * 0.15 + Math.random() * (width * 0.7);
+            const targetY = height * 0.18 + Math.random() * (height * 0.35);
+            rockets.push(new Rocket(startX, targetX, targetY));
+        };
+
+        // Sequential multi-rocket launch
+        for (let i = 0; i < 5; i++) {
+            setTimeout(launchRocket, i * 350);
+        }
+
+        const startTime = Date.now();
+        const duration = 2800;
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = rockets.length - 1; i >= 0; i--) {
+                const r = rockets[i];
+                r.update();
+                r.draw(ctx);
+                if (r.exploded) rockets.splice(i, 1);
+            }
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.update();
+                p.draw(ctx);
+                if (p.alpha <= 0) particles.splice(i, 1);
+            }
+
+            if (Date.now() - startTime < duration || particles.length > 0 || rockets.length > 0) {
+                FancyFireworks.animationId = requestAnimationFrame(animate);
+            } else {
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                    ctx.clearRect(0, 0, width, height);
+                }, 800);
+            }
+        }
+
+        if (FancyFireworks.animationId) cancelAnimationFrame(FancyFireworks.animationId);
+        animate();
+    }
+}
 
 class App {
     static currentCategory = 'all';
     static searchQuery = '';
-    static viewMode = 'cards'; // 'cards' or 'table'
+    static viewMode = 'table'; // Rate Sheet only (cards removed per user request)
 
     static categoryGroups = [
-        { key: 'all', title: 'All Crackers', icon: '🎆' },
-        { key: 'flower_pots', title: 'Flower Pots', icon: '🪔' },
-        { key: 'ground_chakkars', title: 'Ground Chakkars', icon: '🌀' },
-        { key: 'sound_crackers', title: 'Sound Crackers', icon: '💥' },
-        { key: 'bombs', title: 'Bombs', icon: '💣' },
-        { key: 'rockets', title: 'Rockets', icon: '🚀' },
-        { key: 'sky_shots', title: 'Sky Shots', icon: '✨' },
-        { key: 'sparklers', title: 'Sparklers', icon: '🪄' },
-        { key: 'fancy_items', title: 'Fancy Items', icon: '🎉' },
-        { key: 'garlands', title: 'Garlands', icon: '🎇' },
-        { key: 'gift_boxes', title: 'Gift Boxes', icon: '🎁' }
+        { key: 'all', title: 'All Products', image: 'assets/images/gift_box.jpg' },
+        { key: 'sparklers', title: 'Sparklers', image: 'assets/images/sparklers.jpg' },
+        { key: 'flower_pots', title: 'Flower Pots', image: 'assets/images/flower_pots.jpg' },
+        { key: 'ground_chakkars', title: 'Ground Chakkars', image: 'assets/images/ground_chakkars.jpg' },
+        { key: 'sound_crackers', title: 'Sound Crackers', image: 'assets/images/sound_crackers.jpg' },
+        { key: 'bombs', title: 'Bombs', image: 'assets/images/bombs.jpg' },
+        { key: 'rockets', title: 'Rockets', image: 'assets/images/sky_rockets.jpg' },
+        { key: 'sky_shots', title: 'Sky Shots', image: 'assets/images/sky_shots.jpg' },
+        { key: 'fancy_items', title: 'Novelties', image: 'assets/images/fancy_items.jpg' },
+        { key: 'garlands', title: 'Garlands', image: 'assets/images/garlands.jpg' },
+        { key: 'gift_boxes', title: 'Gift Boxes', image: 'assets/images/gift_box.jpg' }
     ];
+
+    static PRODUCT_IMAGES = {
+        'fp-01': 'assets/products/fp-01.jpg',
+        'fp-02': 'assets/products/fp-02.jpg',
+        'fp-03': 'assets/products/fp-03.jpg',
+        'pl-4': 'assets/products/pl-4.jpg',
+        'pl-5': 'assets/products/pl-5.jpg',
+        'pl-6': 'assets/products/pl-6.jpg',
+        'pl-7': 'assets/products/pl-7.jpg',
+        'pl-8': 'assets/products/pl-8.jpg',
+        'pl-9': 'assets/products/pl-9.jpg',
+        'pl-10': 'assets/products/pl-10.jpg',
+        'gc-01': 'assets/products/gc-01.jpg',
+        'pl-12': 'assets/products/pl-12.jpg',
+        'pl-13': 'assets/products/pl-13.jpg',
+        'pl-14': 'assets/products/pl-14.jpg',
+        'pl-15': 'assets/products/pl-15.jpg',
+        'pl-16': 'assets/products/pl-16.jpg',
+        'pl-17': 'assets/products/pl-17.jpg',
+        'pl-18': 'assets/products/pl-18.jpg',
+        'os-kuruvi': 'assets/products/os-kuruvi.jpg',
+        'pl-20': 'assets/products/pl-20.jpg',
+        'pl-21': 'assets/products/pl-21.jpg',
+        'pl-22': 'assets/products/pl-22.jpg',
+        'pl-23': 'assets/products/pl-23.jpg',
+        'snd-28chorsa': 'assets/products/snd-28chorsa.jpg',
+        'bj-red': 'assets/products/bj-red.jpg',
+        'pl-26': 'assets/products/pl-26.jpg',
+        'pl-27': 'assets/products/pl-27.jpg',
+        'pl-28': 'assets/products/pl-28.jpg',
+        'pl-29': 'assets/products/pl-29.jpg',
+        'pl-30': 'assets/products/pl-30.jpg',
+        'pl-31': 'assets/products/pl-31.jpg',
+        'pl-32': 'assets/products/pl-32.jpg',
+        'pl-33': 'assets/products/pl-33.jpg',
+        'pl-34': 'assets/products/pl-34.jpg',
+        'pl-35': 'assets/products/pl-35.jpg',
+        'rkt-01': 'assets/products/rkt-01.jpg',
+        'rkt-rb': 'assets/products/rkt-rb.jpg',
+        'pl-38': 'assets/products/pl-38.jpg',
+        'pl-39': 'assets/products/pl-39.jpg',
+        'pl-40': 'assets/products/pl-40.jpg',
+        'pl-41': 'assets/products/pl-41.jpg',
+        'pl-42': 'assets/products/pl-42.jpg',
+        'pl-43': 'assets/products/pl-43.jpg',
+        'sky-7shot': 'assets/products/sky-7shot.jpg',
+        'pl-45': 'assets/products/pl-45.jpg',
+        'pl-46': 'assets/products/pl-46.jpg',
+        'pl-47': 'assets/products/pl-47.jpg',
+        'pl-48': 'assets/products/pl-48.jpg',
+        'pl-49': 'assets/products/pl-49.jpg',
+        'pl-50': 'assets/products/pl-50.jpg',
+        'pl-51': 'assets/products/pl-51.jpg',
+        'pl-52': 'assets/products/pl-52.jpg',
+        'pl-53': 'assets/products/pl-53.jpg',
+        'pl-54': 'assets/products/pl-54.jpg',
+        'pl-55': 'assets/products/pl-55.jpg',
+        'pl-56': 'assets/products/pl-56.jpg',
+        'pl-57': 'assets/products/pl-57.jpg',
+        'pl-58': 'assets/products/pl-58.jpg',
+        'spk-10ele': 'assets/products/spk-10ele.jpg',
+        'pl-60': 'assets/products/pl-60.jpg',
+        'pl-61': 'assets/products/pl-61.jpg',
+        'pl-62': 'assets/products/pl-62.jpg',
+        'pl-63': 'assets/products/pl-63.jpg',
+        'pl-64': 'assets/products/pl-64.jpg',
+        'pl-65': 'assets/products/pl-65.jpg',
+        'pl-66': 'assets/products/pl-66.jpg',
+        'pl-67': 'assets/products/pl-67.jpg',
+        'pl-68': 'assets/products/pl-68.jpg',
+        'pl-69': 'assets/products/pl-69.jpg',
+        'pl-70': 'assets/products/pl-70.jpg',
+        'pl-71': 'assets/products/pl-71.jpg',
+        'pl-72': 'assets/products/pl-72.jpg',
+        'pl-73': 'assets/products/pl-73.jpg',
+        'pl-74': 'assets/products/pl-74.jpg',
+        'pl-75': 'assets/products/pl-75.jpg',
+        'pl-76': 'assets/products/pl-76.jpg',
+        'pl-77': 'assets/products/pl-77.jpg',
+        'pl-78': 'assets/products/pl-78.jpg',
+        'pl-79': 'assets/products/pl-79.jpg',
+        'pl-80': 'assets/products/pl-80.jpg',
+        'pl-81': 'assets/products/pl-81.jpg',
+        'pl-82': 'assets/products/pl-82.jpg',
+        'gb-italy': 'assets/products/gb-italy.jpg',
+        'gb-singapore': 'assets/products/gb-singapore.jpg',
+        'gb-dubai': 'assets/products/gb-dubai.jpg',
+        'gb-paris': 'assets/products/gb-paris.jpg',
+        'gb-germany': 'assets/products/gb-germany.jpg',
+        'pl-83': 'assets/products/pl-83.jpg',
+        'pl-84': 'assets/products/pl-84.jpg',
+        'pl-85': 'assets/products/pl-85.jpg',
+        'pl-86': 'assets/products/pl-86.jpg',
+        'pl-87': 'assets/products/pl-87.jpg',
+        'pl-88': 'assets/products/pl-88.jpg',
+        'pl-89': 'assets/products/pl-89.jpg'
+    };
+
+    static GENERATED_PRODUCT_IMAGES = {
+        // Active AI-generated studio images in assets/products/generated/
+    };
+
+    static getItemImage(item) {
+        if (!item) return 'assets/images/gift_box.jpg';
+
+        // 1. High-Priority AI-Generated Clean Studio Product Image if present
+        if (item.id && this.GENERATED_PRODUCT_IMAGES[item.id]) {
+            return this.GENERATED_PRODUCT_IMAGES[item.id];
+        }
+
+        const name = (item.name || '').toLowerCase();
+        const cat = item.category || '';
+
+        // Clean Unbranded AI Category Images (Zero Third-Party Branded Packaging)
+        if (name.includes('sparkler') || name.includes('twinkling') || cat.includes('sparkler')) return 'assets/images/sparklers.jpg';
+        if (name.includes('flower pot') || name.includes('colour koti') || name.includes('anar') || cat.includes('flower_pot')) return 'assets/images/flower_pots.jpg';
+        if (name.includes('chakkar') || name.includes('spinner') || name.includes('wheel') || name.includes('disco') || cat.includes('ground_chakkar')) return 'assets/images/ground_chakkars.jpg';
+        if (name.includes('bomb') || cat.includes('bomb')) return 'assets/images/bombs.jpg';
+        if (name.includes('rocket') || cat.includes('rocket')) return 'assets/images/sky_rockets.jpg';
+        if (name.includes('shot') || name.includes('cake') || name.includes('galaxy') || name.includes('repeater') || name.includes('aerial') || cat.includes('sky_shot')) return 'assets/images/sky_shots.jpg';
+        if (name.includes('garland') || name.includes('wala') || name.includes('roll') || cat.includes('garland')) return 'assets/images/garlands.jpg';
+        if (name.includes('gift box') || name.includes('hamper') || cat.includes('gift_box')) return 'assets/images/gift_box.jpg';
+        if (name.includes('bijili') || name.includes('sound') || name.includes('lakshmi') || name.includes('kuruvi') || name.includes('mega') || name.includes('chorsa') || cat.includes('sound')) return 'assets/images/sound_crackers.jpg';
+
+        // Fallback to clean unbranded AI category image
+        const grpKey = this.mapToGroupKey(cat);
+        const grp = this.categoryGroups.find(g => g.key === grpKey);
+        return (grp && grp.image) ? grp.image : 'assets/images/gift_box.jpg';
+    }
 
     static mapToGroupKey(cat) {
         switch (cat) {
@@ -76,7 +363,6 @@ class App {
     }
 
     static calculateMRP(priceNum) {
-        // Authentic Sivakasi factory direct wholesale is ~60% off standard retail MRP
         return Math.round(priceNum * 2.5);
     }
 
@@ -87,46 +373,67 @@ class App {
         CartManager.updateCartBadges();
 
         // Direct admin check via URL hash
-        if (window.location.hash === '#admin') {
+        if (typeof window !== 'undefined' && window.location.hash === '#admin') {
             AdminManager.openAdminModal();
         }
 
-        console.log('PRANAV CRACKERS: Modern Catalogue & Rate Sheet Controller Initialized.');
+        // Trigger celebratory opening cracker burst
+        setTimeout(() => {
+            FancyFireworks.start();
+        }, 150);
+
+        console.log('PRANAV CRACKERS: Reference Layout & Royal Blue Engine Initialized.');
+    }
+
+    static triggerBurst() {
+        FancyFireworks.start();
+    }
+
+    static scrollCategories(direction) {
+        const row = document.getElementById('category-chips-row');
+        if (row) {
+            row.scrollBy({ left: direction * 220, behavior: 'smooth' });
+        }
     }
 
     static setupEventListeners() {
-        // Search Input Listener
-        const searchInput = document.getElementById('product-search-input');
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                this.searchQuery = e.target.value.toLowerCase().trim();
-                const clearBtn = document.getElementById('search-clear-btn');
-                if (clearBtn) clearBtn.style.display = this.searchQuery ? 'flex' : 'none';
-                this.renderCatalogue();
-            });
-        }
+        // Search Input Listeners (Support both top and header search inputs)
+        const setupSearch = (id) => {
+            const input = document.getElementById(id);
+            if (input) {
+                input.addEventListener('input', (e) => {
+                    this.searchQuery = e.target.value.toLowerCase().trim();
+                    const clearBtn = document.getElementById('search-clear-btn');
+                    if (clearBtn) clearBtn.style.display = this.searchQuery ? 'flex' : 'none';
+                    this.renderCatalogue();
+                });
+            }
+        };
+
+        setupSearch('product-search-input');
+        setupSearch('header-search-input');
 
         // Global cartUpdated listener
-        window.addEventListener('cartUpdated', () => {
-            CartManager.updateCartBadges();
-            this.syncAllSteppers();
-        });
+        if (typeof window !== 'undefined') {
+            window.addEventListener('cartUpdated', () => {
+                CartManager.updateCartBadges();
+                this.syncAllSteppers();
+            });
 
-        // Global languageChanged listener
-        window.addEventListener('languageChanged', () => {
-            this.renderCategoryChips();
-            this.renderCatalogue();
-        });
+            window.addEventListener('languageChanged', () => {
+                this.renderCategoryChips();
+                this.renderCatalogue();
+            });
 
-        // Close modals with Escape key
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                CartManager.closeQuotationModal();
-                CartManager.closeConfirmationModal();
-                CartManager.closeTrackOrderModal();
-                AdminManager.closeAdminModal();
-            }
-        });
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    CartManager.closeQuotationModal();
+                    CartManager.closeConfirmationModal();
+                    CartManager.closeTrackOrderModal();
+                    AdminManager.closeAdminModal();
+                }
+            });
+        }
     }
 
     static setViewMode(mode) {
@@ -162,36 +469,21 @@ class App {
         const chipsContainer = document.getElementById('category-chips-row');
         if (!chipsContainer) return;
 
-        const allItems = DataStore.getCatalogueItems();
-
-        // Calculate counts per category
-        const counts = { all: allItems.length };
-        this.categoryGroups.forEach(grp => {
-            if (grp.key !== 'all') counts[grp.key] = 0;
-        });
-
-        allItems.forEach(item => {
-            const grpKey = this.mapToGroupKey(item.category);
-            if (counts[grpKey] !== undefined) {
-                counts[grpKey]++;
-            }
-        });
-
         let html = '';
         this.categoryGroups.forEach(grp => {
             const isActive = this.currentCategory === grp.key;
-            const count = counts[grp.key] || 0;
             const title = this.getCategoryTitle(grp.key);
             html += `
                 <button type="button" 
-                        class="cat-chip-btn ${isActive ? 'active' : ''}" 
+                        class="cat-chip-btn cat-pill-card ${isActive ? 'active' : ''}" 
                         data-cat="${grp.key}" 
                         onclick="App.filterCategory('${grp.key}')" 
                         role="tab" 
                         aria-selected="${isActive}">
-                    <span class="chip-icon">${grp.icon}</span>
-                    <span class="chip-title">${title}</span>
-                    <span class="chip-count">${count}</span>
+                    <div class="cat-icon-circle" aria-hidden="true">
+                        <img src="${grp.image}" alt="${title}" class="cat-pill-thumb">
+                    </div>
+                    <span class="cat-pill-name">${title}</span>
                 </button>
             `;
         });
@@ -201,6 +493,8 @@ class App {
 
     static filterCategory(catKey) {
         this.currentCategory = catKey;
+        if (typeof document === 'undefined') return;
+
         document.querySelectorAll('.cat-chip-btn').forEach(chip => {
             if (chip.dataset.cat === catKey) {
                 chip.classList.add('active');
@@ -211,79 +505,89 @@ class App {
                 chip.setAttribute('aria-selected', 'false');
             }
         });
+
+        const headingEl = document.getElementById('section-category-title');
+        if (headingEl) {
+            headingEl.textContent = catKey === 'all' ? 'Featured Products' : this.getCategoryTitle(catKey);
+        }
+
         this.renderCatalogue();
     }
 
     static clearSearch() {
-        const input = document.getElementById('product-search-input');
-        if (input) {
-            input.value = '';
-            this.searchQuery = '';
-            const clearBtn = document.getElementById('search-clear-btn');
-            if (clearBtn) clearBtn.style.display = 'none';
-            this.renderCatalogue();
-            input.focus();
-        }
+        ['product-search-input', 'header-search-input'].forEach(id => {
+            const input = document.getElementById(id);
+            if (input) input.value = '';
+        });
+        this.searchQuery = '';
+        const clearBtn = document.getElementById('search-clear-btn');
+        if (clearBtn) clearBtn.style.display = 'none';
+        this.renderCatalogue();
     }
 
     static resetView() {
         this.clearSearch();
         this.filterCategory('all');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (typeof window !== 'undefined') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     }
 
     static changeQty(itemId, delta) {
         const nextQty = CartManager.changeQty(itemId, delta);
-        
-        // Instant tactile update in DOM for any matching element
-        document.querySelectorAll(`.stepper-val-${itemId}`).forEach(el => {
-            el.textContent = nextQty;
-        });
 
-        // Update Card / Row state and subtotal
-        const item = CartManager.getFullItemDetails(itemId);
-        const priceNum = item && item.price && item.price.includes('₹')
-            ? parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0
-            : 0;
-        const subtotal = priceNum * nextQty;
+        // Update DOM for matching elements
+        if (typeof document !== 'undefined') {
+            document.querySelectorAll(`.stepper-val-${itemId}`).forEach(el => {
+                el.textContent = nextQty;
+            });
 
-        // Card view update
-        const cardEl = document.getElementById(`pcard-${itemId}`);
-        if (cardEl && cardEl.querySelector) {
-            if (nextQty > 0) {
-                cardEl.classList.add('is-selected');
-                const subEl = cardEl.querySelector('.card-subtotal-tag');
-                if (subEl) {
-                    const subLbl = typeof LanguageManager !== 'undefined' ? LanguageManager.t('subtotalText') : 'Subtotal';
-                    subEl.style.display = 'inline-block';
-                    subEl.textContent = `${subLbl}: ₹${subtotal.toLocaleString('en-IN')}`;
+            const item = CartManager.getFullItemDetails(itemId);
+            const priceNum = item && item.price && item.price.includes('₹')
+                ? parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0
+                : 0;
+            const subtotal = priceNum * nextQty;
+
+            // Card view update
+            const cardEl = document.getElementById(`pcard-${itemId}`);
+            if (cardEl && cardEl.querySelector) {
+                if (nextQty > 0) {
+                    cardEl.classList.add('is-selected');
+                    const subEl = cardEl.querySelector('.card-subtotal-tag');
+                    if (subEl) {
+                        const subLbl = typeof LanguageManager !== 'undefined' ? LanguageManager.t('subtotalText') : 'Subtotal';
+                        subEl.style.display = 'block';
+                        subEl.textContent = `${subLbl}: ₹ ${subtotal.toLocaleString('en-IN')}`;
+                    }
+                } else {
+                    cardEl.classList.remove('is-selected');
+                    const subEl = cardEl.querySelector('.card-subtotal-tag');
+                    if (subEl) subEl.style.display = 'none';
                 }
-            } else {
-                cardEl.classList.remove('is-selected');
-                const subEl = cardEl.querySelector('.card-subtotal-tag');
-                if (subEl) subEl.style.display = 'none';
+            }
+
+            // Table view update
+            const rowEl = document.getElementById(`prow-${itemId}`);
+            if (rowEl && rowEl.querySelector) {
+                if (nextQty > 0) {
+                    rowEl.classList.add('is-selected');
+                    const subRowEl = rowEl.querySelector('.table-subtotal-val');
+                    if (subRowEl) subRowEl.textContent = `₹ ${subtotal.toLocaleString('en-IN')}`;
+                } else {
+                    rowEl.classList.remove('is-selected');
+                    const subRowEl = rowEl.querySelector('.table-subtotal-val');
+                    if (subRowEl) subRowEl.textContent = '₹ 0';
+                }
+            }
+
+            // Quotation modal if currently open
+            const modal = document.getElementById('quotation-modal');
+            if (modal && modal.classList && modal.classList.contains && modal.classList.contains('open')) {
+                CartManager.renderQuotationModal();
             }
         }
 
-        // Table view update
-        const rowEl = document.getElementById(`prow-${itemId}`);
-        if (rowEl && rowEl.querySelector) {
-            if (nextQty > 0) {
-                rowEl.classList.add('is-selected');
-                const subRowEl = rowEl.querySelector('.table-subtotal-val');
-                if (subRowEl) subRowEl.textContent = `₹${subtotal.toLocaleString('en-IN')}`;
-            } else {
-                rowEl.classList.remove('is-selected');
-                const subRowEl = rowEl.querySelector('.table-subtotal-val');
-                if (subRowEl) subRowEl.textContent = '₹0';
-            }
-        }
-
-        // If quotation modal is currently open, re-render it
-        const modal = document.getElementById('quotation-modal');
-        if (modal && modal.classList && modal.classList.contains && modal.classList.contains('open')) {
-            CartManager.renderQuotationModal();
-        }
+        return nextQty;
     }
 
     static syncAllSteppers() {
@@ -297,11 +601,9 @@ class App {
                 : 0;
             const subtotal = priceNum * qty;
 
-            if (document.querySelectorAll) {
-                document.querySelectorAll(`.stepper-val-${item.id}`).forEach(el => {
-                    el.textContent = qty;
-                });
-            }
+            document.querySelectorAll(`.stepper-val-${item.id}`).forEach(el => {
+                el.textContent = qty;
+            });
 
             const cardEl = document.getElementById(`pcard-${item.id}`);
             if (cardEl && cardEl.querySelector) {
@@ -310,8 +612,8 @@ class App {
                     const subEl = cardEl.querySelector('.card-subtotal-tag');
                     if (subEl) {
                         const subLbl = typeof LanguageManager !== 'undefined' ? LanguageManager.t('subtotalText') : 'Subtotal';
-                        subEl.style.display = 'inline-block';
-                        subEl.textContent = `${subLbl}: ₹${subtotal.toLocaleString('en-IN')}`;
+                        subEl.style.display = 'block';
+                        subEl.textContent = `${subLbl}: ₹ ${subtotal.toLocaleString('en-IN')}`;
                     }
                 } else {
                     cardEl.classList.remove('is-selected');
@@ -325,11 +627,11 @@ class App {
                 if (qty > 0) {
                     rowEl.classList.add('is-selected');
                     const subRowEl = rowEl.querySelector('.table-subtotal-val');
-                    if (subRowEl) subRowEl.textContent = `₹${subtotal.toLocaleString('en-IN')}`;
+                    if (subRowEl) subRowEl.textContent = `₹ ${subtotal.toLocaleString('en-IN')}`;
                 } else {
                     rowEl.classList.remove('is-selected');
                     const subRowEl = rowEl.querySelector('.table-subtotal-val');
-                    if (subRowEl) subRowEl.textContent = '₹0';
+                    if (subRowEl) subRowEl.textContent = '₹ 0';
                 }
             }
         });
@@ -345,7 +647,6 @@ class App {
         const query = this.searchQuery;
         const activeCat = this.currentCategory;
 
-        // Group items
         const grouped = {};
         this.categoryGroups.forEach(grp => {
             if (grp.key !== 'all') grouped[grp.key] = [];
@@ -357,19 +658,13 @@ class App {
             const grpKey = this.mapToGroupKey(item.category);
             if (!grouped[grpKey]) grouped[grpKey] = [];
 
-            // Category filter check
-            if (activeCat !== 'all' && grpKey !== activeCat) {
-                return;
-            }
+            if (activeCat !== 'all' && grpKey !== activeCat) return;
 
-            // Search filter check
             if (query) {
                 const nameMatch = (item.name || '').toLowerCase().includes(query);
                 const compMatch = (item.company || '').toLowerCase().includes(query);
                 const catMatch = (item.category || '').toLowerCase().includes(query);
-                if (!nameMatch && !compMatch && !catMatch) {
-                    return;
-                }
+                if (!nameMatch && !compMatch && !catMatch) return;
             }
 
             grouped[grpKey].push(item);
@@ -407,24 +702,20 @@ class App {
             container.innerHTML = `
                 <div class="empty-catalogue-box" style="text-align:center; padding: 3rem 1.5rem; background:#FFFFFF; border-radius:12px; border:1px solid #E2E8F0; margin: 1rem 0;">
                     <span style="font-size: 3rem; display:block; margin-bottom: 0.75rem;">🔍</span>
-                    <h3 style="font-size: 1.25rem; font-weight:800; color:#0F1B2F; margin-bottom: 0.5rem;">${emptyTitle} "${query}"</h3>
+                    <h3 style="font-size: 1.25rem; font-weight:800; color:#0F172A; margin-bottom: 0.5rem;">${emptyTitle} "${query}"</h3>
                     <p style="color:#64748B; font-size: 0.9rem; max-width: 420px; margin: 0 auto 1.25rem;">${emptyDesc}</p>
-                    <button type="button" class="btn-reset-filter" style="background:#0F1B2F; color:#FFFFFF; padding: 0.6rem 1.25rem; border-radius:6px; font-weight:700;" onclick="App.clearSearch()">${clearBtnText}</button>
+                    <button type="button" class="hero-shop-btn" onclick="App.clearSearch()">${clearBtnText}</button>
                 </div>
             `;
             return;
         }
 
-        if (this.viewMode === 'cards') {
-            this.renderCardsView(container, grouped, cart);
-        } else {
-            this.renderTableView(container, grouped, cart);
-        }
+        // Always render Rate Sheet Table View (Cards removed per user directive)
+        this.renderTableView(container, grouped, cart);
     }
 
     static renderCardsView(container, grouped, cart) {
         let html = '';
-        const discountTag = typeof LanguageManager !== 'undefined' ? LanguageManager.t('saveDiscount') : 'SAVE 60%';
         const subtotalWord = typeof LanguageManager !== 'undefined' ? LanguageManager.t('subtotalText') : 'Subtotal';
 
         this.categoryGroups.forEach(grp => {
@@ -439,12 +730,12 @@ class App {
 
             html += `
                 <section class="category-group-block" id="cat-group-${grp.key}">
-                    <div class="category-group-heading-bar">
-                        <h3 class="group-title">
-                            <span>${grp.icon}</span>
+                    <div class="category-group-heading-bar" style="display:flex; justify-content:space-between; align-items:center; padding-bottom:0.5rem; border-bottom:1.5px solid #E2E8F0; margin-bottom:0.85rem;">
+                        <h3 class="group-title" style="font-size:1.05rem; font-weight:900; color:var(--blue-dark); text-transform:uppercase; display:flex; align-items:center; gap:0.5rem;">
+                            <img src="${grp.image}" alt="${grpTitle}" class="group-title-thumb" style="width:24px; height:24px; border-radius:4px; object-fit:cover;">
                             <span>${grpTitle}</span>
                         </h3>
-                        <span class="group-item-count">${items.length} ${itemWord}</span>
+                        <span class="group-item-count" style="font-size:0.75rem; color:#64748B; font-weight:700;">${items.length} ${itemWord}</span>
                     </div>
 
                     <div class="product-cards-grid">
@@ -453,7 +744,7 @@ class App {
             items.forEach(item => {
                 const qty = cart[item.id] || 0;
                 const isSelected = qty > 0;
-                const company = item.company || (item.category === 'gift_boxes' ? 'PRANAV' : 'KALIS');
+                const itemImg = this.getItemImage(item);
                 const priceNum = (item.price && item.price.includes('₹'))
                     ? parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0
                     : 0;
@@ -462,20 +753,16 @@ class App {
 
                 html += `
                     <div class="cracker-card ${isSelected ? 'is-selected' : ''}" id="pcard-${item.id}">
-                        <div class="card-badge-row">
-                            <span class="card-brand-badge">${company}</span>
-                            <span class="card-discount-badge">${discountTag}</span>
+                        <div class="card-image-wrap">
+                            <img src="${itemImg}" alt="${item.name}" class="product-thumb-img" loading="lazy">
                         </div>
-
                         <h4 class="card-name" title="${item.name}">${item.name}</h4>
 
-                        <div class="card-pricing-block">
-                            <div class="price-box">
-                                <span class="mrp-strike">₹${mrp.toLocaleString('en-IN')}</span>
-                                <strong class="wholesale-price">₹${priceNum.toLocaleString('en-IN')}</strong>
-                            </div>
-                            <span class="card-subtotal-tag" style="${isSelected ? 'display:inline-block;' : 'display:none;'}">${subtotalWord}: ₹${subtotal.toLocaleString('en-IN')}</span>
+                        <div class="card-price-container">
+                            <strong class="wholesale-price">₹ ${priceNum.toLocaleString('en-IN')}</strong>
+                            <span class="mrp-strike">₹ ${mrp.toLocaleString('en-IN')}</span>
                         </div>
+                        <span class="card-subtotal-tag" style="${isSelected ? 'display:block;' : 'display:none;'}">${subtotalWord}: ₹ ${subtotal.toLocaleString('en-IN')}</span>
 
                         <div class="card-stepper-control">
                             <button type="button" class="stepper-btn minus" onclick="App.changeQty('${item.id}', -1)" aria-label="Decrease quantity for ${item.name}">−</button>
@@ -506,12 +793,12 @@ class App {
                 <table class="rate-sheet-table">
                     <thead>
                         <tr>
-                            <th style="width: 50px;" class="text-center">#</th>
-                            <th>Cracker Item & Brand</th>
-                            <th class="text-right" style="width: 100px;">${thMrp}</th>
-                            <th class="text-right" style="width: 130px;">${thRate}</th>
+                            <th style="width: 48px;" class="text-center">#</th>
+                            <th>Cracker Item Description</th>
+                            <th class="text-right" style="width: 105px;">${thMrp}</th>
+                            <th class="text-right" style="width: 135px;">${thRate}</th>
                             <th class="text-center" style="width: 140px;">${thQty}</th>
-                            <th class="text-right" style="width: 120px;">${thSub}</th>
+                            <th class="text-right" style="width: 125px;">${thSub}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -530,9 +817,15 @@ class App {
                 : (typeof LanguageManager !== 'undefined' ? LanguageManager.t('itemsText') : 'items');
 
             html += `
-                <tr class="table-group-header-row" style="background:#1E2E4B; color:#FCD34D;">
-                    <td colspan="6" style="padding: 0.65rem 0.85rem; font-weight:800; font-size:0.85rem; letter-spacing:0.04em;">
-                        ${grp.icon} ${grpTitle} (${items.length} ${itemWord})
+                <tr class="table-group-header-row" id="cat-group-${grp.key}">
+                    <td colspan="6">
+                        <div class="table-group-header-flex">
+                            <div class="table-group-title-group">
+                                <span class="table-group-bullet"></span>
+                                <strong class="table-group-header-title">${grpTitle}</strong>
+                            </div>
+                            <span class="table-group-count-pill">${items.length} ${itemWord}</span>
+                        </div>
                     </td>
                 </tr>
             `;
@@ -540,7 +833,7 @@ class App {
             items.forEach(item => {
                 const qty = cart[item.id] || 0;
                 const isSelected = qty > 0;
-                const company = item.company || (item.category === 'gift_boxes' ? 'PRANAV' : 'KALIS');
+                const itemImg = this.getItemImage(item);
                 const priceNum = (item.price && item.price.includes('₹'))
                     ? parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0
                     : 0;
@@ -549,24 +842,34 @@ class App {
 
                 html += `
                     <tr class="rate-sheet-row ${isSelected ? 'is-selected' : ''}" id="prow-${item.id}">
-                        <td class="text-center" style="color:#64748B; font-weight:600;">${rowCounter++}</td>
-                        <td>
-                            <strong style="color:#0F172A; display:block; font-size:0.92rem;">${item.name}</strong>
-                            <span style="font-size:0.72rem; color:#92400E; background:#FEF3C7; padding:1px 5px; border-radius:3px; font-weight:700;">${company}</span>
+                        <td class="text-center row-num-cell">${rowCounter++}</td>
+                        <td class="table-prod-desc-cell">
+                            <div class="table-prod-flex">
+                                <div class="table-thumb-wrap">
+                                    <img src="${itemImg}" alt="${item.name}" class="table-prod-thumb" loading="lazy">
+                                </div>
+                                <div class="table-prod-info">
+                                    <strong class="table-item-name" title="${item.name}">${item.name}</strong>
+                                    <div class="table-prod-subline">
+                                        <span class="table-green-tag">🌿 Green Cracker</span>
+                                        <span class="table-batch-pill">2026 Batch</span>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
-                        <td class="text-right mrp-strike">₹${mrp.toLocaleString('en-IN')}</td>
+                        <td class="text-right mrp-strike">₹ ${mrp.toLocaleString('en-IN')}</td>
                         <td class="text-right">
-                            <strong style="color:#B45309; font-size:1.05rem;">₹${priceNum.toLocaleString('en-IN')}</strong>
+                            <strong class="table-wholesale-rate">₹ ${priceNum.toLocaleString('en-IN')}</strong>
                         </td>
                         <td class="text-center">
-                            <div class="card-stepper-control" style="width: 120px; margin: 0 auto; height: 32px;">
-                                <button type="button" class="stepper-btn minus" onclick="App.changeQty('${item.id}', -1)" aria-label="Decrease">−</button>
+                            <div class="card-stepper-control table-stepper">
+                                <button type="button" class="stepper-btn minus" onclick="App.changeQty('${item.id}', -1)" aria-label="Decrease quantity">−</button>
                                 <span class="stepper-val stepper-val-${item.id}">${qty}</span>
-                                <button type="button" class="stepper-btn plus" onclick="App.changeQty('${item.id}', 1)" aria-label="Increase">+</button>
+                                <button type="button" class="stepper-btn plus" onclick="App.changeQty('${item.id}', 1)" aria-label="Increase quantity">+</button>
                             </div>
                         </td>
                         <td class="text-right">
-                            <strong class="table-subtotal-val" style="color:#15803D; font-size:0.95rem;">₹${subtotal.toLocaleString('en-IN')}</strong>
+                            <strong class="table-subtotal-val">₹ ${subtotal.toLocaleString('en-IN')}</strong>
                         </td>
                     </tr>
                 `;
@@ -584,6 +887,15 @@ class App {
 }
 
 // Global initialization on DOM ready
-document.addEventListener('DOMContentLoaded', () => {
-    App.init();
-});
+if (typeof document !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', () => {
+        App.init();
+    });
+}
+
+if (typeof window !== 'undefined') {
+    window.App = App;
+}
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { App };
+}

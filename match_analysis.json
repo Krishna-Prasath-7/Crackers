@@ -1,0 +1,1209 @@
+[
+  {
+    "id": "fp-01",
+    "sNo": 1,
+    "category": "flower_pots",
+    "name": "Flower Pot Big",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping_exact",
+      "title": "FLOWER POT BIG",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231003-WA0090-150x150.jpg",
+      "score": 100
+    }
+  },
+  {
+    "id": "fp-02",
+    "sNo": 2,
+    "category": "flower_pots",
+    "name": "Flower Pot Special",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Flower Pots Special (R.R)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2024/08/DSCF8829_-scaled-450x338.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "fp-03",
+    "sNo": 3,
+    "category": "flower_pots",
+    "name": "Flower Pot Ashoka",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Flower Pots Big (R.R)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2024/08/DSCF8834_-scaled-450x338.jpg",
+      "score": 26.666666666666664
+    }
+  },
+  {
+    "id": "pl-4",
+    "sNo": 4,
+    "category": "flower_pots",
+    "name": "Flower Pot Giant",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Flower Pots Big (R.R)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2024/08/DSCF8834_-scaled-450x338.jpg",
+      "score": 26.666666666666664
+    }
+  },
+  {
+    "id": "pl-5",
+    "sNo": 5,
+    "category": "flower_pots",
+    "name": "Flower Pot Deluxe (5 Pcs)",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Flower Pots Deluxe (R.R)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2024/08/DSCF8857_-scaled-450x338.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-6",
+    "sNo": 6,
+    "category": "flower_pots",
+    "name": "Flower Pot Super Deluxe (2 Pcs)",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Flower Pots Deluxe (R.R)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2024/08/DSCF8857_-scaled-450x338.jpg",
+      "score": 30
+    }
+  },
+  {
+    "id": "pl-7",
+    "sNo": 7,
+    "category": "flower_pots",
+    "name": "Flower Pot Small",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Flower Pots Big (R.R)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2024/08/DSCF8834_-scaled-450x338.jpg",
+      "score": 26.666666666666664
+    }
+  },
+  {
+    "id": "pl-8",
+    "sNo": 8,
+    "category": "flower_pots",
+    "name": "Colour Koti",
+    "company": "KALIS",
+    "match": {
+      "source": "shope_exact",
+      "title": "Colour Koti",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2024/08/DSCF8832_-scaled-450x338.jpg",
+      "score": 100
+    }
+  },
+  {
+    "id": "pl-9",
+    "sNo": 9,
+    "category": "flower_pots",
+    "name": "Colour Koti Deluxe",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Deluxe Colour Koti",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2023/09/DSCF0832-scaled-450x338.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-10",
+    "sNo": 10,
+    "category": "flower_pots",
+    "name": "Tri Colour Fountain",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping_exact",
+      "title": "Tri Colour Fountain",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/S.NO-81-TRI-COLOR-FOUNTAIN-150x150.jpg",
+      "score": 100
+    }
+  },
+  {
+    "id": "gc-01",
+    "sNo": 11,
+    "category": "ground_chakkars",
+    "name": "Ground Chakkar Big (10 Pcs)",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Ground Chakkar Big 10&#8217;s",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2024/08/ground-chakkar-big-450x338.jpeg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-12",
+    "sNo": 12,
+    "category": "ground_chakkars",
+    "name": "Ground Chakkar Special",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Ground Chakkar Special (Window Box)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2024/08/DSCF8862_-scaled-450x338.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-13",
+    "sNo": 13,
+    "category": "ground_chakkars",
+    "name": "Ground Chakkar Deluxe",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Ground Chakkar Deluxe (Window Box)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2024/08/DSCF8790_-scaled-450x338.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-14",
+    "sNo": 14,
+    "category": "ground_chakkars",
+    "name": "Spinner Special",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Flower Pots Special (R.R)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2024/08/DSCF8829_-scaled-450x338.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "pl-15",
+    "sNo": 15,
+    "category": "ground_chakkars",
+    "name": "Spinner Deluxe",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Flower Pots Deluxe (R.R)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2024/08/DSCF8857_-scaled-450x338.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "pl-16",
+    "sNo": 16,
+    "category": "ground_chakkars",
+    "name": "Ground Chakkar Special (Plastic)",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Ground Chakkar Special (Plastic Cap)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2025/08/DSCF7786_1-min-450x338.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-17",
+    "sNo": 17,
+    "category": "ground_chakkars",
+    "name": "Disco Wheel",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Classic Wheel (Double Spin Wheel)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2022/08/CS7B2343-scaled-450x338.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "pl-18",
+    "sNo": 18,
+    "category": "ground_chakkars",
+    "name": "Whirling Wheel (Red & Green)",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Classic Wheel (Double Spin Wheel)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2022/08/CS7B2343-scaled-450x338.jpg",
+      "score": 10
+    }
+  },
+  {
+    "id": "os-kuruvi",
+    "sNo": 19,
+    "category": "one_sound",
+    "name": "2 3/4\" Kuruvi",
+    "company": "STANDARD",
+    "match": {
+      "source": "shopping",
+      "title": "2.75&#8243;. KURUVI",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231004-WA0011-150x150.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-20",
+    "sNo": 20,
+    "category": "one_sound",
+    "name": "3 1/2\" Lakshmi",
+    "company": "STANDARD",
+    "match": {
+      "source": "shope",
+      "title": "3 1/2\" Lakshmi Crackers",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2022/08/CS7B2592-scaled-450x338.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-21",
+    "sNo": 21,
+    "category": "one_sound",
+    "name": "4\" Deluxe Lakshmi",
+    "company": "STANDARD",
+    "match": {
+      "source": "shope",
+      "title": "3 1/2\" Lakshmi Crackers",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2022/08/CS7B2592-scaled-450x338.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "pl-22",
+    "sNo": 22,
+    "category": "one_sound",
+    "name": "4\" Gold Lakshmi",
+    "company": "STANDARD",
+    "match": {
+      "source": "shope",
+      "title": "3 1/2\" Lakshmi Crackers",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2022/08/CS7B2592-scaled-450x338.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "pl-23",
+    "sNo": 23,
+    "category": "one_sound",
+    "name": "5\" Mega Sound",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Double Sound Crackers",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2021/08/DSCF2554-scaled-450x338.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "snd-28chorsa",
+    "sNo": 24,
+    "category": "one_sound",
+    "name": "28 Chorsa",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping_exact",
+      "title": "28 Chorsa",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231004-WA0007-150x150.jpg",
+      "score": 100
+    }
+  },
+  {
+    "id": "bj-red",
+    "sNo": 25,
+    "category": "bijili",
+    "name": "Red Bijili (50 Pcs)",
+    "company": "STANDARD",
+    "match": {
+      "source": "shopping",
+      "title": "Red Bijili",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231004-WA0009-150x150.jpg",
+      "score": 26.666666666666664
+    }
+  },
+  {
+    "id": "pl-26",
+    "sNo": 26,
+    "category": "bijili",
+    "name": "Red Bijili (100 Pcs)",
+    "company": "STANDARD",
+    "match": {
+      "source": "shopping",
+      "title": "Red Bijili",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231004-WA0009-150x150.jpg",
+      "score": 26.666666666666664
+    }
+  },
+  {
+    "id": "pl-27",
+    "sNo": 27,
+    "category": "bijili",
+    "name": "Striped Bijili (50 Pcs)",
+    "company": "STANDARD",
+    "match": {
+      "source": "shope",
+      "title": "Cuckoo (Snake 50 Whistle)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2025/08/DSCF7810_1-min-450x338.jpg",
+      "score": 13.333333333333332
+    }
+  },
+  {
+    "id": "pl-28",
+    "sNo": 28,
+    "category": "bijili",
+    "name": "Striped Bijili (100 Pcs)",
+    "company": "STANDARD",
+    "match": {
+      "source": "shopping",
+      "title": "Red Bijili",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231004-WA0009-150x150.jpg",
+      "score": 13.333333333333332
+    }
+  },
+  {
+    "id": "pl-29",
+    "sNo": 29,
+    "category": "twinkling_star",
+    "name": "1 1/2\" Twinkling Star",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "1 1/2&#8242; Twinkling Star",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2017/08/45cm_Twinkling_Star_Crackersshope.com_-450x338.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-30",
+    "sNo": 30,
+    "category": "twinkling_star",
+    "name": "4\" Twinkling Star",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "1 1/2&#8242; Twinkling Star",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2017/08/45cm_Twinkling_Star_Crackersshope.com_-450x338.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-31",
+    "sNo": 31,
+    "category": "bombs",
+    "name": "Bullet Bomb",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping_exact",
+      "title": "Bullet Bomb",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231003-WA0038-150x150.jpg",
+      "score": 100
+    }
+  },
+  {
+    "id": "pl-32",
+    "sNo": 32,
+    "category": "bombs",
+    "name": "Hydro Bomb",
+    "company": "KALIS",
+    "match": {
+      "source": "shope_exact",
+      "title": "Hydro Bomb",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2018/09/Hydro-bomb-Green-scaled-450x338.jpg",
+      "score": 100
+    }
+  },
+  {
+    "id": "pl-33",
+    "sNo": 33,
+    "category": "bombs",
+    "name": "King Bomb",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "King of King Bomb",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231003-WA0052-150x150.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-34",
+    "sNo": 34,
+    "category": "bombs",
+    "name": "Classic Bomb",
+    "company": "KALIS",
+    "match": {
+      "source": "shope_exact",
+      "title": "Classic Bomb",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2018/09/Atom-bomb-Green-scaled-450x338.jpg",
+      "score": 100
+    }
+  },
+  {
+    "id": "pl-35",
+    "sNo": 35,
+    "category": "bombs",
+    "name": "Siren Bomb",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Rocket Bomb",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2025/08/DSCF7735_1-min-450x338.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "rkt-01",
+    "sNo": 36,
+    "category": "rockets",
+    "name": "Baby Rocket",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping_exact",
+      "title": "Baby Rocket",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231003-WA0013-150x150.jpg",
+      "score": 100
+    }
+  },
+  {
+    "id": "rkt-rb",
+    "sNo": 37,
+    "category": "rockets",
+    "name": "Rocket Bomb",
+    "company": "S.KALA",
+    "match": {
+      "source": "shope_exact",
+      "title": "Rocket Bomb",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2025/08/DSCF7735_1-min-450x338.jpg",
+      "score": 100
+    }
+  },
+  {
+    "id": "pl-38",
+    "sNo": 38,
+    "category": "rockets",
+    "name": "Lunik Rocket",
+    "company": "KALIS",
+    "match": {
+      "source": "shope_exact",
+      "title": "Lunik Rocket",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2025/08/DSCF7738_1-min-450x338.jpg",
+      "score": 100
+    }
+  },
+  {
+    "id": "pl-39",
+    "sNo": 39,
+    "category": "rockets",
+    "name": "Whistling Rocket",
+    "company": "KALIS",
+    "match": {
+      "source": "shope_exact",
+      "title": "Whistling Rocket",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2018/09/Musical-Rocket-scaled-450x338.jpg",
+      "score": 100
+    }
+  },
+  {
+    "id": "pl-40",
+    "sNo": 40,
+    "category": "paper_bomb",
+    "name": "1/4 Kg Paper Bomb",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Paper bomb 1/4Kg",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2017/08/WhatsApp-Image-2022-09-26-at-9.18.23-AM-Copy-450x338.jpeg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-41",
+    "sNo": 41,
+    "category": "paper_bomb",
+    "name": "1/2 Kg Paper Bomb",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Paper bomb 1/4Kg",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2017/08/WhatsApp-Image-2022-09-26-at-9.18.23-AM-Copy-450x338.jpeg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-42",
+    "sNo": 42,
+    "category": "paper_bomb",
+    "name": "1 Kg Paper Bomb",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Paper bomb 1/4Kg",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2017/08/WhatsApp-Image-2022-09-26-at-9.18.23-AM-Copy-450x338.jpeg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-43",
+    "sNo": 43,
+    "category": "sky_shots",
+    "name": "6 Shot Multi Colour",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "30 Shot Multicolour",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/S.NO-74-30-SHOT-MULTICOLOR-150x150.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "sky-7shot",
+    "sNo": 44,
+    "category": "sky_shots",
+    "name": "7 Shot Repeater",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "15 Shot (Boom with Crackle)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2022/08/CS7B2496-scaled-450x338.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "pl-45",
+    "sNo": 45,
+    "category": "sky_shots",
+    "name": "12 Shot Multi Colour",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "12 Shot colour  mains",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/S.NO-71-12-SHOT-MULTI-COLOR-150x150.jpg",
+      "score": 30
+    }
+  },
+  {
+    "id": "pl-46",
+    "sNo": 46,
+    "category": "sky_shots",
+    "name": "12 Shot Aerial Cake",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Terminator-120 Shot With Full Crackling-sony",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2022/08/CS7B2615-scaled-450x338.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "pl-47",
+    "sNo": 47,
+    "category": "sky_shots",
+    "name": "15 Shot Multi Colour",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "30 Shot Multicolour",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/S.NO-74-30-SHOT-MULTICOLOR-150x150.jpg",
+      "score": 30
+    }
+  },
+  {
+    "id": "pl-48",
+    "sNo": 48,
+    "category": "sky_shots",
+    "name": "25 Shot Multi Colour Cake",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "30 Shot Multicolour",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/S.NO-74-30-SHOT-MULTICOLOR-150x150.jpg",
+      "score": 24
+    }
+  },
+  {
+    "id": "pl-49",
+    "sNo": 49,
+    "category": "sky_shots",
+    "name": "30 Shot Multi Colour",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "30 Shot Multicolour",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/S.NO-74-30-SHOT-MULTICOLOR-150x150.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-50",
+    "sNo": 50,
+    "category": "sky_shots",
+    "name": "50 Shot Galaxy Cake",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "15 Shot (Boom with Crackle)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2022/08/CS7B2496-scaled-450x338.jpg",
+      "score": 10
+    }
+  },
+  {
+    "id": "pl-51",
+    "sNo": 51,
+    "category": "sky_shots",
+    "name": "60 Shot Multi Colour",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "60 Shot Multicolour",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/S.NO-75-60-SHOT-MULTI-COLOR-150x150.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-52",
+    "sNo": 52,
+    "category": "fancy_items",
+    "name": "3 Pcs Fancy",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "1&#8243; Chotta Fancy (All Varieties)",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/16964050999581411757094066680465-150x150.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-53",
+    "sNo": 53,
+    "category": "fancy_items",
+    "name": "Colour Pops",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Colour Koti (R.R)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2025/08/DSCF7732_1-min-450x338.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "pl-54",
+    "sNo": 54,
+    "category": "fancy_items",
+    "name": "Peacock Feather",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping_exact",
+      "title": "Peacock Feather",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/S.NO-86-PEACOCK-FEATHER-150x150.jpg",
+      "score": 100
+    }
+  },
+  {
+    "id": "pl-55",
+    "sNo": 55,
+    "category": "fancy_items",
+    "name": "Drone Butterfly",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "Butterfly",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/S.NO-98-BUTTERFLY-150x150.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "pl-56",
+    "sNo": 56,
+    "category": "fancy_items",
+    "name": "Selfie Stick",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Selfie Sticks",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2026/08/super-man-450x338.jpeg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-57",
+    "sNo": 57,
+    "category": "fancy_items",
+    "name": "Helicopter Rotor",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "Helicopter",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231003-WA0037-150x150.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "pl-58",
+    "sNo": 58,
+    "category": "fancy_items",
+    "name": "Waterfall Fountain",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "Tri Colour Fountain",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/S.NO-81-TRI-COLOR-FOUNTAIN-150x150.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "spk-10ele",
+    "sNo": 59,
+    "category": "sparklers",
+    "name": "10 CM Electric Sparkler",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "10 Cm Electric Sparklers (Royal)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2025/08/DSCF7750_1-min-450x338.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-60",
+    "sNo": 60,
+    "category": "sparklers",
+    "name": "10 CM Colour Sparkler",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "10 Cm Colour Sparklers (Royal)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2025/08/DSCF7752_1-min-450x338.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-61",
+    "sNo": 61,
+    "category": "sparklers",
+    "name": "10 CM Green Sparkler",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "10 cm. Green Sparklers (Royal)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2017/08/7-cm-green-sparklers-450x338.png",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-62",
+    "sNo": 62,
+    "category": "sparklers",
+    "name": "10 CM Red Sparkler",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "10 cm. Red Sparklers (Royal)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2017/08/7-cm-red-sparklers-450x338.png",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-63",
+    "sNo": 63,
+    "category": "sparklers",
+    "name": "12 CM Electric Sparkler",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "12 cm Electric Sparklers",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231003-WA0097-150x150.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-64",
+    "sNo": 64,
+    "category": "sparklers",
+    "name": "12 CM Colour Sparkler",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "12 cm Colour Sparklers",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/16963991201794139213312036732694-150x150.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-65",
+    "sNo": 65,
+    "category": "sparklers",
+    "name": "15 CM Electric Sparkler",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "15 Cm Electric Sparklers (Royal)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2025/08/DSCF7755_1-min-450x338.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-66",
+    "sNo": 66,
+    "category": "sparklers",
+    "name": "15 CM Colour Sparkler",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "15 Cm Colour Sparklers (Royal)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2025/08/DSCF7756_1-min-450x338.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-67",
+    "sNo": 67,
+    "category": "sparklers",
+    "name": "15 CM Green Sparkler",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "10 cm. Green Sparklers (Royal)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2017/08/7-cm-green-sparklers-450x338.png",
+      "score": 30
+    }
+  },
+  {
+    "id": "pl-68",
+    "sNo": 68,
+    "category": "sparklers",
+    "name": "30 CM Electric Sparkler",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "30 Cm Electric Sparklers (Royal)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2025/08/DSCF7758_1-min-450x338.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-69",
+    "sNo": 69,
+    "category": "sparklers",
+    "name": "30 CM Colour Sparkler",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "30 cm Colour Sparklers",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231003-WA0070-150x150.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-70",
+    "sNo": 70,
+    "category": "sparklers",
+    "name": "50 CM Electric Sparkler",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "50 cm Electrical Sparklers",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231003-WA0078-150x150.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-71",
+    "sNo": 71,
+    "category": "garlands",
+    "name": "50 Wala Garland",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "5000 wala",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/20210630_114712-150x150.jpg",
+      "score": 26.666666666666664
+    }
+  },
+  {
+    "id": "pl-72",
+    "sNo": 72,
+    "category": "garlands",
+    "name": "100 Wala Garland",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "100 Wala",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231004-WA0008-150x150.jpg",
+      "score": 26.666666666666664
+    }
+  },
+  {
+    "id": "pl-73",
+    "sNo": 73,
+    "category": "garlands",
+    "name": "300 Wala Garland",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "300 Wala",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/CRACKERS-150x150.png",
+      "score": 26.666666666666664
+    }
+  },
+  {
+    "id": "pl-74",
+    "sNo": 74,
+    "category": "garlands",
+    "name": "1K Roll (Full Count)",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Paper Bomb 1Kg",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2017/08/WhatsApp-Image-2022-09-26-at-9.18.21-AM-1-450x338.jpeg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-75",
+    "sNo": 75,
+    "category": "garlands",
+    "name": "2K Roll (Full Count)",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Paper Bomb 1/2Kg",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2017/08/WhatsApp-Image-2022-09-26-at-9.18.22-AM-1-Copy-450x338.jpeg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-76",
+    "sNo": 76,
+    "category": "garlands",
+    "name": "5K Roll (Full Count)",
+    "company": "KALIS",
+    "match": null
+  },
+  {
+    "id": "pl-77",
+    "sNo": 77,
+    "category": "garlands",
+    "name": "10K Roll (Full Count)",
+    "company": "KALIS",
+    "match": null
+  },
+  {
+    "id": "pl-78",
+    "sNo": 78,
+    "category": "gift_boxes",
+    "name": "35 Items Gift Box",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Silver Gift Box (20 Item&#8217;s)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-08-at-10.19.49-AM-1-450x338.jpeg",
+      "score": 20
+    }
+  },
+  {
+    "id": "pl-79",
+    "sNo": 79,
+    "category": "gift_boxes",
+    "name": "40 Items Gift Box",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Platinum Gift Box (40 Item&#8217;s)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2017/08/40-ITEMS-1-450x338.jpeg",
+      "score": 30
+    }
+  },
+  {
+    "id": "pl-80",
+    "sNo": 80,
+    "category": "gift_boxes",
+    "name": "50 Items Gift Box",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Vip Gift Box (50 Item&#8217;s)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2017/08/WhatsApp-Image-2026-09-10-at-6.08.08-PM-450x338.jpeg",
+      "score": 30
+    }
+  },
+  {
+    "id": "pl-81",
+    "sNo": 81,
+    "category": "gift_boxes",
+    "name": "60 Items Gift Box",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Silver Gift Box (20 Item&#8217;s)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-08-at-10.19.49-AM-1-450x338.jpeg",
+      "score": 20
+    }
+  },
+  {
+    "id": "pl-82",
+    "sNo": 82,
+    "category": "gift_boxes",
+    "name": "70 Items Gift Box",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Silver Gift Box (20 Item&#8217;s)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-08-at-10.19.49-AM-1-450x338.jpeg",
+      "score": 20
+    }
+  },
+  {
+    "id": "pl-83",
+    "sNo": 83,
+    "category": "other_items",
+    "name": "Snake Tablets",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Cuckoo (Snake 50 Whistle)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2025/08/DSCF7810_1-min-450x338.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "pl-84",
+    "sNo": 84,
+    "category": "other_items",
+    "name": "Photo Flash",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping_exact",
+      "title": "Photo Flash",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231003-WA0066-150x150.jpg",
+      "score": 100
+    }
+  },
+  {
+    "id": "pl-85",
+    "sNo": 85,
+    "category": "other_items",
+    "name": "Colour Shower",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Colour Koti (R.R)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2025/08/DSCF7732_1-min-450x338.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "pl-86",
+    "sNo": 86,
+    "category": "other_items",
+    "name": "Colour Matches",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "Laptop Colour Matches",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231004-WA0012-150x150.jpg",
+      "score": 90
+    }
+  },
+  {
+    "id": "pl-87",
+    "sNo": 87,
+    "category": "other_items",
+    "name": "Pop Pop Snappers",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "Hi Pop Series (Mixed varieties) (2 pcs)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2021/08/DSCF2373-scaled-450x338.jpg",
+      "score": 26.666666666666664
+    }
+  },
+  {
+    "id": "pl-88",
+    "sNo": 88,
+    "category": "other_items",
+    "name": "Pogo Crackers",
+    "company": "KALIS",
+    "match": {
+      "source": "shope",
+      "title": "2 3/4\" Bird Crackers",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2021/08/DSCF2558-scaled-450x338.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "pl-89",
+    "sNo": 89,
+    "category": "other_items",
+    "name": "Magic Whip",
+    "company": "KALIS",
+    "match": {
+      "source": "shopping",
+      "title": "Magic Pops",
+      "img": "https://crackersshopping.com/wp-content/uploads/2023/09/IMG-20231003-WA0040-150x150.jpg",
+      "score": 20
+    }
+  },
+  {
+    "id": "gb-italy",
+    "category": "gift_boxes",
+    "name": "ITALY Gift Box",
+    "company": "PRANAV",
+    "match": {
+      "source": "shope",
+      "title": "Silver Gift Box (20 Item&#8217;s)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-08-at-10.19.49-AM-1-450x338.jpeg",
+      "score": 26.666666666666664
+    }
+  },
+  {
+    "id": "gb-singapore",
+    "category": "gift_boxes",
+    "name": "SINGAPORE Gift Box",
+    "company": "PRANAV",
+    "match": {
+      "source": "shope",
+      "title": "Silver Gift Box (20 Item&#8217;s)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-08-at-10.19.49-AM-1-450x338.jpeg",
+      "score": 26.666666666666664
+    }
+  },
+  {
+    "id": "gb-dubai",
+    "category": "gift_boxes",
+    "name": "DUBAI Gift Box",
+    "company": "PRANAV",
+    "match": {
+      "source": "shope",
+      "title": "Silver Gift Box (20 Item&#8217;s)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-08-at-10.19.49-AM-1-450x338.jpeg",
+      "score": 26.666666666666664
+    }
+  },
+  {
+    "id": "gb-paris",
+    "category": "gift_boxes",
+    "name": "PARIS Gift Box",
+    "company": "PRANAV",
+    "match": {
+      "source": "shope",
+      "title": "Silver Gift Box (20 Item&#8217;s)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-08-at-10.19.49-AM-1-450x338.jpeg",
+      "score": 26.666666666666664
+    }
+  },
+  {
+    "id": "gb-germany",
+    "category": "gift_boxes",
+    "name": "GERMANY Gift Box",
+    "company": "PRANAV",
+    "match": {
+      "source": "shope",
+      "title": "Silver Gift Box (20 Item&#8217;s)",
+      "img": "https://www.crackersshope.com/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-08-at-10.19.49-AM-1-450x338.jpeg",
+      "score": 26.666666666666664
+    }
+  }
+]

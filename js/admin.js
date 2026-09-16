@@ -167,7 +167,6 @@ class AdminManager {
                             </div>
                             <div class="admin-order-status-group">
                                 <span class="order-status-pill status-${order.status.toLowerCase().replace(/\s+/g, '-')}">${order.status}</span>
-                                <span class="badge ${order.paymentStatus === 'Paid' ? 'badge-paid' : 'badge-pending'}">${order.paymentStatus}</span>
                             </div>
                         </div>
 
@@ -192,7 +191,7 @@ class AdminManager {
                                     ${order.items.map(it => `
                                         <tr>
                                             <td><strong>${it.name}</strong></td>
-                                            <td>${it.packSize}</td>
+                                            <td>${it.packSize || '1 Unit'}</td>
                                             <td><strong>${it.quantity}</strong></td>
                                             <td>${it.price}</td>
                                         </tr>
@@ -203,22 +202,16 @@ class AdminManager {
 
                         <div class="admin-order-footer">
                             <div class="admin-order-totals">
-                                <span>Estimated: ₹${order.estimatedTotal.toLocaleString('en-IN')}</span> |
-                                <strong>Confirmed Payable: ₹${(order.confirmedPayableAmount || order.estimatedTotal).toLocaleString('en-IN')}</strong>
+                                <strong>Estimated Total: ₹${order.estimatedTotal.toLocaleString('en-IN')}</strong>
                             </div>
 
                             <div class="admin-order-action-buttons">
                                 <button class="btn btn-sm btn-whatsapp" onclick="AdminManager.contactCustomerWhatsApp('${order.id}')">
                                     WhatsApp Customer
                                 </button>
-                                <button class="btn btn-sm btn-primary" onclick="AdminManager.promptConfirmOrder('${order.id}')">
-                                    Confirm / Adjust Price
-                                </button>
                                 <select class="form-control form-control-sm" onchange="AdminManager.updateOrderStatus('${order.id}', this.value)" style="width:auto; display:inline-block;">
                                     <option value="UNDER REVIEW" ${order.status === 'UNDER REVIEW' ? 'selected' : ''}>UNDER REVIEW</option>
                                     <option value="CONFIRMED" ${order.status === 'CONFIRMED' ? 'selected' : ''}>CONFIRMED</option>
-                                    <option value="PAYMENT PENDING" ${order.status === 'PAYMENT PENDING' ? 'selected' : ''}>PAYMENT PENDING</option>
-                                    <option value="PAID" ${order.paymentStatus === 'Paid' ? 'selected' : ''}>PAID</option>
                                     <option value="PROCESSING" ${order.status === 'PROCESSING' ? 'selected' : ''}>PROCESSING</option>
                                     <option value="READY" ${order.status === 'READY' ? 'selected' : ''}>READY</option>
                                     <option value="COMPLETED" ${order.status === 'COMPLETED' ? 'selected' : ''}>COMPLETED</option>
@@ -232,34 +225,8 @@ class AdminManager {
         `;
     }
 
-    static promptConfirmOrder(orderId) {
-        const order = DataStore.getOrderById(orderId);
-        if (!order) return;
-
-        const currentAmt = order.confirmedPayableAmount || order.estimatedTotal || 0;
-        const input = prompt(`Enter final confirmed payable amount for Order ${order.id}:`, currentAmt);
-        if (input === null) return;
-
-        const cleanAmt = parseFloat(input.replace(/[^0-9.]/g, '')) || currentAmt;
-
-        DataStore.updateOrder(order.id, {
-            confirmedPayableAmount: cleanAmt,
-            status: 'CONFIRMED',
-            paymentStatus: 'Payment Pending'
-        });
-
-        this.renderOrdersTab(document.getElementById('admin-tab-body'));
-        App.showToast(`Order ${order.id} confirmed for ₹${cleanAmt.toLocaleString('en-IN')}`);
-    }
-
     static updateOrderStatus(orderId, newStatus) {
-        const updateFields = { status: newStatus };
-        if (newStatus === 'PAID') {
-            updateFields.paymentStatus = 'Paid';
-            updateFields.status = 'PROCESSING';
-        }
-
-        DataStore.updateOrder(orderId, updateFields);
+        DataStore.updateOrder(orderId, { status: newStatus });
         this.renderOrdersTab(document.getElementById('admin-tab-body'));
         App.showToast(`Order status updated to ${newStatus}`);
     }
@@ -270,7 +237,7 @@ class AdminManager {
 
         const rawPhone = order.phone.replace(/[^0-9]/g, '');
         const targetPhone = rawPhone.startsWith('91') ? rawPhone : '91' + rawPhone;
-        const msg = `Hello ${order.customerName},\n\nRegarding your PRANAV CRACKERS Order *${order.id}*:\nFinal Amount: ₹${(order.confirmedPayableAmount || order.estimatedTotal).toLocaleString('en-IN')}\nStatus: ${order.status}\n\nWe are pleased to confirm your order details.`;
+        const msg = `Hello ${order.customerName},\n\nRegarding your PRANAV CRACKERS Order *${order.id}*:\nEstimated Total: ₹${order.estimatedTotal.toLocaleString('en-IN')}\nStatus: ${order.status}\n\nWe are pleased to confirm your order details.`;
         window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 

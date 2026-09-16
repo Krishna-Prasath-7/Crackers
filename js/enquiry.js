@@ -187,6 +187,61 @@ class CartManager {
         if (qSumSavingsLine) {
             qSumSavingsLine.style.display = count > 0 ? 'flex' : 'none';
         }
+
+        // 5. Desktop Sidebar Quotation Widget
+        const sbCount = document.getElementById('sidebar-items-count');
+        const sbTotal = document.getElementById('sidebar-total-price');
+        const sbBtn = document.getElementById('btn-sidebar-whatsapp');
+
+        if (sbCount) sbCount.textContent = count;
+        if (sbTotal) sbTotal.textContent = `₹${wholesale.toLocaleString('en-IN')}`;
+        if (sbBtn) {
+            sbBtn.disabled = (count === 0);
+        }
+        this.renderSidebarQuotation();
+    }
+
+    static renderSidebarQuotation() {
+        const listContainer = document.getElementById('sidebar-items-list');
+        if (!listContainer) return;
+
+        const cart = this.getCart();
+        const entries = Object.entries(cart);
+
+        if (entries.length === 0) {
+            listContainer.innerHTML = `
+                <div class="sidebar-empty-state">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:4px;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    <div>Your quotation is empty.</div>
+                    <small style="color:#94A3B8; font-size:0.75rem;">Press <b>+</b> on any cracker to add</small>
+                </div>
+            `;
+            return;
+        }
+
+        let html = '';
+        entries.forEach(([id, qty]) => {
+            const item = this.getFullItemDetails(id);
+            if (!item) return;
+            const name = item.name || item.nameEn;
+            const unitPriceNum = (item.price && item.price.includes('₹'))
+                ? parseFloat(item.price.replace(/[^0-9.]/g, '')) || 0
+                : 0;
+            const lineSubtotal = unitPriceNum * qty;
+
+            html += `
+                <div class="sidebar-item-row" id="sb-row-${id}">
+                    <div class="sidebar-item-details">
+                        <span class="sidebar-item-name">${name}</span>
+                        <span class="sidebar-item-calc">₹${unitPriceNum.toLocaleString('en-IN')} × ${qty}</span>
+                    </div>
+                    <span class="sidebar-item-total">₹${lineSubtotal.toLocaleString('en-IN')}</span>
+                    <button type="button" class="sidebar-item-remove" onclick="App.changeQty('${id}', -${qty})" aria-label="Remove ${name}" title="Remove">✕</button>
+                </div>
+            `;
+        });
+
+        listContainer.innerHTML = html;
     }
 
     // --- Unified Quotation Modal ---
@@ -257,7 +312,6 @@ class CartManager {
                 <div class="q-modal-row" id="qmodal-row-${id}">
                     <div class="q-row-info">
                         <strong class="q-row-name">${name}</strong>
-                        <span class="q-row-comp">${comp}</span>
                     </div>
                     <div class="q-row-stepper">
                         <button type="button" class="stepper-btn minus" onclick="App.changeQty('${id}', -1)" aria-label="Decrease">−</button>

@@ -1,0 +1,848 @@
+[
+  {
+    "id": "fp-01",
+    "name": "Flower Pot Big",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.indiamart.com/proddetail/flower-pots-big-crackers-11354020330.html",
+    "license": "Public Manufacturer / Distributor Catalogue",
+    "localPath": "assets/products/fp-01.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "fp-02",
+    "name": "Flower Pot Special",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/flower-pot-special/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/fp-02.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "fp-03",
+    "name": "Flower Pot Ashoka",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/flower-pot-asoka/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/fp-03.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-4",
+    "name": "Flower Pot Giant",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.tradeindia.com/products/color-flowerpots-giant-cracker-4508099.html",
+    "license": "Public TradeIndia Supplier Catalogue",
+    "localPath": "assets/products/pl-4.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-5",
+    "name": "Flower Pot Deluxe (5 Pcs)",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.indiamart.com/proddetail/oveeya-deluxe-flower-pots-cracker-28562306233.html",
+    "license": "Public Manufacturer Product Photograph",
+    "localPath": "assets/products/pl-5.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-6",
+    "name": "Flower Pot Super Deluxe (2 Pcs)",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/deluxe-pots-5pes/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-6.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-7",
+    "name": "Flower Pot Small",
+    "type": "Generic Category Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/flower-pot-special/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-7.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-8",
+    "name": "Colour Koti",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/colour-koti/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-8.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-9",
+    "name": "Colour Koti Deluxe",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/colour-koti-deluxa/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-9.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-10",
+    "name": "Tri Colour Fountain",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/tri-colour-fountain/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-10.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "gc-01",
+    "name": "Ground Chakkar Big (10 Pcs)",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.indiamart.com/proddetail/ground-chakkar-big-crackers-285324567.html",
+    "license": "Public Manufacturer Product Photograph",
+    "localPath": "assets/products/gc-01.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-12",
+    "name": "Ground Chakkar Special",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/chakkar-special/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-12.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-13",
+    "name": "Ground Chakkar Deluxe",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.indiamart.com/proddetail/ground-chakkar-deluxe-10-pcs-28562306233.html",
+    "license": "Public Manufacturer Product Photograph",
+    "localPath": "assets/products/pl-13.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-14",
+    "name": "Spinner Special",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/chakkar-super-deluxe/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-14.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-15",
+    "name": "Spinner Deluxe",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/whistling-wheel/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-15.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-16",
+    "name": "Ground Chakkar Special (Plastic)",
+    "type": "Generic Category Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/chakkar-super-deluxe/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-16.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-17",
+    "name": "Disco Wheel",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/rio-wheel-purple-colour/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-17.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-18",
+    "name": "Whirling Wheel (Red & Green)",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/classic-wheel-double-spin-wheel/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-18.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "os-kuruvi",
+    "name": "2 3/4\" Kuruvi",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/2-75-kuruvi/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/os-kuruvi.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-20",
+    "name": "3 1/2\" Lakshmi",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/3-5-laskhmi/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-20.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-21",
+    "name": "4\" Deluxe Lakshmi",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/4-dlx-laskhmi/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-21.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-22",
+    "name": "4\" Gold Lakshmi",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/4-laskhmi/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-22.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-23",
+    "name": "5\" Mega Sound",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/2-sound-cracket/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-23.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "snd-28chorsa",
+    "name": "28 Chorsa",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/28-chorsa/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/snd-28chorsa.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "bj-red",
+    "name": "Red Bijili (50 Pcs)",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/red-bijili/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/bj-red.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-26",
+    "name": "Red Bijili (100 Pcs)",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/red-bijili/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-26.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-27",
+    "name": "Striped Bijili (50 Pcs)",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/stripped-bijili/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-27.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-28",
+    "name": "Striped Bijili (100 Pcs)",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/stripped-bijili/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-28.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-29",
+    "name": "1 1/2\" Twinkling Star",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/1-5-twinkling-star/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-29.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-30",
+    "name": "4\" Twinkling Star",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/7-pencil/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-30.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-31",
+    "name": "Bullet Bomb",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/bullet-bomb/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-31.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-32",
+    "name": "Hydro Bomb",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/hydro-bomb/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-32.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-33",
+    "name": "King Bomb",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/king-of-king-bomb/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-33.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-34",
+    "name": "Classic Bomb",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/classic-bomb/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-34.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-35",
+    "name": "Siren Bomb",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/siren-3pes/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-35.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "rkt-01",
+    "name": "Baby Rocket",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/baby-rocket/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/rkt-01.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "rkt-rb",
+    "name": "Rocket Bomb",
+    "type": "Generic Category Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/lunix-rocket/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/rkt-rb.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-38",
+    "name": "Lunik Rocket",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/lunix-rocket/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-38.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-39",
+    "name": "Whistling Rocket",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/whistling-racket/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-39.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-40",
+    "name": "1/4 Kg Paper Bomb",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/paper-bomb-1-4kg/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-40.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-41",
+    "name": "1/2 Kg Paper Bomb",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/paper-bomb-1-2kg/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-41.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-42",
+    "name": "1 Kg Paper Bomb",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/paper-bomb-1kg/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-42.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-43",
+    "name": "6 Shot Multi Colour",
+    "type": "Generic Category Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/12-shot-colour-mains/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-43.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "sky-7shot",
+    "name": "7 Shot Repeater",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/15-shot-boom-with-crackle/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/sky-7shot.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-45",
+    "name": "12 Shot Multi Colour",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/12-shot-colour-mains/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-45.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-46",
+    "name": "12 Shot Aerial Cake",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/12-shot-crackling/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-46.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-47",
+    "name": "15 Shot Multi Colour",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/15-shot-boom-with-crackle/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-47.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-48",
+    "name": "25 Shot Multi Colour Cake",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/25-shot-crackling/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-48.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-49",
+    "name": "30 Shot Multi Colour",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/30-shot-multicolour/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-49.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-50",
+    "name": "50 Shot Galaxy Cake",
+    "type": "Generic Category Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/terminator-120-shot-with-full-crackling-sony/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-50.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-51",
+    "name": "60 Shot Multi Colour",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/60-shot-multicolour/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-51.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-52",
+    "name": "3 Pcs Fancy",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/2-fancy-3-pcs/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-52.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-53",
+    "name": "Colour Pops",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/magic-pops/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-53.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-54",
+    "name": "Peacock Feather",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/peacock-feather/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-54.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-55",
+    "name": "Drone Butterfly",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/butterfly/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-55.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-56",
+    "name": "Selfie Stick",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/selfie-sticks/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-56.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-57",
+    "name": "Helicopter Rotor",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/helicopter/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-57.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-58",
+    "name": "Waterfall Fountain",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/cocktail-5-in-1-fountain/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-58.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "spk-10ele",
+    "name": "10 CM Electric Sparkler",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/10-cm-electric-sparklers/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/spk-10ele.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-60",
+    "name": "10 CM Colour Sparkler",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/10-cm-colour-sparklers/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-60.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-61",
+    "name": "10 CM Green Sparkler",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/10-cm-green-sparklers/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-61.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-62",
+    "name": "10 CM Red Sparkler",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/10-cm-red-sparklers/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-62.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-63",
+    "name": "12 CM Electric Sparkler",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/12-cm-electric-sparklers/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-63.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-64",
+    "name": "12 CM Colour Sparkler",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/12-cm-colour-sparklers/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-64.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-65",
+    "name": "15 CM Electric Sparkler",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/15-cm-electric-sparklers-royal/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-65.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-66",
+    "name": "15 CM Colour Sparkler",
+    "type": "Generic Category Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/12-cm-colour-sparklers/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-66.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-67",
+    "name": "15 CM Green Sparkler",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/12-cm-green-sparklers/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-67.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-68",
+    "name": "30 CM Electric Sparkler",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/30-cm-electric-sparklers/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-68.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-69",
+    "name": "30 CM Colour Sparkler",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/30-cm-colour-sparklers/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-69.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-70",
+    "name": "50 CM Electric Sparkler",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/50-cm-electrical-sparklers/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-70.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-71",
+    "name": "50 Wala Garland",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/50-deluxe/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-71.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-72",
+    "name": "100 Wala Garland",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/100-wala/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-72.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-73",
+    "name": "300 Wala Garland",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/200-wala/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-73.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-74",
+    "name": "1K Roll (Full Count)",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/1000-wala/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-74.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-75",
+    "name": "2K Roll (Full Count)",
+    "type": "Generic Category Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/paper-bomb-1kg/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-75.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-76",
+    "name": "5K Roll (Full Count)",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/5000-wala/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-76.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-77",
+    "name": "10K Roll (Full Count)",
+    "type": "Generic Category Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/5000-wala/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-77.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-78",
+    "name": "35 Items Gift Box",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/golden-gift-box-25-items/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-78.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-79",
+    "name": "40 Items Gift Box",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/platinum-gift-box-40-items/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-79.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-80",
+    "name": "50 Items Gift Box",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/vip-gift-box-50-items/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-80.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-81",
+    "name": "60 Items Gift Box",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/diamond-gift-box-30-items/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-81.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-82",
+    "name": "70 Items Gift Box",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/silver-gift-box-20-items/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-82.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "gb-italy",
+    "name": "ITALY Gift Box",
+    "type": "Generic Category Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/silver-gift-box-20-items/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/gb-italy.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "gb-singapore",
+    "name": "SINGAPORE Gift Box",
+    "type": "Generic Category Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/golden-gift-box-25-items/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/gb-singapore.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "gb-dubai",
+    "name": "DUBAI Gift Box",
+    "type": "Generic Category Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/diamond-gift-box-30-items/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/gb-dubai.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "gb-paris",
+    "name": "PARIS Gift Box",
+    "type": "Generic Category Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/platinum-gift-box-40-items/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/gb-paris.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "gb-germany",
+    "name": "GERMANY Gift Box",
+    "type": "Generic Category Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/vip-gift-box-50-items/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/gb-germany.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-83",
+    "name": "Snake Tablets",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/cuckoo-snake-50-whistle/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-83.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-84",
+    "name": "Photo Flash",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/crackling-star/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-84.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-85",
+    "name": "Colour Shower",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/colours-rain/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-85.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-86",
+    "name": "Colour Matches",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/laptop-colour-matches/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-86.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-87",
+    "name": "Pop Pop Snappers",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bang_snaps.JPG",
+    "license": "Wikimedia Commons CC BY-SA 3.0",
+    "localPath": "assets/products/pl-87.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-88",
+    "name": "Pogo Crackers",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://www.crackersshope.com/product/hi-pop-series-mixed-varieties-2-pcs/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-88.jpg",
+    "status": "Success"
+  },
+  {
+    "id": "pl-89",
+    "name": "Magic Whip",
+    "type": "Exact Product Photograph",
+    "sourceUrl": "https://crackersshopping.com/product/electric-stone/",
+    "license": "Public Retailer Product Photograph",
+    "localPath": "assets/products/pl-89.jpg",
+    "status": "Success"
+  }
+]

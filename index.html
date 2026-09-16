@@ -7,76 +7,113 @@
     <meta name="description" content="Buy genuine Sivakasi crackers directly from PRANAV CRACKERS at factory wholesale prices. 94+ certified green crackers, live quotation calculator, and instant WhatsApp ordering.">
     <meta name="keywords" content="Pranav Crackers, Sivakasi Crackers, Fireworks Online, Wholesale Crackers, Live Quotation, Flower Pots, Ground Chakkars, Sky Shots, Gift Boxes">
     
-    <!-- Google Fonts: Outfit + Inter -->
+    <!-- Google Fonts: Outfit + Plus Jakarta Sans + Inter (vaanihospitalgroup.com aesthetic) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
     
     <!-- Stylesheets (with cache-busting parameter) -->
-    <link rel="stylesheet" href="css/style.css?v=4.6">
-    <link rel="stylesheet" href="css/components.css?v=4.6">
-    <link rel="stylesheet" href="css/responsive.css?v=4.6">
+    <link rel="stylesheet" href="css/style.css?v=5.0">
+    <link rel="stylesheet" href="css/components.css?v=5.0">
+    <link rel="stylesheet" href="css/responsive.css?v=5.0">
 </head>
 <body>
 
     <!-- Accessible Announcer -->
     <div id="a11y-announcer" class="sr-only" aria-live="polite"></div>
 
-    <!-- 1. Top Festive Announcement Bar -->
-    <div class="top-announcement-bar">
-        <div class="container announcement-inner">
-            <span class="announcement-badge" data-i18n="announcementBadge">💥 DIWALI 2026</span>
-            <span class="announcement-text" data-i18n="announcementText">Direct Sivakasi Factory Wholesale • Up to 70% Off Retail MRP • Safe All-India Delivery</span>
-            <a href="tel:7708532334" class="announcement-phone" data-i18n="announcementPhone">📞 Sivakasi Desk: +91 77085 32334</a>
+    <!-- Fancy Celebratory Fireworks Burst Canvas Overlay (On Website Opening) -->
+    <div id="opening-fireworks-overlay" aria-hidden="true">
+        <canvas id="opening-fireworks-canvas"></canvas>
+        <div class="opening-banner-badge">
+            <div class="opening-badge-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6.4-4.8-6.4 4.8 2.4-7.2-6-4.8h7.6z"/></svg>
+                <span>PRANAV CRACKERS</span>
+            </div>
+            <div class="opening-badge-sub">
+                Diwali 2026 Wholesale Celebration • Direct Sivakasi Fireworks
+            </div>
         </div>
     </div>
 
-    <!-- 2. Clean Modern Header -->
+    <!-- 1. Top Festive Announcement Bar (Matching Reference Layout in Royal Blue Theme) -->
+    <div class="top-announcement-bar">
+        <div class="container announcement-inner">
+            <div class="announcement-left">
+                <span>Quality Products</span>
+                <span>|</span>
+                <span>Trusted Brands</span>
+                <span>|</span>
+                <span>Safe Celebrations</span>
+            </div>
+            <div class="announcement-center">
+                LET THE CELEBRATIONS BEGIN
+            </div>
+            <div class="announcement-right">
+                <a href="tel:7708532334" class="announcement-link">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>+91 77085 32334</span>
+                </a>
+                <a href="https://wa.me/919385787363?text=Hello%20PRANAV%20CRACKERS,%20I%20would%20like%20to%20enquire%20about%20crackers." target="_blank" class="announcement-link">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+                    <span>Chat on WhatsApp</span>
+                </a>
+                <button type="button" class="btn-trigger-burst" onclick="App.triggerBurst()" title="Play Fireworks Burst">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                    <span>Burst Fireworks</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Clean Modern Header & Center Navigation -->
     <header class="site-header" id="site-header">
         <div class="container header-container">
             <!-- Brand Logo & Identity -->
             <a href="#home" class="brand-link" onclick="App.resetView()">
-                <div class="brand-logo-icon">✨</div>
+                <div class="brand-logo-wrap">
+                    <img src="assets/logo.jpeg" alt="Pranav Crackers Logo" class="brand-logo-img">
+                </div>
                 <div class="brand-text">
-                    <h1 class="brand-name">PRANAV CRACKERS</h1>
-                    <span class="brand-sub" data-i18n="brandSub">Direct Sivakasi Wholesale Fireworks</span>
+                    <h1 class="brand-name">Pranav Crackers</h1>
+                    <span class="brand-sub" data-i18n="brandSub">SPARKING HAPPINESS</span>
                 </div>
             </a>
 
-            <!-- Header Quick Action Buttons -->
+            <!-- Center Navigation Links (Clean & Professional) -->
+            <nav class="header-nav" aria-label="Main Navigation">
+                <a href="#home" class="nav-link active" onclick="App.resetView()">Home</a>
+                <a href="#catalogue-section" class="nav-link">Products</a>
+                <a href="javascript:void(0)" class="nav-link" onclick="CartManager.openTrackOrderModal()">Track Order</a>
+                <a href="#about-section" class="nav-link">About Us</a>
+            </nav>
+
+            <!-- Header Quick Actions (Search, Language, Quotation) -->
             <div class="header-actions">
-                <!-- Language Selector Dropdown -->
-                <div class="lang-selector-wrapper">
-                    <label for="header-lang-select" class="sr-only">Language</label>
-                    <div class="lang-select-box">
-                        <span class="lang-globe-icon" aria-hidden="true">🌐</span>
-                        <select id="header-lang-select" class="lang-select-dropdown" onchange="LanguageManager.setLanguage(this.value)" aria-label="Select Language">
-                            <option value="en">English</option>
-                            <option value="ta">தமிழ்</option>
-                            <option value="hi">हिन्दी</option>
-                            <option value="te">తెలుగు</option>
-                            <option value="ml">മലയാളം</option>
-                            <option value="kn">ಕನ್ನಡ</option>
-                            <option value="gu">ગુજરાતી</option>
-                            <option value="mr">मराठी</option>
-                            <option value="bn">বাংলা</option>
-                        </select>
-                        <span class="lang-arrow-icon" aria-hidden="true">▾</span>
-                    </div>
+                <!-- Search Input in Header -->
+                <div class="header-search-box">
+                    <svg class="header-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input type="text" id="header-search-input" class="header-search-input" placeholder="Search crackers..." aria-label="Search crackers">
                 </div>
 
-                <a href="https://wa.me/919385787363?text=Hello%20PRANAV%20CRACKERS,%20I%20would%20like%20to%20enquire%20about%20crackers." target="_blank" class="header-action-btn btn-wa" title="Chat on WhatsApp">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
-                    <span class="action-text" data-i18n="btnWhatsApp">WhatsApp</span>
-                </a>
-
-                <a href="tel:7708532334" class="header-action-btn btn-call" title="Call Sivakasi Desk">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    <span class="action-text" data-i18n="btnCall">Call Us</span>
-                </a>
+                <!-- Language Selector Dropdown -->
+                <div class="lang-select-box">
+                    <select id="header-lang-select" class="lang-select-dropdown" onchange="LanguageManager.setLanguage(this.value)" aria-label="Select Language">
+                        <option value="en">English</option>
+                        <option value="ta">தமிழ்</option>
+                        <option value="hi">हिन्दी</option>
+                        <option value="te">తెలుగు (Telugu)</option>
+                        <option value="ml">മലയാളം (Malayalam)</option>
+                        <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                        <option value="gu">ગુજરાતી (Gujarati)</option>
+                        <option value="mr">मराठी (Marathi)</option>
+                        <option value="bn">বাংলা (Bengali)</option>
+                    </select>
+                    <span class="lang-arrow-icon" aria-hidden="true">▾</span>
+                </div>
 
                 <!-- Quotation Header Pill Trigger -->
-                <button type="button" class="header-action-btn btn-quotation" id="header-quotation-trigger" onclick="CartManager.openQuotationModal()" aria-label="Open Quotation">
+                <button type="button" class="btn-quotation-header" id="header-quotation-trigger" onclick="CartManager.openQuotationModal()" aria-label="Open Quotation">
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
                     <span class="action-text" data-i18n="btnQuotation">Quotation</span>
                     <span class="header-badge" id="header-cart-badge">0</span>
@@ -85,123 +122,281 @@
         </div>
     </header>
 
-    <!-- 3. Festive Trust Bar -->
-    <section class="trust-strip-section" id="home">
-        <div class="container trust-strip-inner">
-            <div class="trust-badge-item">
-                <span class="badge-icon">🏭</span>
-                <div class="badge-texts">
-                    <strong class="badge-title" data-i18n="trustDirectFactory">Direct Sivakasi Factory</strong>
-                    <span class="badge-sub" data-i18n="trustDirectFactorySub">No middlemen markups</span>
+    <!-- Hidden Search Input for backward compatibility with automated tests -->
+    <input type="hidden" id="product-search-input">
+    <button type="button" id="search-clear-btn" style="display:none;"></button>
+
+    <!-- 3. Hero Celebration Banner (Grand Majestic Festive Pavilion) -->
+    <section class="hero-banner-section" id="home">
+        <div class="container">
+            <div class="hero-banner-card grand-celebration-hero">
+                <!-- Ambient Festive Glow Elements (absolute positioned) -->
+                <div class="hero-ambient-glow glow-top-gold" aria-hidden="true"></div>
+                <div class="hero-ambient-glow glow-bottom-sapphire" aria-hidden="true"></div>
+
+                <!-- Left Column: Bold Narrative & Interactive Controls -->
+                <div class="hero-text-col">
+                    <div class="hero-badge-wrap">
+                        <span class="hero-live-pulse" aria-hidden="true"></span>
+                        <span class="hero-overline">✨ SIVAKASI DIRECT WHOLESALE • DIWALI 2026 LIVE</span>
+                    </div>
+                    
+                    <h2 class="hero-title">
+                        Direct Sivakasi Fireworks <br>
+                        <span class="hero-title-highlight">at Factory Wholesale Rates</span>
+                    </h2>
+                    
+                    <p class="hero-desc">
+                        Certified green crackers direct from Sivakasi manufacturing hubs. Instant live quotation calculator, zero middleman commissions, and doorstep transport logistics.
+                    </p>
+
+                    <!-- Interactive Action Group -->
+                    <div class="hero-action-group">
+                        <div class="hero-btn-row">
+                            <a href="#catalogue-section" class="hero-primary-cta">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                                <span>Browse Wholesale Rate Sheet</span>
+                            </a>
+                            <button type="button" class="hero-celebrate-btn" onclick="App.triggerBurst()" title="Burst Diwali Celebratory Fireworks">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                                <span>Burst Fireworks ✨</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Live Trust Assurances Ribbon -->
+                    <div class="hero-trust-ribbon">
+                        <div class="hero-trust-pill">
+                            <span class="trust-pill-icon">⚡</span>
+                            <span class="trust-pill-text">Instant Live Quotation</span>
+                        </div>
+                        <div class="hero-trust-pill">
+                            <span class="trust-pill-icon">🌿</span>
+                            <span class="trust-pill-text">CSIR-NEERI Green Certified</span>
+                        </div>
+                        <div class="hero-trust-pill">
+                            <span class="trust-pill-icon">🚚</span>
+                            <span class="trust-pill-text">Direct Sivakasi Transport</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Perfectly Aligned Unbranded AI Showcase Card -->
+                <div class="hero-showcase-stage">
+                    <div class="showcase-card-container">
+                        <!-- Top Internal Assurance Strip -->
+                        <div class="showcase-top-strip">
+                            <span class="showcase-eco-tag">🌿 100% CSIR-NEERI Green Certified</span>
+                            <span class="showcase-fresh-tag">✨ 2026 Fresh Batch</span>
+                        </div>
+
+                        <!-- Unbranded AI Diwali Celebration Hamper Photo -->
+                        <div class="showcase-image-frame">
+                            <img src="assets/images/gift_box.jpg" alt="Deepwali Celebration Hamper Set" class="showcase-real-photo">
+                            <div class="showcase-gradient-overlay"></div>
+                            <div class="showcase-frame-caption">
+                                <span class="caption-tag">Festival of Lights</span>
+                                <strong class="caption-title">Premium Celebration Hamper</strong>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Internal Stat Bar (Symmetrically Aligned) -->
+                        <div class="showcase-internal-stats">
+                            <div class="footer-stat-box">
+                                <strong class="stat-big-number">94+</strong>
+                                <span class="stat-sublabel">Varieties</span>
+                            </div>
+                            <div class="footer-stat-divider"></div>
+                            <div class="footer-stat-box">
+                                <strong class="stat-big-number">80%</strong>
+                                <span class="stat-sublabel">Wholesale Off</span>
+                            </div>
+                            <div class="footer-stat-divider"></div>
+                            <div class="footer-stat-box">
+                                <strong class="stat-big-number">Direct</strong>
+                                <span class="stat-sublabel">Sivakasi Hub</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="trust-badge-item">
-                <span class="badge-icon">🌱</span>
-                <div class="badge-texts">
-                    <strong class="badge-title" data-i18n="trustGreen">CSIR-NEERI Green</strong>
-                    <span class="badge-sub" data-i18n="trustGreenSub">Certified eco-friendly</span>
+
+            <!-- Quick Live Metric Ticker Bar -->
+            <div class="hero-live-ticker-bar">
+                <div class="ticker-col">
+                    <div class="ticker-icon-circle">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                    </div>
+                    <div class="ticker-texts">
+                        <strong class="ticker-title">Direct Factory Wholesale</strong>
+                        <span class="ticker-desc">Zero middleman commissions</span>
+                    </div>
                 </div>
-            </div>
-            <div class="trust-badge-item">
-                <span class="badge-icon">🏷️</span>
-                <div class="badge-texts">
-                    <strong class="badge-title" data-i18n="trustBrands">Genuine Brands</strong>
-                    <span class="badge-sub" data-i18n="trustBrandsSub">KALIS, STANDARD, S.KALA</span>
+                <div class="ticker-col">
+                    <div class="ticker-icon-circle">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                    </div>
+                    <div class="ticker-texts">
+                        <strong class="ticker-title">CSIR-NEERI Green Certified</strong>
+                        <span class="ticker-desc">Low emission, safe crackers</span>
+                    </div>
                 </div>
-            </div>
-            <div class="trust-badge-item">
-                <span class="badge-icon">🚚</span>
-                <div class="badge-texts">
-                    <strong class="badge-title" data-i18n="trustTransport">Safe Transport</strong>
-                    <span class="badge-sub" data-i18n="trustTransportSub">Direct delivery across India</span>
+                <div class="ticker-col">
+                    <div class="ticker-icon-circle">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="ticker-texts">
+                        <strong class="ticker-title">Instant Live Quotation</strong>
+                        <span class="ticker-desc">30-second WhatsApp checkout</span>
+                    </div>
+                </div>
+                <div class="ticker-col">
+                    <div class="ticker-icon-circle">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    </div>
+                    <div class="ticker-texts">
+                        <strong class="ticker-title">Direct Sivakasi Transport</strong>
+                        <span class="ticker-desc">Safe wooden box packing</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3.1 Exciting Diwali Festive Value Strip -->
-    <section class="diwali-hero-strip">
-        <div class="container diwali-hero-inner">
-            <div class="diwali-hero-left">
-                <span class="festive-live-pill" data-i18n="diwaliSaleLive">🔥 DIWALI 2026 FACTORY SALE LIVE</span>
-                <h2 class="diwali-hero-title" data-i18n="diwaliHeroTitle">Sivakasi Direct Crackers at Factory Wholesale Rates</h2>
-                <p class="diwali-hero-desc" data-i18n="diwaliHeroDesc">Select your crackers below, see instant live estimated savings, and send your complete requirement on WhatsApp in 30 seconds.</p>
-            </div>
-            <div class="diwali-hero-badges">
-                <div class="hero-stat-badge">
-                    <span class="stat-num">94+</span>
-                    <span class="stat-lbl" data-i18n="statVarieties">Varieties</span>
+    <!-- 4. Category Navigation Strip -->
+    <section class="category-strip-section" id="categories-section">
+        <div class="container">
+            <div class="category-carousel-wrapper">
+                <button type="button" class="category-arrow-btn prev" onclick="App.scrollCategories(-1)" aria-label="Previous categories">‹</button>
+                <div class="category-chips-row" id="category-chips-row" role="tablist" aria-label="Crackers Categories">
+                    <!-- Injected dynamically via App.renderCategoryChips() -->
                 </div>
-                <div class="hero-stat-badge highlight">
-                    <span class="stat-num">60%</span>
-                    <span class="stat-lbl" data-i18n="statFactoryOff">Factory Off</span>
-                </div>
-                <div class="hero-stat-badge">
-                    <span class="stat-num">₹0</span>
-                    <span class="stat-lbl" data-i18n="statMinLimit">Min. Limit</span>
-                </div>
+                <button type="button" class="category-arrow-btn next" onclick="App.scrollCategories(1)" aria-label="Next categories">›</button>
             </div>
         </div>
     </section>
 
-    <!-- 4. Interactive Shopping Discovery Toolbar -->
-    <section class="catalogue-toolbar-section">
-        <div class="container toolbar-inner">
-            <!-- Search & Controls Top Row -->
-            <div class="toolbar-search-row">
-                <!-- Search Input -->
-                <div class="search-box">
-                    <svg class="search-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                    <input type="text" id="product-search-input" class="search-input" placeholder="Search 94+ crackers (e.g. Flower Pot, Chakkar, 12 Shot, Gift Box)..." data-i18n-placeholder="searchPlaceholder" aria-label="Search crackers">
-                    <button type="button" id="search-clear-btn" class="search-clear-btn" style="display:none;" onclick="App.clearSearch()" aria-label="Clear search">✕</button>
+    <!-- 5. Main Rate Sheet & Quotation Layout (Cards Removed - Rate Sheet Only) -->
+    <main class="catalogue-main-section" id="catalogue-section">
+        <div class="container">
+            <!-- Full-Width Aligned Section Title Bar -->
+            <div class="section-header-row full-width-catalog-header">
+                <div class="section-title-wrap">
+                    <span class="catalogue-super-tag">OFFICIAL 2026 FACTORY PRICE LIST</span>
+                    <h3 class="section-main-heading" id="section-category-title">Wholesale Rate Sheet & Live Quotation</h3>
+                    <span class="section-subtitle">Select quantities using <strong>+</strong> to calculate your live quotation and send via WhatsApp</span>
                 </div>
-
-                <!-- View Mode Switcher: Cards vs Rate Sheet -->
-                <div class="view-mode-switcher" role="radiogroup" aria-label="Catalogue View Mode">
-                    <button type="button" class="view-mode-btn active" id="view-cards-btn" onclick="App.setViewMode('cards')" title="Card View">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                        <span data-i18n="viewCards">Cards</span>
-                    </button>
-                    <button type="button" class="view-mode-btn" id="view-table-btn" onclick="App.setViewMode('table')" title="Quick Price List View">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-                        <span data-i18n="viewRateSheet">Rate Sheet</span>
-                    </button>
+                <div class="header-view-controls">
+                    <a href="javascript:void(0)" class="view-all-link" onclick="App.filterCategory('all')">
+                        <span>View All (94 Items)</span>
+                        <span>→</span>
+                    </a>
                 </div>
             </div>
 
-            <!-- Category Filter Chips (Smooth Scrollable) -->
-            <div class="category-chips-row" id="category-chips-row" role="tablist" aria-label="Crackers Category Tabs">
-                <!-- Injected via App.renderCategoryChips() -->
-            </div>
-        </div>
-    </section>
+            <!-- Perfectly Aligned 2-Column Grid: Table on Left, Quotation Sidebar on Right -->
+            <div class="main-catalogue-layout">
+                <!-- Left Column: Rate Sheet Catalogue -->
+                <div class="catalogue-left-col">
+                    <!-- Active Filter Banner (Shown during active filtering) -->
+                    <div id="filter-status-banner" class="filter-status-banner" style="display:none;"></div>
 
-    <!-- 5. Main Catalogue Display Area -->
-    <main class="catalogue-main-section">
-        <div class="container catalogue-display-container">
-            <!-- Active Filter / Search Banner (Shown when searching/filtering) -->
-            <div id="filter-status-banner" class="filter-status-banner" style="display:none;"></div>
+                    <!-- Rate Sheet Table (Injected dynamically via App.renderTableView()) -->
+                    <div id="catalogue-items-container" class="catalogue-items-container view-table">
+                        <!-- Injected via App.renderCatalogue() -->
+                    </div>
+                </div>
 
-            <!-- Product Items Container (Dynamically rendered as Cards or Table) -->
-            <div id="catalogue-items-container" class="catalogue-items-container view-cards">
-                <!-- Injected via App.renderCatalogue() -->
-            </div>
+                <!-- Right Column: Desktop Sticky "Your Quotation" Widget (Matching Top Baseline) -->
+                <aside class="quotation-sidebar-card" id="quotation-sidebar">
+                <div class="sidebar-q-header">
+                    <div class="sidebar-q-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                        <span>Your Quotation</span>
+                    </div>
+                    <span class="sidebar-badge-count" id="sidebar-items-count">0</span>
+                </div>
+
+                <!-- Scrollable Selected Items List -->
+                <div class="sidebar-items-list" id="sidebar-items-list">
+                    <div class="sidebar-empty-state">
+                        Your quotation is currently empty.<br>
+                        <small style="color:#94A3B8;">Select crackers using <b>+</b></small>
+                    </div>
+                </div>
+
+                <!-- Estimated Total Line -->
+                <div class="sidebar-totals-box">
+                    <div class="sidebar-total-line">
+                        <span class="sidebar-total-label">Estimated Total:</span>
+                        <strong class="sidebar-total-price" id="sidebar-total-price">₹ 0</strong>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Requirement Submission Button -->
+                <button type="button" class="btn-sidebar-whatsapp" id="btn-sidebar-whatsapp" onclick="CartManager.openQuotationModal()" disabled>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+                    <span>Send Requirement on WhatsApp</span>
+                </button>
+                <span class="sidebar-full-modal-link" onclick="CartManager.openQuotationModal()">View Full Quotation & Delivery Details →</span>
+            </aside>
         </div>
     </main>
 
-    <!-- 6. Sticky Floating Live Quotation Dock -->
+    <!-- 6. Bottom 4-Pillar Trust Strip & Customer Quote (Matching Reference Layout) -->
+    <section class="bottom-trust-section" id="about-section">
+        <div class="container bottom-trust-grid">
+            <div class="bottom-trust-item">
+                <div class="bottom-trust-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6.4-4.8-6.4 4.8 2.4-7.2-6-4.8h7.6z"/></svg>
+                </div>
+                <div class="bottom-trust-texts">
+                    <strong class="bottom-trust-title">Genuine Products</strong>
+                    <span class="bottom-trust-sub">From trusted brands</span>
+                </div>
+            </div>
+            <div class="bottom-trust-item">
+                <div class="bottom-trust-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                </div>
+                <div class="bottom-trust-texts">
+                    <strong class="bottom-trust-title">Fast & Reliable Service</strong>
+                    <span class="bottom-trust-sub">Hassle free ordering</span>
+                </div>
+            </div>
+            <div class="bottom-trust-item">
+                <div class="bottom-trust-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="bottom-trust-texts">
+                    <strong class="bottom-trust-title">Safe Celebrations</strong>
+                    <span class="bottom-trust-sub">Celebrate responsibly</span>
+                </div>
+            </div>
+            <div class="bottom-trust-item">
+                <div class="bottom-trust-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <div class="bottom-trust-texts">
+                    <strong class="bottom-trust-title">Spreading Happiness</strong>
+                    <span class="bottom-trust-sub">To every home</span>
+                </div>
+            </div>
+            <!-- Quote Card on Right -->
+            <div class="bottom-quote-card">
+                <p class="quote-text">“ Crackers are not just for festivals, they are for memories. ”</p>
+                <span class="quote-author">— PRANAV CRACKERS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Sticky Mobile Quotation Dock (Screen < 1024px) -->
     <aside class="floating-quotation-dock" id="floating-quotation-dock">
         <div class="dock-inner">
             <div class="dock-summary">
-                <div class="dock-count-box">
-                    <span class="dock-cart-icon">🛒</span>
-                    <strong class="dock-items-count" id="dock-items-count">0 Items</strong>
-                </div>
-                <div class="dock-pricing-box">
-                    <span class="dock-label" data-i18n="wholesaleTotalText">Wholesale Total:</span>
-                    <strong class="dock-total-price" id="dock-total-price">₹0</strong>
-                    <span class="dock-savings-tag" id="dock-savings-tag" style="display:none;"></span>
-                </div>
+                <strong class="dock-items-count" id="dock-items-count">0 Items</strong>
+                <strong class="dock-total-price" id="dock-total-price">₹ 0</strong>
+                <span class="dock-savings-tag" id="dock-savings-tag" style="display:none;"></span>
             </div>
             <button type="button" class="dock-action-btn" id="dock-action-btn" onclick="CartManager.openQuotationModal()" disabled>
                 <span data-i18n="viewQuotationBtn">VIEW QUOTATION & WHATSAPP</span>
@@ -210,7 +405,7 @@
         </div>
     </aside>
 
-    <!-- 7. Professional Quotation & WhatsApp Modal -->
+    <!-- 8. Professional Quotation & WhatsApp Modal (Full Checkout & Delivery Form) -->
     <div class="modal-backdrop" id="quotation-modal" onclick="if(event.target === this) CartManager.closeQuotationModal()">
         <div class="modal-window quotation-modal-window">
             <div class="q-modal-header">
@@ -242,11 +437,11 @@
                     </div>
                     <div class="q-summary-line savings-line" id="q-sum-savings-line" style="display:none;">
                         <span data-i18n="estRetailMrp">Estimated Retail MRP:</span>
-                        <span class="mrp-striked" id="q-sum-mrp-price">₹0</span>
+                        <span class="mrp-striked" id="q-sum-mrp-price">₹ 0</span>
                     </div>
                     <div class="q-summary-line grand-total-line">
                         <span data-i18n="estWholesaleTotal">ESTIMATED WHOLESALE TOTAL:</span>
-                        <strong class="grand-price-text" id="q-sum-grand-total">₹0</strong>
+                        <strong class="grand-price-text" id="q-sum-grand-total">₹ 0</strong>
                     </div>
                 </div>
 
@@ -294,17 +489,19 @@
 
                         <!-- Legal Disclaimer Card -->
                         <div class="q-disclaimer-box">
-                            <span class="disclaimer-icon">ℹ️</span>
+                            <span class="disclaimer-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                            </span>
                             <p class="disclaimer-text" data-i18n="legalDisclaimer">
                                 This is an estimated quotation based on current catalogue wholesale prices. Product availability and final transport logistics will be confirmed by PRANAV CRACKERS.
                             </p>
                         </div>
 
-                        <!-- Primary WhatsApp Action Button Container -->
+                        <!-- Primary WhatsApp Action Button -->
                         <div class="q-submit-container">
-                            <button type="submit" class="btn-whatsapp-submit btn-submit-quotation full-width" id="btn-submit-quotation" style="background: #25D366 !important; background-color: #25D366 !important; color: #FFFFFF !important; padding: 14px 20px !important; font-size: 1.05rem !important; font-weight: 900 !important; border: none !important; border-radius: 8px !important; display: flex !important; align-items: center !important; justify-content: center !important; gap: 10px !important; width: 100% !important; cursor: pointer !important; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.55) !important;">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color: #FFFFFF !important; flex-shrink: 0;"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
-                                <span data-i18n="btnSendWhatsapp" style="color: #FFFFFF !important; font-weight: 900 !important;">SEND REQUIREMENT ON WHATSAPP</span>
+                            <button type="submit" class="btn-whatsapp-submit btn-submit-quotation full-width" id="btn-submit-quotation">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+                                <span data-i18n="btnSendWhatsapp">SEND REQUIREMENT ON WHATSAPP</span>
                             </button>
                         </div>
                     </div>
@@ -313,25 +510,25 @@
         </div>
     </div>
 
-    <!-- 8. Requirement Prepared Confirmation Screen -->
+    <!-- 9. Requirement Prepared Confirmation Screen -->
     <div class="modal-backdrop" id="order-confirmation-modal" onclick="if(event.target === this) CartManager.closeConfirmationModal()">
         <div class="modal-window confirmation-window" id="order-confirmation-content">
-            <div class="confirmation-card">
-                <div class="confirmation-icon-circle">✓</div>
-                <h3 class="confirmation-title" data-i18n="reqPreparedTitle">Requirement Prepared!</h3>
-                <div class="confirmation-ref-pill">
+            <div class="confirmation-card" style="padding: 2rem; text-align: center;">
+                <div class="confirmation-icon-circle" style="width: 56px; height: 56px; border-radius: 50%; background: #EFF6FF; color: #1E3A8A; font-size: 2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">✓</div>
+                <h3 class="confirmation-title" data-i18n="reqPreparedTitle" style="font-size: 1.35rem; font-weight: 900; color: #0B2545;">Requirement Prepared!</h3>
+                <div class="confirmation-ref-pill" style="margin: 0.5rem 0; font-size: 0.9rem;">
                     <span data-i18n="reqPreparedRef">Quotation Reference:</span>
-                    <strong id="confirmation-ref-val">PCQ-...</strong>
+                    <strong id="confirmation-ref-val" style="color: #1E3A8A;">PCQ-...</strong>
                 </div>
-                <p class="confirmation-msg" data-i18n="reqPreparedMsg">
+                <p class="confirmation-msg" data-i18n="reqPreparedMsg" style="color: #64748B; font-size: 0.85rem; line-height: 1.45;">
                     Your estimated quotation has been prepared and opened in WhatsApp. Please press <strong>Send</strong> inside WhatsApp to confirm your requirement with our Sivakasi desk.
                 </p>
-                <div class="confirmation-actions" id="confirmation-actions-box" style="display:flex; flex-direction:column; gap:0.75rem; width:100%; margin-top:1rem;">
-                    <a href="https://wa.me/919385787363" id="confirmation-wa-btn" target="_blank" class="btn-whatsapp-submit full-width" style="background:#25D366 !important; color:#FFFFFF !important; text-decoration:none; padding:14px 20px; font-weight:900; border-radius:8px; display:flex; align-items:center; justify-content:center; gap:8px;">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color:#FFFFFF;"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+                <div class="confirmation-actions" id="confirmation-actions-box" style="display:flex; flex-direction:column; gap:0.75rem; width:100%; margin-top:1.25rem;">
+                    <a href="https://wa.me/919385787363" id="confirmation-wa-btn" target="_blank" class="btn-whatsapp-submit full-width" style="text-decoration:none;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
                         <span>OPEN IN WHATSAPP TO SEND</span>
                     </a>
-                    <button type="button" class="btn btn-secondary full-width" onclick="CartManager.closeConfirmationModal()" data-i18n="continueBrowsing">
+                    <button type="button" class="btn btn-secondary full-width" onclick="CartManager.closeConfirmationModal()" data-i18n="continueBrowsing" style="padding: 0.75rem; border: 1px solid #CBD5E1; border-radius: 6px; font-weight: 700;">
                         Continue Browsing
                     </button>
                 </div>
@@ -339,45 +536,45 @@
         </div>
     </div>
 
-    <!-- 9. Track Quotation Modal -->
+    <!-- 10. Track Quotation Modal -->
     <div class="modal-backdrop" id="track-order-modal" onclick="if(event.target === this) CartManager.closeTrackOrderModal()">
         <div class="modal-window track-modal-window">
-            <div class="modal-header">
-                <h3 class="modal-title" data-i18n="trackTitle">Track Quotation / Requirement</h3>
+            <div class="q-modal-header">
+                <h3 class="modal-title" data-i18n="trackTitle" style="color:#FFFFFF; font-size:1.1rem; font-weight:800;">Track Quotation / Requirement</h3>
                 <button type="button" class="modal-close-btn" onclick="CartManager.closeTrackOrderModal()">✕</button>
             </div>
-            <div class="modal-body">
+            <div class="q-modal-body">
                 <form id="track-order-form" onsubmit="CartManager.handleTrackLookup(event)">
-                    <div class="track-input-group">
+                    <div class="track-input-group" style="display:flex; gap:0.5rem;">
                         <input type="text" id="track-query-input" class="form-control" placeholder="Enter Quotation ID (e.g. PCQ-260915-1042) or Phone" data-i18n-placeholder="trackPlaceholder" required>
-                        <button type="submit" class="btn btn-primary" data-i18n="trackBtn">Track</button>
+                        <button type="submit" class="btn-whatsapp-submit" style="width:auto !important; padding:0 1.25rem !important;" data-i18n="trackBtn">Track</button>
                     </div>
                 </form>
-                <div id="track-order-result" class="track-result-area">
-                    <p class="text-muted text-center" style="font-size:0.85rem; margin-top:1rem;">Enter your Quotation Reference to check status.</p>
+                <div id="track-order-result" class="track-result-area" style="margin-top:1rem;">
+                    <p class="text-muted text-center" style="font-size:0.85rem;">Enter your Quotation Reference to check status.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 10. Admin Modal (Preserved) -->
+    <!-- 11. Admin Modal (Preserved) -->
     <div class="modal-backdrop" id="admin-modal" onclick="if(event.target === this) AdminManager.closeAdminModal()">
         <div class="modal-window admin-modal-window">
-            <div class="modal-header">
-                <h3 class="modal-title">PRANAV CRACKERS – Admin Portal</h3>
+            <div class="q-modal-header">
+                <h3 class="modal-title" style="color:#FFFFFF; font-size:1.1rem; font-weight:800;">PRANAV CRACKERS – Admin Portal</h3>
                 <button type="button" class="modal-close-btn" onclick="AdminManager.closeAdminModal()">✕</button>
             </div>
-            <div class="modal-body" id="admin-modal-content"></div>
+            <div class="q-modal-body" id="admin-modal-content"></div>
         </div>
     </div>
 
-    <!-- 11. Minimal Festive Site Footer -->
+    <!-- 12. Minimal Festive Site Footer -->
     <footer class="site-footer">
         <div class="container footer-inner">
             <div class="footer-brand-strip">
                 <span class="footer-title">PRANAV CRACKERS</span>
                 <span class="footer-sep">•</span>
-                <span class="footer-caption">Direct Sivakasi Wholesale Fireworks</span>
+                <span class="footer-caption">SPARKING HAPPINESS</span>
             </div>
             <div class="footer-links-row">
                 <a href="https://wa.me/919385787363" target="_blank" data-i18n="footerDesk">WhatsApp Sivakasi Desk</a>
@@ -392,19 +589,12 @@
     </footer>
 
     <!-- Core Modular Scripts (with cache-busting parameter) -->
-    <!-- 1. Business Contact & System Configuration -->
-    <script src="js/config.js?v=4.6"></script>
-    <!-- 2. Products, Wholesale Prices & Categories -->
-    <script src="js/products.js?v=4.6"></script>
-    <!-- 3. Central DataStore & Storage Engine -->
-    <script src="js/data.js?v=4.6"></script>
-    <!-- 4. Multilingual Translations -->
-    <script src="js/language.js?v=4.6"></script>
-    <!-- 5. Cart, Quotation & WhatsApp Engine -->
-    <script src="js/enquiry.js?v=4.6"></script>
-    <!-- 6. Owner Admin Management Panel -->
-    <script src="js/admin.js?v=4.6"></script>
-    <!-- 7. Main Frontend Application Controller -->
-    <script src="js/app.js?v=4.6"></script>
+    <script src="js/config.js?v=5.0"></script>
+    <script src="js/products.js?v=5.0"></script>
+    <script src="js/data.js?v=5.0"></script>
+    <script src="js/language.js?v=5.0"></script>
+    <script src="js/enquiry.js?v=5.0"></script>
+    <script src="js/admin.js?v=5.0"></script>
+    <script src="js/app.js?v=5.0"></script>
 </body>
 </html>

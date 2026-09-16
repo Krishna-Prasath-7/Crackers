@@ -99,8 +99,39 @@ class DataStore {
 
     /**
      * Retrieves all catalogue items including both individual crackers and gift boxes.
+     * Consumes centralized CRACKERS_DATA (from data/crackers/crackers.js) when available,
+     * and filters out any item with availability === false so items can be easily hidden.
      */
     static getCatalogueItems() {
+        if (typeof CRACKERS_DATA !== 'undefined' && Array.isArray(CRACKERS_DATA)) {
+            return CRACKERS_DATA
+                .filter(it => it.availability !== false)
+                .map(it => {
+                    const cleanName = this.standardizeProductName(it.name);
+                    const formattedPrice = (typeof it.sellingPrice === 'number')
+                        ? `₹${it.sellingPrice}`
+                        : (typeof it.price === 'string' ? it.price : `₹${it.sellingPrice || 0}`);
+                    return {
+                        id: it.id,
+                        sNo: it.sNo,
+                        name: cleanName,
+                        nameEn: cleanName,
+                        company: it.company || (it.category === 'gift_boxes' ? 'PRANAV' : 'KALIS'),
+                        price: formattedPrice,
+                        sellingPrice: it.sellingPrice,
+                        originalPrice: it.originalPrice,
+                        discount: it.discount || '60%',
+                        image: it.image,
+                        description: it.description,
+                        category: it.category,
+                        isAvailable: it.availability !== false,
+                        isPopular: (it.isPopular !== undefined) ? it.isPopular : [1, 2, 11, 12, 19, 24, 25, 31, 37, 44, 60, 67, 72].includes(it.sNo),
+                        isGreen: it.isGreen !== false,
+                        itemCount: it.itemCount || (it.category === 'gift_boxes' ? (it.description || '35 Items') : undefined)
+                    };
+                });
+        }
+
         const priceList = this.getPriceList();
         const giftBoxes = this.getGiftBoxes();
         const prods = this.getProducts();
