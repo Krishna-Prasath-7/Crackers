@@ -27,8 +27,8 @@ const SITE_CONFIG = {
     secondaryPhoneRaw: '919791045933',        // Numeric with country code for tel: links
 
     // --- 3. WHATSAPP SIVAKASI ORDER DESK ---
-    whatsappPhone: '93857 87363',             // Display format
-    whatsappPhoneRaw: '919385787363',         // Numeric with 91 country code (no + or spaces)
+    whatsappPhone: '77085 32334',             // Display format
+    whatsappPhoneRaw: '917708532334',         // Numeric with 91 country code (no + or spaces)
 
     // --- 4. CATALOGUE ASSETS ---
     priceListPdfUrl: 'assets/pranav_crackers_price_list.pdf',
@@ -43,7 +43,12 @@ const SITE_CONFIG = {
     estimatedDispatchHours: 48,               // Sivakasi dispatch timeline in hours
     wholesaleDiscountText: 'Up to 80% Off Retail MRP',
 
-    // --- 7. LOCAL STORAGE SYSTEM KEYS (Do not modify unless resetting database) ---
+    // --- 7. GOOGLE SHEET DATABASE SETTINGS ---
+    googleSheetUrl: 'https://docs.google.com/spreadsheets/d/1hsoJ_KDWGojkIMUJP0Rl5SfzAsYPjFHMC5J3POBV1XE/edit?usp=sharing',
+    googleSheetId: '1hsoJ_KDWGojkIMUJP0Rl5SfzAsYPjFHMC5J3POBV1XE',
+    googleAppsScriptUrl: '', // Deployed Web App URL (from google_apps_script.js)
+
+    // --- 8. LOCAL STORAGE SYSTEM KEYS (Do not modify unless resetting database) ---
     STORAGE_KEYS: {
         PRODUCTS: 'pranav_crackers_products_v11',
         GIFT_BOXES: 'pranav_crackers_giftboxes_v11',

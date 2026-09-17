@@ -13,55 +13,109 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
     
     <!-- Stylesheets (with cache-busting parameter) -->
-    <link rel="stylesheet" href="css/style.css?v=5.0">
-    <link rel="stylesheet" href="css/components.css?v=5.0">
-    <link rel="stylesheet" href="css/responsive.css?v=5.0">
+    <link rel="stylesheet" href="css/style.css?v=6.2">
+    <link rel="stylesheet" href="css/components.css?v=6.2">
+    <link rel="stylesheet" href="css/responsive.css?v=6.2">
 </head>
 <body>
 
     <!-- Accessible Announcer -->
     <div id="a11y-announcer" class="sr-only" aria-live="polite"></div>
 
-    <!-- Fancy Celebratory Fireworks Burst Canvas Overlay (On Website Opening) -->
-    <div id="opening-fireworks-overlay" aria-hidden="true">
-        <canvas id="opening-fireworks-canvas"></canvas>
-        <div class="opening-banner-badge">
-            <div class="opening-badge-title">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6.4-4.8-6.4 4.8 2.4-7.2-6-4.8h7.6z"/></svg>
-                <span>PRANAV CRACKERS</span>
+    <!-- Authentic Ground Chakkra (Zamin Chakkar) Rotating Festive Loader -->
+    <div id="ground-chakkra-loader" class="chakkra-loader-overlay" role="status" aria-label="Loading Pranav Crackers">
+        <div class="chakkra-loader-box">
+            <!-- Rotating Ground Chakkra Assembly -->
+            <div class="chakkra-stage">
+                <div class="chakkra-flame-aura"></div>
+                <div class="chakkra-sparks-ring"></div>
+                <div class="chakkra-disc-spinner" id="chakkra-disc-spinner">
+                    <!-- High-detail SVG Ground Chakkra Wheel -->
+                    <svg class="chakkra-disc-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="chakkraGradBody" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#FEF08A"/>
+                                <stop offset="25%" stop-color="#F59E0B"/>
+                                <stop offset="65%" stop-color="#DC2626"/>
+                                <stop offset="100%" stop-color="#7F1D1D"/>
+                            </radialGradient>
+                            <linearGradient id="spiralGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FFFBEB"/>
+                                <stop offset="50%" stop-color="#FBBF24"/>
+                                <stop offset="100%" stop-color="#B45309"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Outer Serrated Spark Vents -->
+                        <circle cx="60" cy="60" r="54" fill="none" stroke="#F59E0B" stroke-width="3" stroke-dasharray="6 3"/>
+                        <circle cx="60" cy="60" r="50" fill="url(#chakkraGradBody)" stroke="#FDE68A" stroke-width="2"/>
+                        <!-- Traditional Curved Swirl Fins -->
+                        <g fill="none" stroke="url(#spiralGold)" stroke-width="3.5" stroke-linecap="round">
+                            <path d="M60 60 Q75 40 95 45"/>
+                            <path d="M60 60 Q80 75 75 95"/>
+                            <path d="M60 60 Q45 80 25 75"/>
+                            <path d="M60 60 Q40 45 45 25"/>
+                            <path d="M60 60 Q70 50 85 30"/>
+                            <path d="M60 60 Q70 70 55 90"/>
+                            <path d="M60 60 Q50 70 35 90"/>
+                            <path d="M60 60 Q50 50 35 30"/>
+                        </g>
+                        <!-- Inner Concentric Golden Rings -->
+                        <circle cx="60" cy="60" r="28" fill="none" stroke="#FDE68A" stroke-width="2.2" stroke-dasharray="4 2"/>
+                        <circle cx="60" cy="60" r="18" fill="#B91C1C" stroke="#FEF08A" stroke-width="2"/>
+                        <!-- Center Core Fuse / Pivot -->
+                        <circle cx="60" cy="60" r="9" fill="#FEF08A"/>
+                        <circle cx="60" cy="60" r="4" fill="#DC2626"/>
+                    </svg>
+                </div>
+                <!-- Flying Spark Embers -->
+                <div class="chakkra-spark s1"></div>
+                <div class="chakkra-spark s2"></div>
+                <div class="chakkra-spark s3"></div>
+                <div class="chakkra-spark s4"></div>
+                <div class="chakkra-spark s5"></div>
+                <div class="chakkra-spark s6"></div>
             </div>
-            <div class="opening-badge-sub">
-                Diwali 2026 Wholesale Celebration • Direct Sivakasi Fireworks
+
+            <!-- Loader Descriptive Texts -->
+            <div class="chakkra-texts">
+                <span class="chakkra-brand-tag">PRANAV CRACKERS • SIVAKASI</span>
+                <h4 class="chakkra-heading" id="chakkra-heading">Lighting up your celebration...</h4>
+                <p class="chakkra-status" id="chakkra-status-text">Gathering genuine Sivakasi wholesale rates</p>
+                <div class="chakkra-retry-box" id="chakkra-retry-box" style="display:none;">
+                    <p class="chakkra-error-msg">Connection paused. Please check your internet.</p>
+                    <button type="button" class="btn-chakkra-retry" onclick="window.location.reload()">Retry Connection</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- 1. Top Festive Announcement Bar (Matching Reference Layout in Royal Blue Theme) -->
+    <!-- Fancy Celebratory Fireworks Burst Canvas Overlay (On Website Opening & Quotation) -->
+    <div id="opening-fireworks-overlay" aria-hidden="true">
+        <canvas id="opening-fireworks-canvas"></canvas>
+    </div>
+
+    <!-- 1. Top Festive Announcement Bar -->
     <div class="top-announcement-bar">
         <div class="container announcement-inner">
             <div class="announcement-left">
-                <span>Quality Products</span>
+                <span>Direct Sivakasi Factory Wholesale</span>
                 <span>|</span>
-                <span>Trusted Brands</span>
+                <span>CSIR-NEERI Green Certified</span>
                 <span>|</span>
-                <span>Safe Celebrations</span>
+                <span>All-India Transport</span>
             </div>
             <div class="announcement-center">
-                LET THE CELEBRATIONS BEGIN
+                FESTIVAL OF LIGHTS • 2026 WHOLESALE BOOKINGS OPEN
             </div>
             <div class="announcement-right">
                 <a href="tel:7708532334" class="announcement-link">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     <span>+91 77085 32334</span>
                 </a>
-                <a href="https://wa.me/919385787363?text=Hello%20PRANAV%20CRACKERS,%20I%20would%20like%20to%20enquire%20about%20crackers." target="_blank" class="announcement-link">
+                <a href="https://wa.me/917708532334?text=Hello%20PRANAV%20CRACKERS,%20I%20would%20like%20to%20enquire%20about%20crackers." target="_blank" class="announcement-link">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
                     <span>Chat on WhatsApp</span>
                 </a>
-                <button type="button" class="btn-trigger-burst" onclick="App.triggerBurst()" title="Play Fireworks Burst">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-                    <span>Burst Fireworks</span>
-                </button>
             </div>
         </div>
     </div>
@@ -126,138 +180,92 @@
     <input type="hidden" id="product-search-input">
     <button type="button" id="search-clear-btn" style="display:none;"></button>
 
-    <!-- 3. Hero Celebration Banner (Grand Majestic Festive Pavilion) -->
+    <!-- 3. Settled, Unique & Premium Hero Section (Wholesale-Focused & Sivakasi-Oriented) -->
     <section class="hero-banner-section" id="home">
-        <div class="container">
-            <div class="hero-banner-card grand-celebration-hero">
-                <!-- Ambient Festive Glow Elements (absolute positioned) -->
+        <div class="container hero-layout-container">
+            <div class="hero-banner-card wholesale-hero-card">
+                <!-- Ambient Subtle Lighting Accents -->
                 <div class="hero-ambient-glow glow-top-gold" aria-hidden="true"></div>
-                <div class="hero-ambient-glow glow-bottom-sapphire" aria-hidden="true"></div>
+                <div class="hero-ambient-glow glow-bottom-navy" aria-hidden="true"></div>
 
-                <!-- Left Column: Bold Narrative & Interactive Controls -->
+                <!-- Left Column: 55% Messaging, CTAs, and Trust Badges -->
                 <div class="hero-text-col">
-                    <div class="hero-badge-wrap">
-                        <span class="hero-live-pulse" aria-hidden="true"></span>
-                        <span class="hero-overline">✨ SIVAKASI DIRECT WHOLESALE • DIWALI 2026 LIVE</span>
+                    <div class="hero-overline-wrap">
+                        <span class="hero-overline-dot" aria-hidden="true"></span>
+                        <span class="hero-overline">DIRECT SIVAKASI FACTORY • WHOLESALE HUB</span>
                     </div>
                     
                     <h2 class="hero-title">
-                        Direct Sivakasi Fireworks <br>
-                        <span class="hero-title-highlight">at Factory Wholesale Rates</span>
+                        Direct Sivakasi Fireworks at <span class="gold-emphasis">Wholesale Prices</span>
                     </h2>
                     
-                    <p class="hero-desc">
-                        Certified green crackers direct from Sivakasi manufacturing hubs. Instant live quotation calculator, zero middleman commissions, and doorstep transport logistics.
+                    <p class="hero-supporting-line">
+                        Certified green crackers • Factory rates • Pan-India delivery
                     </p>
 
-                    <!-- Interactive Action Group -->
+                    <!-- CTAs: Two clearly differentiated actions -->
                     <div class="hero-action-group">
                         <div class="hero-btn-row">
-                            <a href="#catalogue-section" class="hero-primary-cta">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-                                <span>Browse Wholesale Rate Sheet</span>
+                            <a href="#catalogue-section" class="hero-primary-cta" id="hero-view-prices-cta">
+                                <span>View Wholesale Price List</span>
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
                             </a>
-                            <button type="button" class="hero-celebrate-btn" onclick="App.triggerBurst()" title="Burst Diwali Celebratory Fireworks">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-                                <span>Burst Fireworks ✨</span>
-                            </button>
+                            <a href="https://wa.me/917708532334?text=Hello%20PRANAV%20CRACKERS,%20I%20would%20like%20to%20enquire%20about%20crackers." target="_blank" rel="noopener noreferrer" class="hero-sub-cta" id="hero-whatsapp-cta">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+                                <span>Get Quote on WhatsApp</span>
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Live Trust Assurances Ribbon -->
-                    <div class="hero-trust-ribbon">
-                        <div class="hero-trust-pill">
-                            <span class="trust-pill-icon">⚡</span>
-                            <span class="trust-pill-text">Instant Live Quotation</span>
+                    <!-- Trust Badges: Exactly 3 primary indicators -->
+                    <div class="hero-trust-indicators">
+                        <div class="hero-trust-badge">
+                            <svg class="trust-badge-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                            <span>Green Certified</span>
                         </div>
-                        <div class="hero-trust-pill">
-                            <span class="trust-pill-icon">🌿</span>
-                            <span class="trust-pill-text">CSIR-NEERI Green Certified</span>
+                        <div class="hero-trust-badge">
+                            <svg class="trust-badge-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                            <span>Safe Packing</span>
                         </div>
-                        <div class="hero-trust-pill">
-                            <span class="trust-pill-icon">🚚</span>
-                            <span class="trust-pill-text">Direct Sivakasi Transport</span>
+                        <div class="hero-trust-badge">
+                            <svg class="trust-badge-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                            <span>Pan-India Dispatch</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Column: Perfectly Aligned Unbranded AI Showcase Card -->
-                <div class="hero-showcase-stage">
-                    <div class="showcase-card-container">
-                        <!-- Top Internal Assurance Strip -->
-                        <div class="showcase-top-strip">
-                            <span class="showcase-eco-tag">🌿 100% CSIR-NEERI Green Certified</span>
-                            <span class="showcase-fresh-tag">✨ 2026 Fresh Batch</span>
-                        </div>
-
-                        <!-- Unbranded AI Diwali Celebration Hamper Photo -->
-                        <div class="showcase-image-frame">
-                            <img src="assets/images/gift_box.jpg" alt="Deepwali Celebration Hamper Set" class="showcase-real-photo">
-                            <div class="showcase-gradient-overlay"></div>
-                            <div class="showcase-frame-caption">
-                                <span class="caption-tag">Festival of Lights</span>
-                                <strong class="caption-title">Premium Celebration Hamper</strong>
-                            </div>
-                        </div>
-
-                        <!-- Bottom Internal Stat Bar (Symmetrically Aligned) -->
-                        <div class="showcase-internal-stats">
-                            <div class="footer-stat-box">
-                                <strong class="stat-big-number">94+</strong>
-                                <span class="stat-sublabel">Varieties</span>
-                            </div>
-                            <div class="footer-stat-divider"></div>
-                            <div class="footer-stat-box">
-                                <strong class="stat-big-number">80%</strong>
-                                <span class="stat-sublabel">Wholesale Off</span>
-                            </div>
-                            <div class="footer-stat-divider"></div>
-                            <div class="footer-stat-box">
-                                <strong class="stat-big-number">Direct</strong>
-                                <span class="stat-sublabel">Sivakasi Hub</span>
-                            </div>
+                <!-- Right Column: 45% Integrated Product Assortment Visual -->
+                <div class="hero-visual-col">
+                    <div class="hero-product-frame">
+                        <img src="assets/images/sivakasi_crackers_showcase.jpg?v=2" alt="Authentic Sivakasi Wholesale Fireworks Assortment" class="hero-product-img" loading="eager">
+                        <!-- Single subtle floating statistic -->
+                        <div class="hero-floating-stat" aria-label="94+ Varieties">
+                            <strong class="floating-stat-num">94+</strong>
+                            <span class="floating-stat-label">Varieties</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Quick Live Metric Ticker Bar -->
-            <div class="hero-live-ticker-bar">
-                <div class="ticker-col">
-                    <div class="ticker-icon-circle">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+            <!-- 9. Clean Full-Width 3-Column Trust / Statistics Strip -->
+            <div class="hero-trust-strip">
+                <div class="trust-strip-grid">
+                    <div class="trust-strip-col">
+                        <strong class="strip-stat-val">94+ Varieties</strong>
+                        <span class="strip-stat-desc">Complete range of Sivakasi traditional & aerial fireworks</span>
                     </div>
-                    <div class="ticker-texts">
-                        <strong class="ticker-title">Direct Factory Wholesale</strong>
-                        <span class="ticker-desc">Zero middleman commissions</span>
+                    <div class="trust-strip-col">
+                        <strong class="strip-stat-val">Direct Factory Rates</strong>
+                        <span class="strip-stat-desc">Zero middlemen markups with instant live estimation</span>
                     </div>
-                </div>
-                <div class="ticker-col">
-                    <div class="ticker-icon-circle">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-                    </div>
-                    <div class="ticker-texts">
-                        <strong class="ticker-title">CSIR-NEERI Green Certified</strong>
-                        <span class="ticker-desc">Low emission, safe crackers</span>
+                    <div class="trust-strip-col">
+                        <strong class="strip-stat-val">Sivakasi Central Hub</strong>
+                        <span class="strip-stat-desc">Direct factory dispatch with safe cardboard box packaging</span>
                     </div>
                 </div>
-                <div class="ticker-col">
-                    <div class="ticker-icon-circle">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    </div>
-                    <div class="ticker-texts">
-                        <strong class="ticker-title">Instant Live Quotation</strong>
-                        <span class="ticker-desc">30-second WhatsApp checkout</span>
-                    </div>
-                </div>
-                <div class="ticker-col">
-                    <div class="ticker-icon-circle">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                    </div>
-                    <div class="ticker-texts">
-                        <strong class="ticker-title">Direct Sivakasi Transport</strong>
-                        <span class="ticker-desc">Safe wooden box packing</span>
-                    </div>
+                <!-- 10. Secondary Trust Statement -->
+                <div class="hero-secondary-trust">
+                    <span>No hidden pricing • Live quotation • Secure packaging</span>
                 </div>
             </div>
         </div>
@@ -524,7 +532,7 @@
                     Your estimated quotation has been prepared and opened in WhatsApp. Please press <strong>Send</strong> inside WhatsApp to confirm your requirement with our Sivakasi desk.
                 </p>
                 <div class="confirmation-actions" id="confirmation-actions-box" style="display:flex; flex-direction:column; gap:0.75rem; width:100%; margin-top:1.25rem;">
-                    <a href="https://wa.me/919385787363" id="confirmation-wa-btn" target="_blank" class="btn-whatsapp-submit full-width" style="text-decoration:none;">
+                    <a href="https://wa.me/917708532334" id="confirmation-wa-btn" target="_blank" class="btn-whatsapp-submit full-width" style="text-decoration:none;">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
                         <span>OPEN IN WHATSAPP TO SEND</span>
                     </a>
@@ -557,17 +565,6 @@
         </div>
     </div>
 
-    <!-- 11. Admin Modal (Preserved) -->
-    <div class="modal-backdrop" id="admin-modal" onclick="if(event.target === this) AdminManager.closeAdminModal()">
-        <div class="modal-window admin-modal-window">
-            <div class="q-modal-header">
-                <h3 class="modal-title" style="color:#FFFFFF; font-size:1.1rem; font-weight:800;">PRANAV CRACKERS – Admin Portal</h3>
-                <button type="button" class="modal-close-btn" onclick="AdminManager.closeAdminModal()">✕</button>
-            </div>
-            <div class="q-modal-body" id="admin-modal-content"></div>
-        </div>
-    </div>
-
     <!-- 12. Minimal Festive Site Footer -->
     <footer class="site-footer">
         <div class="container footer-inner">
@@ -577,10 +574,9 @@
                 <span class="footer-caption">SPARKING HAPPINESS</span>
             </div>
             <div class="footer-links-row">
-                <a href="https://wa.me/919385787363" target="_blank" data-i18n="footerDesk">WhatsApp Sivakasi Desk</a>
+                <a href="https://wa.me/917708532334" target="_blank" data-i18n="footerDesk">WhatsApp Sivakasi Desk</a>
                 <a href="tel:7708532334" data-i18n="footerCall">Call +91 77085 32334</a>
                 <a href="javascript:void(0)" onclick="CartManager.openTrackOrderModal()" data-i18n="footerTrack">Track Quotation</a>
-                <a href="javascript:void(0)" onclick="AdminManager.openAdminModal()" data-i18n="footerAdmin">Admin Login</a>
             </div>
             <p class="footer-copyright" data-i18n="footerCopyright">
                 © 2026 PRANAV CRACKERS, Sivakasi. All Rights Reserved. Compliant with CSIR-NEERI Green Fireworks Guidelines.
@@ -589,20 +585,20 @@
     </footer>
 
     <!-- Configuration & Centralized Data (Easy Maintenance) -->
-    <script src="config/siteConfig.js?v=5.2"></script>
-    <script src="data/categories/categories.js?v=5.2"></script>
-    <script src="data/crackers/crackers.js?v=5.2"></script>
-    <script src="data/siteContent/siteContent.js?v=5.2"></script>
-    <script src="data/offers/offers.js?v=5.2"></script>
+    <script src="config/siteConfig.js?v=6.0"></script>
+    <script src="data/categories/categories.js?v=6.0"></script>
+    <script src="data/crackers/crackers.js?v=6.0"></script>
+    <script src="data/siteContent/siteContent.js?v=6.0"></script>
+    <script src="data/offers/offers.js?v=6.0"></script>
 
     <!-- Core Modular Scripts (with cache-busting parameter) -->
-    <script src="js/config.js?v=5.2"></script>
-    <script src="js/products.js?v=5.2"></script>
-    <script src="js/data.js?v=5.2"></script>
-    <script src="js/language.js?v=5.2"></script>
-    <script src="js/enquiry.js?v=5.2"></script>
-    <script src="js/admin.js?v=5.2"></script>
-    <script src="js/app.js?v=5.2"></script>
+    <script src="js/config.js?v=6.0"></script>
+    <script src="js/products.js?v=6.0"></script>
+    <script src="js/data.js?v=6.0"></script>
+    <script src="js/language.js?v=6.0"></script>
+    <script src="js/enquiry.js?v=6.0"></script>
+    <script src="js/admin.js?v=6.0"></script>
+    <script src="js/app.js?v=6.0"></script>
 </body>
 </html>
 

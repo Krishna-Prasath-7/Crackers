@@ -140,7 +140,7 @@ CartManager.handleSendRequirement({ preventDefault: () => {} });
 const generatedUrl = CartManager.lastWaUrl;
 console.log('Generated WhatsApp URL (truncated):', generatedUrl.substring(0, 100) + '...');
 
-if (!generatedUrl.includes('9385787363') && !generatedUrl.includes('919385787363')) {
+if (!generatedUrl.includes('7708532334') && !generatedUrl.includes('917708532334')) {
     throw new Error('WhatsApp URL does not contain PRANAV CRACKERS Sivakasi Desk number');
 }
 

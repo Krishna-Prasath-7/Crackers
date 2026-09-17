@@ -46,22 +46,24 @@ html, body {
         padding-bottom: 4rem; /* Clearance for bottom dock */
     }
 
-    .hero-banner-card.grand-celebration-hero {
+    .hero-banner-card.wholesale-hero-card {
         grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 2.25rem 1.75rem;
+        gap: 1.75rem;
+        padding: 2rem 1.5rem;
     }
 
-    .hero-showcase-stage {
+    .hero-visual-col {
         max-width: 440px;
         margin: 0 auto;
         width: 100%;
     }
 
-    .hero-live-ticker-bar {
-        grid-template-columns: repeat(2, 1fr);
+    .hero-trust-strip {
+        padding: 1rem 1.25rem;
+    }
+
+    .trust-strip-grid {
         gap: 1rem;
-        padding: 1.15rem 1.25rem;
     }
 
     .bottom-trust-grid {
@@ -107,17 +109,17 @@ html, body {
     }
 
     .brand-logo-icon {
-        width: 36px;
-        height: 36px;
-        font-size: 1.2rem;
+        width: 34px;
+        height: 34px;
+        font-size: 1.15rem;
     }
 
     .header-search-input {
-        width: 120px;
+        width: 110px;
     }
 
     .header-search-input:focus {
-        width: 150px;
+        width: 140px;
     }
 
     /* Hero Banner Mobile */
@@ -125,11 +127,12 @@ html, body {
         padding: 0.5rem 0 1rem;
     }
 
-    .hero-banner-card.grand-celebration-hero {
-        grid-template-columns: 1fr;
-        padding: 1.75rem 1.15rem;
+    .hero-banner-card.wholesale-hero-card {
+        display: flex;
+        flex-direction: column;
+        padding: 1.6rem 1.15rem;
         text-align: center;
-        gap: 1.75rem;
+        gap: 1.5rem;
     }
 
     .hero-text-col {
@@ -138,11 +141,13 @@ html, body {
     }
 
     .hero-title {
-        font-size: 1.85rem;
+        font-size: 1.8rem;
+        line-height: 1.22;
     }
 
-    .hero-desc {
-        font-size: 0.88rem;
+    .hero-supporting-line {
+        font-size: 0.9rem;
+        text-align: center;
     }
 
     .hero-btn-row {
@@ -153,19 +158,46 @@ html, body {
     }
 
     .hero-primary-cta,
-    .hero-celebrate-btn {
+    .hero-sub-cta {
         width: 100%;
         justify-content: center;
     }
 
-    .hero-trust-ribbon {
+    .hero-trust-indicators {
         justify-content: center;
     }
 
-    .hero-live-ticker-bar {
+    .hero-visual-col {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-product-frame {
+        max-width: 100%;
+    }
+
+    .hero-product-img {
+        max-height: 220px;
+    }
+
+    .trust-strip-grid {
         grid-template-columns: 1fr;
         gap: 0.85rem;
-        padding: 1rem;
+        text-align: center;
+    }
+
+    .trust-strip-col {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-right: 0;
+        padding-bottom: 0.75rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .trust-strip-col:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
     }
 
     /* Category Carousel Mobile */

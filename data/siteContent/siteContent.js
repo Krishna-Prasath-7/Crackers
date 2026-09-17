@@ -55,8 +55,8 @@ const SITE_CONTENT = {
             desc: '30-second WhatsApp checkout'
         },
         {
-            title: 'Direct Sivakasi Transport',
-            desc: 'Safe wooden box packing'
+            title: 'All-India Safe Transport',
+            desc: 'Safe cardboard box packing'
         }
     ],
 

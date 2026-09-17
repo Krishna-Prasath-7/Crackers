@@ -20,7 +20,7 @@ class FancyFireworks {
         if (typeof window === 'undefined' || typeof document === 'undefined') return;
         const canvas = document.getElementById(canvasId);
         const overlay = document.getElementById(overlayId);
-        if (!canvas || !overlay) return;
+        if (!canvas || !overlay || typeof canvas.getContext !== 'function') return;
 
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
@@ -372,17 +372,37 @@ class App {
         this.setupEventListeners();
         CartManager.updateCartBadges();
 
-        // Direct admin check via URL hash
-        if (typeof window !== 'undefined' && window.location.hash === '#admin') {
-            AdminManager.openAdminModal();
-        }
-
         // Trigger celebratory opening cracker burst
         setTimeout(() => {
             FancyFireworks.start();
         }, 150);
 
+        // Dismiss Ground Chakkra loader smoothly
+        setTimeout(() => {
+            this.hideChakkraLoader();
+        }, 350);
+
         console.log('PRANAV CRACKERS: Reference Layout & Royal Blue Engine Initialized.');
+    }
+
+    static showChakkraLoader(msg = 'Gathering genuine Sivakasi wholesale rates', heading = 'Lighting up your celebration...') {
+        const loader = document.getElementById('ground-chakkra-loader');
+        const headingEl = document.getElementById('chakkra-heading');
+        const statusEl = document.getElementById('chakkra-status-text');
+        const retryBox = document.getElementById('chakkra-retry-box');
+        if (headingEl && heading) headingEl.textContent = heading;
+        if (statusEl && msg) statusEl.textContent = msg;
+        if (retryBox) retryBox.style.display = 'none';
+        if (loader) {
+            loader.classList.remove('fade-out');
+        }
+    }
+
+    static hideChakkraLoader() {
+        const loader = document.getElementById('ground-chakkra-loader');
+        if (loader) {
+            loader.classList.add('fade-out');
+        }
     }
 
     static triggerBurst() {
@@ -397,6 +417,28 @@ class App {
     }
 
     static setupEventListeners() {
+        // Online / Offline Network Monitoring with Ground Chakkra
+        if (typeof window !== 'undefined') {
+            window.addEventListener('offline', () => {
+                this.showChakkraLoader(
+                    'Network connection paused. Spinning the Chakkra while reconnecting to Sivakasi server...',
+                    'Reconnecting to Sivakasi Server...'
+                );
+                const retryBox = document.getElementById('chakkra-retry-box');
+                if (retryBox) retryBox.style.display = 'flex';
+            });
+
+            window.addEventListener('online', () => {
+                this.showChakkraLoader(
+                    'Connected! Restoring live rates...',
+                    'Welcome Back!'
+                );
+                setTimeout(() => {
+                    this.hideChakkraLoader();
+                }, 700);
+            });
+        }
+
         // Search Input Listeners (Support both top and header search inputs)
         const setupSearch = (id) => {
             const input = document.getElementById(id);
@@ -430,7 +472,6 @@ class App {
                     CartManager.closeQuotationModal();
                     CartManager.closeConfirmationModal();
                     CartManager.closeTrackOrderModal();
-                    AdminManager.closeAdminModal();
                 }
             });
         }

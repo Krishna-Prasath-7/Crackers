@@ -30,9 +30,9 @@ const APP_CONFIG = {
 
     // --- 3. WHATSAPP SIVAKASI ORDER DESK ---
     // Display WhatsApp number:
-    whatsappPhone: '93857 87363',
+    whatsappPhone: '77085 32334',
     // Raw numeric WhatsApp number (with 91 country code, no symbols):
-    whatsappPhoneRaw: '919385787363',
+    whatsappPhoneRaw: '917708532334',
 
     // --- 4. CATALOGUE ASSETS & BROCHURE ---
     priceListPdfUrl: 'assets/pranav_crackers_price_list.pdf',
@@ -42,7 +42,12 @@ const APP_CONFIG = {
     upiId: 'pranavcrackers@upi',
     bankDetails: 'Bank: SBI Sivakasi | A/C: 1234567890 | IFSC: SBIN0000123',
 
-    // --- 6. LOCAL STORAGE SYSTEM KEYS (Do not modify unless resetting database) ---
+    // --- 6. GOOGLE SHEET DATABASE SETTINGS ---
+    googleSheetUrl: 'https://docs.google.com/spreadsheets/d/1hsoJ_KDWGojkIMUJP0Rl5SfzAsYPjFHMC5J3POBV1XE/edit?usp=sharing',
+    googleSheetId: '1hsoJ_KDWGojkIMUJP0Rl5SfzAsYPjFHMC5J3POBV1XE',
+    googleAppsScriptUrl: '',
+
+    // --- 7. LOCAL STORAGE SYSTEM KEYS (Do not modify unless resetting database) ---
     STORAGE_KEYS: {
         PRODUCTS: 'pranav_crackers_products_v11',
         GIFT_BOXES: 'pranav_crackers_giftboxes_v11',

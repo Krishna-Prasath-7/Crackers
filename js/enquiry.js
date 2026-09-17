@@ -268,6 +268,11 @@ class CartManager {
             modal.classList.add('open');
             if (document.body) document.body.style.overflow = 'hidden';
         }
+
+        // Trigger celebratory fireworks burst while getting/viewing quotation
+        if (typeof FancyFireworks !== 'undefined' && typeof FancyFireworks.start === 'function') {
+            FancyFireworks.start();
+        }
     }
 
     static closeQuotationModal() {
@@ -443,15 +448,17 @@ class CartManager {
         // Save order in local storage
         DataStore.saveOrder(order);
 
+        // Sync order to Google Sheet & Server Database
+        this.syncOrderToGoogleSheet(order);
+
         // Build WhatsApp message
         const settings = DataStore.getSettings();
-        const waNumber = settings.whatsappPhoneRaw || '919385787363';
+        const waNumber = settings.whatsappPhoneRaw || '917708532334';
 
         const itemLines = items.map((it, idx) => {
-            const unitText = `₹${it.unitPriceNum.toLocaleString('en-IN')}`;
-            const subtotalText = `₹${it.lineTotalNum.toLocaleString('en-IN')}`;
-            return `${idx + 1}. ${it.name}\n   Brand: ${it.company}\n   ${unitText} × ${it.quantity} = ${subtotalText}`;
-        }).join('\n\n');
+            const qtyPart = it.quantity > 1 ? ` (${it.quantity})` : '';
+            return `${idx + 1}. ${it.name}${qtyPart} - ₹${it.lineTotalNum.toLocaleString('en-IN')}`;
+        }).join('\n');
 
         const messageLines = [
             `NEW PRANAV CRACKERS REQUIREMENT`,
@@ -527,7 +534,12 @@ class CartManager {
         const content = document.getElementById('order-confirmation-content');
         if (!modal || !content) return;
 
-        const targetWaUrl = waUrl || this.lastWaUrl || `https://wa.me/${(DataStore.getSettings().whatsappPhoneRaw || '919385787363')}`;
+        // Trigger celebratory fireworks burst on quotation requirement prepared
+        if (typeof FancyFireworks !== 'undefined' && typeof FancyFireworks.start === 'function') {
+            FancyFireworks.start();
+        }
+
+        const targetWaUrl = waUrl || this.lastWaUrl || `https://wa.me/${(DataStore.getSettings().whatsappPhoneRaw || '917708532334')}`;
 
         const title = typeof LanguageManager !== 'undefined' ? LanguageManager.t('reqPreparedTitle') : 'Requirement Prepared!';
         const refLabel = typeof LanguageManager !== 'undefined' ? LanguageManager.t('reqPreparedRef') : 'Quotation Reference:';
@@ -569,7 +581,30 @@ class CartManager {
         }
     }
 
-    // --- Track Quotation / Requirement ---
+    // --- Track Quotation / Requirement (Live Google Sheet Integration) ---
+    static getStatusBadgeStyle(status) {
+        const s = String(status || '').toUpperCase();
+        if (s.includes('PAID')) {
+            return 'background:#DEF7EC; color:#03543F; border:1px solid #84E1BC;'; // Green
+        }
+        if (s.includes('WAITING') || s.includes('PAYMENT')) {
+            return 'background:#FEF08A; color:#854D0E; border:1px solid #FDE047;'; // Warm Amber/Gold
+        }
+        if (s.includes('DISPATCH')) {
+            return 'background:#EDEBFE; color:#5521B5; border:1px solid #CABFFD;'; // Purple
+        }
+        if (s.includes('DELIVER')) {
+            return 'background:#BCF0DA; color:#0E9F6E; border:1px solid #6EE7B7;'; // Emerald
+        }
+        if (s.includes('CONFIRM') || s.includes('PROCESS')) {
+            return 'background:#E1EFFE; color:#1E429F; border:1px solid #A4CAFE;'; // Blue
+        }
+        if (s.includes('CANCEL')) {
+            return 'background:#FDE8E8; color:#9B1C1C; border:1px solid #F8B4B4;'; // Red
+        }
+        return 'background:#FEF3C7; color:#92400E; border:1px solid #FCD34D;'; // Default Gold
+    }
+
     static openTrackOrderModal(initialId = '') {
         const modal = document.getElementById('track-order-modal');
         if (!modal) return;
@@ -597,6 +632,44 @@ class CartManager {
         this.lookupOrder(query);
     }
 
+    static renderOrderCard(order, isLive = false) {
+        const badgeStyle = this.getStatusBadgeStyle(order.status);
+        return `
+            <div class="track-order-card" style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:10px; padding:1.25rem; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+                <div class="track-card-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; border-bottom:1px solid #EDF2F7; padding-bottom:0.75rem;">
+                    <div>
+                        <span style="font-size:0.75rem; color:#64748B; display:block;">Quotation ID</span>
+                        <strong style="color:#0F1B2F; font-size:1.1rem;">${order.id || order.quotationId}</strong>
+                        <div id="live-sync-indicator" style="font-size:0.72rem; color:#64748B; margin-top:2px;">
+                            ${isLive ? '<span style="color:#059669; font-weight:700;">✓ Synced with Google Sheet</span>' : '● Checking live Google Sheet status...'}
+                        </div>
+                    </div>
+                    <div id="order-status-display" class="order-status-pill" style="${badgeStyle} font-weight:800; font-size:0.75rem; padding:4px 12px; border-radius:9999px; text-transform:uppercase; letter-spacing:0.02em;">
+                        ${order.status || 'Under Review'}
+                    </div>
+                </div>
+
+                <div class="track-details-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; font-size:0.85rem; margin-bottom:1rem;">
+                    <div><strong>Customer:</strong> ${order.customerName}</div>
+                    <div><strong>Phone:</strong> ${order.phone}</div>
+                    <div style="grid-column:span 2;"><strong>Address:</strong> ${order.address}, ${order.city}${order.pincode ? ' – ' + order.pincode : ''}</div>
+                    <div><strong>Total Items:</strong> ${order.itemsCount || order.totalItems || 0}</div>
+                    <div><strong>Wholesale Total:</strong> <strong style="color:#B45309;">₹${Number(order.estimatedTotal || 0).toLocaleString('en-IN')}</strong></div>
+                </div>
+
+                <div class="track-items-box" style="background:#F8FAFC; border-radius:8px; padding:0.75rem;">
+                    <div style="font-weight:700; font-size:0.82rem; margin-bottom:0.5rem; color:#334155;">Selected Crackers</div>
+                    ${Array.isArray(order.items) && order.items.length > 0 ? (order.items || []).map(it => `
+                        <div style="display:flex; justify-content:space-between; font-size:0.82rem; padding:0.25rem 0; border-bottom:1px dashed #E2E8F0;">
+                            <span>${it.name} ${it.quantity > 1 ? `(${it.quantity})` : ''}</span>
+                            <strong>₹${(it.lineTotalNum || 0).toLocaleString('en-IN')}</strong>
+                        </div>
+                    `).join('') : `<div style="font-size:0.82rem; color:#475569; line-height:1.4;">${order.crackersList || 'Assorted Wholesale Crackers'}</div>`}
+                </div>
+            </div>
+        `;
+    }
+
     static lookupOrder(query) {
         const resultContainer = document.getElementById('track-order-result');
         if (!resultContainer) return;
@@ -606,46 +679,123 @@ class CartManager {
             return;
         }
 
-        const order = DataStore.getOrderById(query);
-        if (!order) {
+        let order = DataStore.getOrderById(query);
+        if (order) {
+            // Render local cached version immediately
+            resultContainer.innerHTML = this.renderOrderCard(order, false);
+        } else {
+            // Show loading placeholder while searching remote sheet
             resultContainer.innerHTML = `
-                <div class="track-not-found" style="text-align:center; padding:1.5rem; background:#FFF5F5; border-radius:8px; border:1px solid #FED7D7;">
-                    <p style="color:#C53030; font-weight:700; margin-bottom:0.4rem;">No quotation found matching "${query}"</p>
-                    <small style="color:#718096;">Please check your Reference Number (e.g. PCQ-260915-1042) or 10-digit mobile number.</small>
+                <div style="text-align:center; padding:1.75rem 1rem;">
+                    <div style="display:inline-block; font-size:1.6rem; animation: liveBeacon 1.5s infinite;">⚡</div>
+                    <p style="color:#1E3A8A; font-weight:700; margin-top:0.5rem;">Checking Google Sheet for "${query}"...</p>
+                    <small style="color:#64748B;">Connecting to Pranav Crackers database</small>
                 </div>
             `;
-            return;
         }
 
-        resultContainer.innerHTML = `
-            <div class="track-order-card" style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:10px; padding:1.25rem;">
-                <div class="track-card-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; border-bottom:1px solid #EDF2F7; padding-bottom:0.75rem;">
-                    <div>
-                        <span style="font-size:0.75rem; color:#64748B; display:block;">Quotation ID</span>
-                        <strong style="color:#0F1B2F; font-size:1.1rem;">${order.id}</strong>
+        // Asynchronously check live Google Sheet / Server API
+        const checkLive = async () => {
+            let liveData = null;
+            const settings = DataStore.getSettings();
+
+            // 1. Try Google Apps Script URL directly
+            if (settings.googleAppsScriptUrl) {
+                try {
+                    const res = await fetch(`${settings.googleAppsScriptUrl}?action=track&query=${encodeURIComponent(query)}`);
+                    const data = await res.json();
+                    if (data && data.found && data.order) {
+                        liveData = data.order;
+                    }
+                } catch (e) {}
+            }
+
+            // 2. Try Server backend API
+            if (!liveData) {
+                try {
+                    const res = await fetch(`/api/track-order?query=${encodeURIComponent(query)}`);
+                    const data = await res.json();
+                    if (data && data.found && data.order) {
+                        liveData = data.order;
+                    }
+                } catch (e) {}
+            }
+
+            if (liveData) {
+                // Update local storage status
+                if (order) {
+                    order.status = liveData.status;
+                    DataStore.saveOrder(order);
+                }
+                resultContainer.innerHTML = CartManager.renderOrderCard(liveData, true);
+            } else if (!order) {
+                resultContainer.innerHTML = `
+                    <div class="track-not-found" style="text-align:center; padding:1.5rem; background:#FFF5F5; border-radius:8px; border:1px solid #FED7D7;">
+                        <p style="color:#C53030; font-weight:700; margin-bottom:0.4rem;">No quotation found matching "${query}"</p>
+                        <small style="color:#718096;">Please verify your Reference Number (e.g. PCQ-260915-1042) or 10-digit mobile number.</small>
                     </div>
-                    <div class="order-status-pill" style="background:#FEF3C7; color:#92400E; font-weight:800; font-size:0.75rem; padding:4px 10px; border-radius:9999px;">${order.status}</div>
-                </div>
+                `;
+            }
+        };
 
-                <div class="track-details-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; font-size:0.85rem; margin-bottom:1rem;">
-                    <div><strong>Customer:</strong> ${order.customerName}</div>
-                    <div><strong>Phone:</strong> ${order.phone}</div>
-                    <div style="grid-column:span 2;"><strong>Address:</strong> ${order.address}, ${order.city} – ${order.pincode}</div>
-                    <div><strong>Total Items:</strong> ${order.itemsCount}</div>
-                    <div><strong>Wholesale Total:</strong> <strong style="color:#B45309;">₹${order.estimatedTotal.toLocaleString('en-IN')}</strong></div>
-                </div>
+        checkLive();
+    }
 
-                <div class="track-items-box" style="background:#F8FAFC; border-radius:8px; padding:0.75rem;">
-                    <div style="font-weight:700; font-size:0.82rem; margin-bottom:0.5rem; color:#334155;">Selected Crackers</div>
-                    ${(order.items || []).map(it => `
-                        <div style="display:flex; justify-content:space-between; font-size:0.82rem; padding:0.25rem 0; border-bottom:1px dashed #E2E8F0;">
-                            <span>${it.name} (${it.company || 'KALIS'}) × ${it.quantity}</span>
-                            <strong>₹${(it.lineTotalNum || 0).toLocaleString('en-IN')}</strong>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-        `;
+    // --- Google Sheet & Server Sync ---
+    static syncOrderToGoogleSheet(order) {
+        if (!order) return;
+
+        // Build item summary line
+        const itemsSummary = (order.items || []).map(it => {
+            const unit = it.unitPriceNum || 0;
+            return `${it.name} (${it.quantity} @ ₹${unit})`;
+        }).join('; ');
+
+        const now = new Date();
+        const istTime = now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+        const payload = {
+            timestamp: istTime,
+            quotationId: order.id,
+            customerName: order.customerName,
+            phone: order.phone,
+            address: order.address,
+            city: order.city,
+            state: order.state,
+            pincode: order.pincode,
+            totalItems: order.itemsCount,
+            estimatedTotal: order.estimatedTotal,
+            crackersList: itemsSummary,
+            deliveryNotes: order.notes || '',
+            status: order.status || 'New Requirement',
+            googleSheetId: '1hsoJ_KDWGojkIMUJP0Rl5SfzAsYPjFHMC5J3POBV1XE'
+        };
+
+        // 1. Post to local server API (which persists to data/quotations_database.json and CSV)
+        try {
+            if (typeof fetch === 'function') {
+                fetch('/api/submit-quotation', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                }).catch(() => {});
+            }
+        } catch (e) {}
+
+        // 2. Direct Google Apps Script Web App sync if configured
+        const scriptUrl = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.googleAppsScriptUrl)
+            || (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.googleAppsScriptUrl);
+
+        if (scriptUrl && scriptUrl.startsWith('http') && typeof fetch === 'function') {
+            try {
+                fetch(scriptUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                }).catch(() => {});
+            } catch (e) {}
+        }
     }
 }
 

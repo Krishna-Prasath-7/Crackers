@@ -132,6 +132,207 @@ body {
 }
 
 /* ==========================================================================
+   AUTHENTIC GROUND CHAKKRA (ZAMIN CHAKKAR) ROTATING LOADER ANIMATION
+   ========================================================================== */
+.chakkra-loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, #0B2545 0%, #06152B 65%, #020914 100%);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    transition: opacity 0.45s ease-out, visibility 0.45s ease-out;
+}
+
+.chakkra-loader-overlay.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.chakkra-loader-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 440px;
+    width: 100%;
+}
+
+.chakkra-stage {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.chakkra-flame-aura {
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(251, 191, 36, 0.45) 0%, rgba(239, 68, 68, 0.28) 45%, transparent 72%);
+    animation: flamePulse 1.2s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+.chakkra-sparks-ring {
+    position: absolute;
+    inset: -22px;
+    border-radius: 50%;
+    border: 2px dashed rgba(254, 240, 138, 0.65);
+    animation: chakkraSpinReverse 1.2s linear infinite;
+    pointer-events: none;
+}
+
+.chakkra-disc-spinner {
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: chakkraSpin 0.4s linear infinite;
+    filter: drop-shadow(0 0 16px rgba(245, 158, 11, 0.9)) drop-shadow(0 0 32px rgba(220, 38, 38, 0.65));
+    will-change: transform;
+}
+
+.chakkra-disc-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Centrifugal Spark Embers */
+.chakkra-spark {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #FFFBEB;
+    box-shadow: 0 0 10px #F59E0B, 0 0 20px #EF4444;
+    pointer-events: none;
+}
+
+.chakkra-spark.s1 { top: 10%; left: 50%; animation: sparkOrbit1 0.7s linear infinite; }
+.chakkra-spark.s2 { top: 50%; right: 10%; animation: sparkOrbit2 0.8s linear infinite 0.15s; }
+.chakkra-spark.s3 { bottom: 12%; left: 52%; animation: sparkOrbit3 0.65s linear infinite 0.3s; }
+.chakkra-spark.s4 { top: 48%; left: 10%; animation: sparkOrbit4 0.75s linear infinite 0.45s; }
+.chakkra-spark.s5 { top: 20%; right: 20%; animation: sparkOrbit1 0.6s linear infinite 0.2s; }
+.chakkra-spark.s6 { bottom: 22%; left: 22%; animation: sparkOrbit3 0.85s linear infinite 0.5s; }
+
+@keyframes chakkraSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes chakkraSpinReverse {
+    from { transform: rotate(360deg) scale(0.96); opacity: 0.6; }
+    50% { transform: rotate(180deg) scale(1.05); opacity: 1; }
+    to { transform: rotate(0deg) scale(0.96); opacity: 0.6; }
+}
+
+@keyframes flamePulse {
+    from { transform: scale(0.92); opacity: 0.7; }
+    to { transform: scale(1.14); opacity: 1; }
+}
+
+@keyframes sparkOrbit1 {
+    0% { transform: translate(0, 0) scale(0.6); opacity: 1; }
+    50% { transform: translate(35px, -25px) scale(1.4); opacity: 0.9; }
+    100% { transform: translate(65px, -50px) scale(0.2); opacity: 0; }
+}
+
+@keyframes sparkOrbit2 {
+    0% { transform: translate(0, 0) scale(0.6); opacity: 1; }
+    50% { transform: translate(30px, 30px) scale(1.3); opacity: 0.9; }
+    100% { transform: translate(55px, 60px) scale(0.2); opacity: 0; }
+}
+
+@keyframes sparkOrbit3 {
+    0% { transform: translate(0, 0) scale(0.6); opacity: 1; }
+    50% { transform: translate(-30px, 30px) scale(1.4); opacity: 0.9; }
+    100% { transform: translate(-55px, 55px) scale(0.2); opacity: 0; }
+}
+
+@keyframes sparkOrbit4 {
+    0% { transform: translate(0, 0) scale(0.6); opacity: 1; }
+    50% { transform: translate(-35px, -20px) scale(1.3); opacity: 0.9; }
+    100% { transform: translate(-60px, -45px) scale(0.2); opacity: 0; }
+}
+
+.chakkra-texts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chakkra-brand-tag {
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: #F59E0B;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+}
+
+.chakkra-heading {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #FFFFFF;
+    font-family: var(--font-heading);
+    margin-bottom: 0.35rem;
+    letter-spacing: -0.01em;
+}
+
+.chakkra-status {
+    font-size: 0.92rem;
+    color: #CBD5E1;
+    font-weight: 500;
+    margin: 0;
+    max-width: 380px;
+}
+
+.chakkra-retry-box {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.chakkra-error-msg {
+    color: #F87171;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.btn-chakkra-retry {
+    background: #F59E0B;
+    color: #07152B;
+    font-size: 0.88rem;
+    font-weight: 800;
+    padding: 0.65rem 1.4rem;
+    border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn-chakkra-retry:hover {
+    background: #FBBF24;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
    FANCY OPENING CRACKER BURST ANIMATION (CANVAS OVERLAY)
    ========================================================================== */
 #opening-fireworks-overlay {
@@ -151,49 +352,6 @@ body {
     display: block;
 }
 
-.opening-banner-badge {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
-    background: rgba(11, 37, 69, 0.94);
-    backdrop-filter: blur(14px);
-    border: 2px solid #F59E0B;
-    border-radius: var(--radius-xl);
-    padding: 1.25rem 2rem;
-    text-align: center;
-    color: #FFFFFF;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(245, 158, 11, 0.45);
-    animation: burstWelcomePop 2.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    pointer-events: auto;
-}
-
-.opening-badge-title {
-    font-size: 1.5rem;
-    font-weight: 900;
-    letter-spacing: 0.04em;
-    color: #FCD34D;
-    font-family: var(--font-heading);
-    margin-bottom: 0.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.opening-badge-sub {
-    font-size: 0.88rem;
-    color: #E2E8F0;
-    font-weight: 600;
-}
-
-@keyframes burstWelcomePop {
-    0% { transform: translate(-50%, -50%) scale(0.6); opacity: 0; }
-    15% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
-    25% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    80% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0; visibility: hidden; }
-}
 
 /* Common Typography & Layout */
 h1, h2, h3, h4, h5, h6 {
