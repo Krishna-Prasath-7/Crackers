@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>PRANAV CRACKERS | Direct Sivakasi Fireworks Wholesale Catalogue & Live Quotation</title>
     <meta name="description" content="Buy genuine Sivakasi crackers directly from PRANAV CRACKERS at factory wholesale prices. 94+ certified green crackers, live quotation calculator, and instant WhatsApp ordering.">
     <meta name="keywords" content="Pranav Crackers, Sivakasi Crackers, Fireworks Online, Wholesale Crackers, Live Quotation, Flower Pots, Ground Chakkars, Sky Shots, Gift Boxes">
@@ -172,9 +172,93 @@
                     <span class="action-text" data-i18n="btnQuotation">Quotation</span>
                     <span class="header-badge" id="header-cart-badge">0</span>
                 </button>
+
+                <!-- Mobile Menu Hamburger Button -->
+                <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" onclick="App.toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-drawer">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Navigation Drawer Overlay -->
+    <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" onclick="App.closeMobileMenu()" aria-hidden="true"></div>
+    <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+        <div class="drawer-header">
+            <div class="drawer-brand">
+                <div class="drawer-brand-logo">
+                    <img src="assets/logo.jpeg" alt="Pranav Crackers" class="drawer-brand-img">
+                </div>
+                <div class="drawer-brand-text">
+                    <strong class="drawer-brand-name">Pranav Crackers</strong>
+                    <span class="drawer-brand-sub">SIVAKASI FACTORY DIRECT</span>
+                </div>
+            </div>
+            <button type="button" class="drawer-close-btn" onclick="App.closeMobileMenu()" aria-label="Close navigation menu">✕</button>
+        </div>
+        
+        <div class="drawer-body">
+            <!-- Search inside drawer for mobile -->
+            <div class="drawer-search-box">
+                <svg class="drawer-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="drawer-search-input" class="drawer-search-input" placeholder="Search crackers..." oninput="App.handleDrawerSearch(this.value)" aria-label="Search crackers">
+            </div>
+
+            <nav class="drawer-nav">
+                <a href="#home" class="drawer-nav-link" onclick="App.closeMobileMenu(); App.resetView();">
+                    <span class="drawer-nav-icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <a href="#catalogue-section" class="drawer-nav-link" onclick="App.closeMobileMenu();">
+                    <span class="drawer-nav-icon">🎆</span>
+                    <span>Wholesale Price List (94 Items)</span>
+                </a>
+                <a href="javascript:void(0)" class="drawer-nav-link" onclick="App.closeMobileMenu(); CartManager.openTrackOrderModal();">
+                    <span class="drawer-nav-icon">📦</span>
+                    <span>Track Quotation / Requirement</span>
+                </a>
+                <a href="#about-section" class="drawer-nav-link" onclick="App.closeMobileMenu();">
+                    <span class="drawer-nav-icon">⭐</span>
+                    <span>About Us & Safety Certification</span>
+                </a>
+            </nav>
+
+            <div class="drawer-divider"></div>
+
+            <!-- Fast Contact Shortcuts -->
+            <div class="drawer-contacts-section">
+                <span class="drawer-section-label">DIRECT SIVAKASI DESK</span>
+                <a href="https://wa.me/917708532334?text=Hello%20PRANAV%20CRACKERS,%20I%20would%20like%20to%20enquire%20about%20crackers." target="_blank" rel="noopener noreferrer" class="drawer-contact-btn wa">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.771.815 2.796.815 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.767-5.768-5.767zm9.969 5.766c0 5.514-4.486 10-10 10-1.802 0-3.486-.481-4.945-1.32l-5.055 1.325 1.354-4.944c-.933-1.516-1.354-3.125-1.354-5.061 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+                    <span>WhatsApp Sivakasi Desk</span>
+                </a>
+                <a href="tel:7708532334" class="drawer-contact-btn phone">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>Call Factory (+91 77085 32334)</span>
+                </a>
+            </div>
+
+            <div class="drawer-divider"></div>
+
+            <!-- Language Switching in Drawer -->
+            <div class="drawer-lang-section">
+                <span class="drawer-section-label">CHOOSE LANGUAGE</span>
+                <div class="drawer-lang-chips" id="drawer-lang-chips">
+                    <button type="button" class="drawer-lang-chip" onclick="LanguageManager.setLanguage('en'); App.closeMobileMenu();">English</button>
+                    <button type="button" class="drawer-lang-chip" onclick="LanguageManager.setLanguage('ta'); App.closeMobileMenu();">தமிழ்</button>
+                    <button type="button" class="drawer-lang-chip" onclick="LanguageManager.setLanguage('hi'); App.closeMobileMenu();">हिन्दी</button>
+                    <button type="button" class="drawer-lang-chip" onclick="LanguageManager.setLanguage('te'); App.closeMobileMenu();">తెలుగు</button>
+                    <button type="button" class="drawer-lang-chip" onclick="LanguageManager.setLanguage('ml'); App.closeMobileMenu();">മലയാളം</button>
+                    <button type="button" class="drawer-lang-chip" onclick="LanguageManager.setLanguage('kn'); App.closeMobileMenu();">ಕನ್ನಡ</button>
+                    <button type="button" class="drawer-lang-chip" onclick="LanguageManager.setLanguage('gu'); App.closeMobileMenu();">ગુજરાતી</button>
+                    <button type="button" class="drawer-lang-chip" onclick="LanguageManager.setLanguage('mr'); App.closeMobileMenu();">मराठी</button>
+                    <button type="button" class="drawer-lang-chip" onclick="LanguageManager.setLanguage('bn'); App.closeMobileMenu();">বাংলা</button>
+                </div>
+            </div>
+        </div>
+    </aside>
 
     <!-- Hidden Search Input for backward compatibility with automated tests -->
     <input type="hidden" id="product-search-input">

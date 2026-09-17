@@ -416,6 +416,72 @@ class App {
         }
     }
 
+    static toggleMobileMenu() {
+        const drawer = document.getElementById('mobile-nav-drawer');
+        const backdrop = document.getElementById('mobile-nav-backdrop');
+        const toggleBtn = document.getElementById('mobile-menu-toggle');
+        if (!drawer || !backdrop) return;
+
+        const isOpen = drawer.classList.contains('open');
+        if (isOpen) {
+            this.closeMobileMenu();
+        } else {
+            drawer.classList.add('open');
+            drawer.setAttribute('aria-hidden', 'false');
+            backdrop.classList.add('open');
+            backdrop.setAttribute('aria-hidden', 'false');
+            if (toggleBtn) {
+                toggleBtn.classList.add('active');
+                toggleBtn.setAttribute('aria-expanded', 'true');
+            }
+            document.body.style.overflow = 'hidden';
+            this.syncDrawerLangChips();
+        }
+    }
+
+    static closeMobileMenu() {
+        const drawer = document.getElementById('mobile-nav-drawer');
+        const backdrop = document.getElementById('mobile-nav-backdrop');
+        const toggleBtn = document.getElementById('mobile-menu-toggle');
+        if (drawer) {
+            drawer.classList.remove('open');
+            drawer.setAttribute('aria-hidden', 'true');
+        }
+        if (backdrop) {
+            backdrop.classList.remove('open');
+            backdrop.setAttribute('aria-hidden', 'true');
+        }
+        if (toggleBtn) {
+            toggleBtn.classList.remove('active');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+        }
+        document.body.style.overflow = '';
+    }
+
+    static syncDrawerLangChips() {
+        if (typeof LanguageManager === 'undefined') return;
+        const currentLang = LanguageManager.currentLang || 'en';
+        document.querySelectorAll('.drawer-lang-chip').forEach(chip => {
+            const onclickAttr = chip.getAttribute('onclick') || '';
+            if (onclickAttr.includes(`'${currentLang}'`)) {
+                chip.classList.add('active');
+            } else {
+                chip.classList.remove('active');
+            }
+        });
+    }
+
+    static handleDrawerSearch(val) {
+        this.searchQuery = (val || '').toLowerCase().trim();
+        ['product-search-input', 'header-search-input'].forEach(id => {
+            const inp = document.getElementById(id);
+            if (inp) inp.value = val;
+        });
+        const clearBtn = document.getElementById('search-clear-btn');
+        if (clearBtn) clearBtn.style.display = this.searchQuery ? 'flex' : 'none';
+        this.renderCatalogue();
+    }
+
     static setupEventListeners() {
         // Online / Offline Network Monitoring with Ground Chakkra
         if (typeof window !== 'undefined') {
@@ -439,12 +505,14 @@ class App {
             });
         }
 
-        // Search Input Listeners (Support both top and header search inputs)
+        // Search Input Listeners (Support top, header, and drawer search inputs)
         const setupSearch = (id) => {
             const input = document.getElementById(id);
             if (input) {
                 input.addEventListener('input', (e) => {
                     this.searchQuery = e.target.value.toLowerCase().trim();
+                    const drawerInp = document.getElementById('drawer-search-input');
+                    if (drawerInp && id !== 'drawer-search-input') drawerInp.value = e.target.value;
                     const clearBtn = document.getElementById('search-clear-btn');
                     if (clearBtn) clearBtn.style.display = this.searchQuery ? 'flex' : 'none';
                     this.renderCatalogue();
@@ -454,6 +522,7 @@ class App {
 
         setupSearch('product-search-input');
         setupSearch('header-search-input');
+        setupSearch('drawer-search-input');
 
         // Global cartUpdated listener
         if (typeof window !== 'undefined') {
@@ -465,10 +534,12 @@ class App {
             window.addEventListener('languageChanged', () => {
                 this.renderCategoryChips();
                 this.renderCatalogue();
+                this.syncDrawerLangChips();
             });
 
             window.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
+                    this.closeMobileMenu();
                     CartManager.closeQuotationModal();
                     CartManager.closeConfirmationModal();
                     CartManager.closeTrackOrderModal();

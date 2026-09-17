@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "node tests/verify_all.js && node tests/test_customer_flow.js && node tests/test_multilingual.js"
+    "test": "node tests/verify_all.js && node tests/test_customer_flow.js && node tests/test_multilingual.js && node tests/test_responsive.js"
   },
   "keywords": [
     "fireworks",
